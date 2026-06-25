@@ -1,0 +1,27 @@
+# ===== Secrets - NEVER commit =====
+.env
+credentials/
+
+# ===== Virtual environment =====
+venv/
+
+# ===== Generated / heavy media (self-cleaned anyway) =====
+output/
+assets/music.mp3
+bot.log
+*.mp4
+*.mp3
+*.png
+*TEMP_MPY*
+
+# ===== Python =====
+__pycache__/
+*.pyc
+*.pyo
+
+# ===== OS =====
+.DS_Store
+Thumbs.db
+
+# stray local secret note
+docs

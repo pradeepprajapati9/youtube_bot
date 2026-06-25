@@ -1,0 +1,14 @@
+# --- Core pipeline (all free) ---
+edge-tts            # Free TTS voiceover (Microsoft neural voices) - no API key
+requests            # HTTP for trending/Wikipedia/Pexels
+feedparser          # Parse Google Trends RSS feed
+Pillow              # Generate fallback backgrounds + text rendering
+numpy               # moviepy dependency / array ops
+moviepy             # Video assembly/editing
+imageio-ffmpeg      # Bundled ffmpeg binary (no separate ffmpeg install needed)
+python-dotenv       # Load .env config
+
+# --- YouTube upload (free Google API, needs one-time OAuth) ---
+google-api-python-client
+google-auth-oauthlib
+google-auth-httplib2
