@@ -1,103 +1,103 @@
 {
   "ideas": [
     {
-      "id": "you-missed-this-here-s-why",
-      "title": "You Missed This. Here's Why.",
-      "hook": "Did you just miss something HUGE happening right in front of you?",
-      "angle": "Present a rapid-fire visual challenge (e.g., count items, track a ball) then reveal a glaring, unexpected detail most people miss. Explain the psychology of selective attention and how our brain filters what it sees.",
-      "psychology": "Surprise, curiosity gap, relatability (everyone falls for it), cognitive bias.",
-      "keywords": "Focus, gorilla, test",
-      "score": 95,
-      "used": false
-    },
-    {
-      "id": "why-you-love-that-wonky-diy-shelf-more-than-a-perfect-one",
-      "title": "Why You LOVE That Wonky DIY Shelf More Than a Perfect One",
-      "hook": "Ever wonder why you're so attached to that slightly lopsided thing you built yourself?",
-      "angle": "Explore the 'IKEA Effect' – the cognitive bias where we place a disproportionately high value on things we partially created. Connect it to personal projects, even ideas, and how companies subtly use it to make you feel invested.",
-      "psychology": "Relatability, self-reflection, curiosity gap, cognitive bias.",
-      "keywords": "DIY, proud, creation",
-      "score": 88,
-      "used": false
-    },
-    {
-      "id": "nobody-noticed-your-embarrassing-moment-probably",
-      "title": "Nobody Noticed Your Embarrassing Moment (Probably)",
-      "hook": "You just tripped in public. You're mortified. Everyone's staring, right? Nope!",
-      "angle": "Debunk the intense self-consciousness after a minor public mishap. Explain the 'Spotlight Effect' – our tendency to overestimate how much others notice our appearance and behavior – providing immediate emotional relief.",
-      "psychology": "Relatability, emotional relief, surprise, self-reflection.",
-      "keywords": "Embarrassed, crowd, spotlight",
-      "score": 92,
-      "used": false
-    },
-    {
-      "id": "why-that-unfinished-to-do-haunts-your-brain-until-it-s-done",
-      "title": "Why That Unfinished To-Do Haunts Your Brain Until It's Done",
-      "hook": "Can't stop thinking about that email you didn't send? There's a name for that mental loop.",
-      "angle": "Dive into the 'Zeigarnik Effect,' where incomplete tasks stick in your memory far more than completed ones. Explain how cliffhangers exploit this and offer a practical psychological trick to 'pause' the haunting.",
-      "psychology": "Relatability, curiosity gap, actionable advice, cognitive bias.",
-      "keywords": "To-do list, unfinished, brain",
-      "score": 85,
-      "used": false
-    },
-    {
-      "id": "the-subtle-micro-expression-that-betrays-secret-dislike",
-      "title": "The Subtle Micro-Expression That Betrays Secret Dislike",
-      "hook": "Want to know if someone *really* respects you, even if they're smiling?",
-      "angle": "Focus on *one specific, nuanced micro-expression* – like the unilateral lip raise indicating contempt. Show a clear visual example (using stock models) and explain its profound psychological significance as an involuntary 'tell.'",
-      "psychology": "Curiosity gap, social insight, potential for social advantage/understanding.",
-      "keywords": "Lip raise, disdain, face",
-      "score": 93,
-      "used": false
-    },
-    {
-      "id": "how-a-tiny-yes-leads-you-to-agree-to-a-huge-request",
-      "title": "How a Tiny 'YES' Leads You to Agree to a HUGE Request",
-      "hook": "Ever wonder how you end up agreeing to things you never intended to?",
-      "angle": "Unpack the 'Foot-in-the-Door' technique. Use a common, relatable scenario (e.g., a small favor followed by a much larger one) to demonstrate how gradual commitment and consistency bias your future decisions. Show how to spot it.",
-      "psychology": "Curiosity gap, self-awareness, social influence, warning sign.",
-      "keywords": "Door, favor, yes",
-      "score": 87,
-      "used": false
-    },
-    {
-      "id": "your-phone-didn-t-vibrate-here-s-why-your-brain-said-it-did",
-      "title": "Your Phone Didn't Vibrate. Here's Why Your Brain Said It Did.",
-      "hook": "Your phone just vibrated, right? What if it didn't... and your brain made it up?",
-      "angle": "Explore the widespread phenomenon of 'phantom vibrations' or 'phantom rings.' Explain it as a form of sensory hallucination driven by expectation and our brain's heightened vigilance for digital notifications.",
-      "psychology": "Relatability, surprise, curiosity gap, modern psychological phenomenon.",
-      "keywords": "Phone, vibration, brain",
+      "id": "your-brain-is-lying-to-you-seriously",
+      "title": "Your Brain is Lying To You (Seriously)",
+      "hook": "Ever feel like your own brain is playing a trick on you? It's even crazier than you think.",
+      "angle": "Focus on a specific, common sensory illusion or cognitive bias (e.g., how the brain 'fills in' missing information, phantom ringing, or optical illusions like the 'spinning dancer') and vividly demonstrate how we're constantly deceived, even when we know better.",
+      "psychology": "Curiosity Gap, Surprise, Relatability, Self-discovery",
+      "keywords": "Brain illusion, sensory trick, cognitive bias",
       "score": 90,
       "used": false
     },
     {
-      "id": "your-beliefs-can-actually-change-others-performance",
-      "title": "Your Beliefs Can Actually Change Others' Performance",
-      "hook": "What if your expectations of someone actually *change* how well they perform?",
-      "angle": "Introduce the 'Pygmalion Effect' (or Rosenthal Effect). Illustrate with powerful examples (e.g., teacher's expectations influencing student grades, manager's expectations shaping employee success). Emphasize the profound, often unconscious, power of belief.",
-      "psychology": "Self-reflection, social dynamics, empowerment (or warning), curiosity gap.",
-      "keywords": "Expectations, student, growth",
+      "id": "the-universe-s-true-size-will-break-your-brain",
+      "title": "The Universe's True Size Will Break Your Brain",
+      "hook": "You think you understand 'big'? Let's put the universe into a perspective that'll shatter your mind.",
+      "angle": "Instead of just planets and stars, focus on the sheer emptiness and the *unimaginable distances* between galaxies. Use a relatable, step-by-step scaling analogy, perhaps starting with a familiar object (like a grain of sand for Earth) and showing the vast emptiness to the next star, then the next galaxy.",
+      "psychology": "Awe, Surprise, Curiosity Gap, Immensity",
+      "keywords": "Universe scale, cosmos vast, space emptiness",
+      "score": 92,
+      "used": false
+    },
+    {
+      "id": "this-animal-can-live-forever-no-really",
+      "title": "This Animal Can Live Forever (No, Really)",
+      "hook": "What if I told you there's an animal on Earth that literally can't die of old age?",
+      "angle": "Focus solely on the Turritopsis Dohrnii (immortal jellyfish). Explain its unique 'biological immortality' through transdifferentiation, illustrating how it can revert to an earlier stage of life and essentially restart its life cycle, making it immortal under the right conditions.",
+      "psychology": "Surprise, Curiosity Gap, Wonder, Unbelievable Fact",
+      "keywords": "Immortal jellyfish, animal ability, nature wonder",
+      "score": 95,
+      "used": false
+    },
+    {
+      "id": "the-secret-reason-you-can-t-make-decisions",
+      "title": "The Secret Reason You Can't Make Decisions",
+      "hook": "Why do we always choose the *worst* option when given too many choices? The answer is a psychological trap.",
+      "angle": "Explain the 'paradox of choice' or decision fatigue simply, using relatable modern examples like endless streaming service options or overwhelming online shopping catalogs, showing how more options actually lead to less satisfaction and poorer decisions.",
+      "psychology": "Relatability, Curiosity Gap, Self-discovery, Frustration (resolved)",
+      "keywords": "Decision fatigue, paradox choice, psychology trap",
+      "score": 90,
+      "used": false
+    },
+    {
+      "id": "the-war-that-never-ended-even-when-it-did",
+      "title": "The War That Never Ended (Even When It Did)",
+      "hook": "Imagine a war where both sides declared peace... but kept fighting for another 335 years.",
+      "angle": "Detail the 'Three Hundred and Thirty Five Years' War' between the Netherlands and the Isles of Scilly. Highlight the absurdity of it being technically 'at war' without any actual fighting for centuries due to a forgotten declaration, a bureaucratic oversight turned historical curiosity.",
+      "psychology": "Surprise, Curiosity Gap, Absurdity, History Anomaly",
+      "keywords": "Longest war, forgotten history, absurdity",
+      "score": 88,
+      "used": false
+    },
+    {
+      "id": "where-it-rains-diamonds-and-no-it-s-not-earth",
+      "title": "Where It Rains Diamonds (And No, It's Not Earth)",
+      "hook": "Did you know there's a place in our solar system where it literally rains diamonds?",
+      "angle": "Explain the phenomenon of diamond rain on gas giants like Saturn and Jupiter. Briefly describe the extreme pressures and temperatures that convert methane into carbon and then into falling diamonds, with visuals simulating the planet's atmosphere and precious downpour.",
+      "psychology": "Awe, Surprise, Curiosity Gap, Exotic Location",
+      "keywords": "Diamond rain, gas giant, space wonder",
+      "score": 93,
+      "used": false
+    },
+    {
+      "id": "the-secret-purpose-of-that-pocket-on-your-jeans",
+      "title": "The Secret Purpose of THAT Pocket on Your Jeans",
+      "hook": "That tiny little pocket on your jeans? It's not for coins, and its original purpose is way cooler.",
+      "angle": "Reveal the true, original function of the small fifth pocket found on most jeans – the watch pocket. Explain its historical significance for cowboys and gold miners to protect their pocket watches, and how its function has evolved (or become vestigial) over time.",
+      "psychology": "Curiosity Gap, Surprise, Relatability, Nostalgia",
+      "keywords": "Jean pocket, hidden purpose, fashion history",
+      "score": 96,
+      "used": false
+    },
+    {
+      "id": "deleting-bad-memories-the-scary-truth",
+      "title": "Deleting Bad Memories: The Scary Truth",
+      "hook": "What if you could delete your most painful memories? It sounds like a dream, but the catch is terrifying.",
+      "angle": "Explore the hypothetical but plausible future of memory editing (e.g., targeted therapy for PTSD or trauma). Discuss the profound philosophical and psychological implications: loss of identity, inability to learn from mistakes, potential for manipulation, and what it truly means to be human.",
+      "psychology": "Emotion (fear/hope), Curiosity Gap, Thought-provoking, Ethical Dilemma",
+      "keywords": "Memory editing, AI ethics, future dilemma",
+      "score": 91,
+      "used": false
+    },
+    {
+      "id": "the-shocking-truth-about-human-population-density",
+      "title": "The Shocking Truth About Human Population Density",
+      "hook": "You could fit *every single human on Earth* into one city. Here's why that fact is mind-blowing.",
+      "angle": "Use a vivid, easily digestible comparison (e.g., everyone standing shoulder-to-shoulder in an area the size of Los Angeles or a specific U.S. state) to illustrate the surprising amount of empty space on Earth. This challenges common perceptions of overpopulation, then briefly pivots to actual challenges like resource distribution.",
+      "psychology": "Surprise, Curiosity Gap, Counter-intuitive, Perspective Shift",
+      "keywords": "Population density, human map, surprising truth",
       "score": 89,
       "used": false
     },
     {
-      "id": "why-you-always-pick-the-middle-option-the-default-effect",
-      "title": "Why You Always Pick the Middle Option (The Default Effect)",
-      "hook": "Ordering coffee? Signing up for a service? Chances are, your choice was subtly nudged.",
-      "angle": "Explain the 'Default Effect' – how pre-selected options or 'defaults' massively influence our decision-making, often without conscious thought. Give real-world examples from subscriptions to product choices, revealing a powerful persuasion tactic.",
-      "psychology": "Curiosity gap, consumer psychology, self-awareness, decision-making.",
-      "keywords": "Menu, options, default",
-      "score": 86,
-      "used": false
-    },
-    {
-      "id": "how-one-trait-biases-everything-you-think-about-someone",
-      "title": "How One Trait Biases EVERYTHING You Think About Someone",
-      "hook": "Met someone charming? You probably think they're intelligent, kind, and trustworthy too. Why?",
-      "angle": "Contrast the 'Halo Effect' (one positive trait leads to overall positive judgment) with the 'Horn Effect' (one negative trait leads to overall negative judgment). Show how these cognitive biases impact first impressions in dating, work, and social interactions.",
-      "psychology": "Relatability, social dynamics, self-awareness, cognitive bias.",
-      "keywords": "First impression, attractive, judgment",
-      "score": 91,
+      "id": "hot-water-freezes-faster-the-science-explained",
+      "title": "Hot Water Freezes Faster: The Science Explained",
+      "hook": "Why does hot water freeze faster than cold water? It defies logic, but there's a wild scientific explanation.",
+      "angle": "Explain the 'Mpemba effect' in simple terms, discussing the various leading theories (evaporation, supercooling, convection currents, dissolved gases) without getting overly technical. Focus on the counter-intuitive nature and the ongoing scientific debate surrounding this paradox.",
+      "psychology": "Curiosity Gap, Surprise, Intellectual Challenge, Learning",
+      "keywords": "Mpemba effect, water science, physics paradox",
+      "score": 90,
       "used": false
     }
   ]

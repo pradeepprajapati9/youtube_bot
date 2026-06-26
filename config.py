@@ -36,12 +36,16 @@ CLEAN_AFTER_UPLOAD = os.getenv("CLEAN_AFTER_UPLOAD", "true").lower() == "true"
 CONTENT_MODE = os.getenv("CONTENT_MODE", "evergreen").lower()
 
 # --- thinker_bot (growth brain) ---
-# The single niche the channel commits to (consistency => faster growth + safer).
-NICHE = os.getenv("NICHE", "Psychology & Human Behavior")
+# The thinker is a GROWTH STRATEGIST, not a fixed-topic generator. It uses the
+# psychology of virality + human interest to pick WHATEVER kind of video will
+# grow a new faceless channel fastest (any topic, as long as it's safe & original).
+NICHE = os.getenv("NICHE", "Viral curiosity content (growth-first, any topic)")
 NICHE_DESC = os.getenv(
     "NICHE_DESC",
-    "fascinating psychology facts, why humans behave the way they do, mind tricks, "
-    "cognitive biases, body language, emotions and relatable human-behaviour insights",
+    "any high-reach, broadly-appealing, SAFE content for a fast-growing faceless "
+    "channel - e.g. mind-blowing facts, did-you-know curiosities, science & space "
+    "wonders, psychology & human behaviour, history surprises, incredible nature, "
+    "animals and places, oddly-fascinating phenomena. Pick whatever maximises reach.",
 )
 # Keep at least this many unused ideas queued; refill in batches of this size.
 BACKLOG_MIN = int(os.getenv("BACKLOG_MIN", "8"))

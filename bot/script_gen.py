@@ -70,20 +70,17 @@ def _gemini_scenes(topic: str, ctx: str):
         f"no medical/financial/legal advice, no defamation, no shocking/violent claims. "
         f"Title must be accurate and NOT clickbait or misleading."
     )
+    from bot.thinker import gemini_call
+    raw = gemini_call(prompt, timeout=45)
+    if not raw:
+        return None
     try:
-        url = ("https://generativelanguage.googleapis.com/v1beta/models/"
-               "gemini-2.5-flash:generateContent?key=" + config.GEMINI_API_KEY)
-        r = requests.post(url, timeout=45, json={"contents": [{"parts": [{"text": prompt}]}]})
-        if r.status_code != 200:
-            print(f"[script] gemini http {r.status_code}: {r.text[:160]}")
-            return None
-        raw = r.json()["candidates"][0]["content"]["parts"][0]["text"]
         raw = raw[raw.find("{"): raw.rfind("}") + 1]
         data = json.loads(raw)
         if data.get("scenes"):
             return data
     except Exception as ex:
-        print(f"[script] gemini failed: {ex}")
+        print(f"[script] scene JSON parse failed: {ex}")
     return None
 
 

@@ -10,8 +10,35 @@ on the right side of YouTube's "inauthentic / mass-produced content" policy.
 """
 import re
 import json
+import time
 import requests
 import config
+
+# Try these models in order; on 503/429 (overload/quota) fall through to the next.
+GEMINI_MODELS = ["gemini-2.5-flash", "gemini-flash-latest", "gemini-2.5-flash-lite"]
+
+
+def gemini_call(prompt: str, timeout: int = 60) -> str:
+    """Resilient Gemini text call with model fallback + one retry. Returns text or ''."""
+    if not config.GEMINI_API_KEY:
+        return ""
+    for attempt in range(2):
+        for model in GEMINI_MODELS:
+            url = (f"https://generativelanguage.googleapis.com/v1beta/models/"
+                   f"{model}:generateContent?key={config.GEMINI_API_KEY}")
+            try:
+                r = requests.post(url, timeout=timeout,
+                                  json={"contents": [{"parts": [{"text": prompt}]}]})
+                if r.status_code == 200:
+                    return r.json()["candidates"][0]["content"]["parts"][0]["text"]
+                if r.status_code in (429, 503):
+                    continue  # overloaded/quota -> try next model
+                print(f"[gemini] {model} http {r.status_code}: {r.text[:140]}")
+            except Exception as ex:
+                print(f"[gemini] {model} error: {ex}")
+        if attempt == 0:
+            time.sleep(3)  # brief backoff before the second pass
+    return ""
 
 
 def _slug(title: str) -> str:
@@ -38,34 +65,33 @@ def _gemini_ideas(existing_titles: list[str], n: int):
         return []
     avoid = "; ".join(existing_titles[-40:]) or "none yet"
     prompt = (
-        f"You are a viral YouTube Shorts strategist for a faceless channel in the niche: "
-        f"'{config.NICHE}' ({config.NICHE_DESC}).\n"
-        f"Brainstorm {n} NEW, original Short ideas that would genuinely grow the channel "
-        f"toward monetization (subscribers + watch time). Think like a human creator: each "
-        f"idea needs a real hook and a fresh angle, NOT a generic listicle.\n"
+        f"You are a top YouTube GROWTH STRATEGIST for a brand-new faceless Shorts channel. "
+        f"Your only goal: pick the kinds of videos that will grow the channel's REACH "
+        f"(views, subscribers, watch time) the FASTEST, using the psychology of virality "
+        f"and human interest (curiosity gaps, emotion, surprise, relatability, share-ability). "
+        f"The topic can be ANYTHING in this safe space: {config.NICHE_DESC}\n"
+        f"Brainstorm {n} NEW, original Short ideas with the highest growth potential. "
+        f"Think like a human creator - each needs a real scroll-stopping hook and a fresh "
+        f"angle, NOT a generic listicle. Mix topics; choose whatever will get the most reach.\n"
         f"Do NOT repeat or closely resemble these existing ideas: {avoid}.\n"
         f"Return ONLY a valid JSON array. Each item exactly:\n"
         f'{{"title": "...", "hook": "...", "angle": "...", "psychology": "...", '
         f'"keywords": "...", "score": 0}}\n'
         f"Where: title = accurate, curiosity-driving, <85 chars (no clickbait lies); "
         f"hook = the spoken first line; angle = the original take that makes it fresh; "
-        f"psychology = the human trigger it uses (curiosity gap, emotion, relatability, "
+        f"psychology = the virality trigger it uses (curiosity gap, emotion, relatability, "
         f"surprise, social proof...); keywords = 2-3 words for stock imagery; "
-        f"score = your honest 0-100 estimate of viral + originality potential."
+        f"score = your honest 0-100 estimate of REACH/growth + originality potential."
     )
+    raw = gemini_call(prompt)
+    if not raw:
+        return []
     try:
-        url = ("https://generativelanguage.googleapis.com/v1beta/models/"
-               "gemini-2.5-flash:generateContent?key=" + config.GEMINI_API_KEY)
-        r = requests.post(url, timeout=60, json={"contents": [{"parts": [{"text": prompt}]}]})
-        if r.status_code != 200:
-            print(f"[thinker] gemini http {r.status_code}: {r.text[:160]}")
-            return []
-        raw = r.json()["candidates"][0]["content"]["parts"][0]["text"]
         raw = raw[raw.find("["): raw.rfind("]") + 1]
         ideas = json.loads(raw)
         return ideas if isinstance(ideas, list) else []
     except Exception as ex:
-        print(f"[thinker] gemini failed: {ex}")
+        print(f"[thinker] idea JSON parse failed: {ex}")
         return []
 
 
