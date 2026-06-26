@@ -61,6 +61,16 @@
       "used": true
     },
     {
+      "id": "the-impossible-sound-your-brain-invents-just-to-confuse-you",
+      "title": "The Impossible Sound Your Brain Invents Just to Confuse You",
+      "hook": "Listen closely. This sound is impossible, but your brain is creating it out of nothing.",
+      "angle": "Presenting an auditory or visual illusion that directly engages the viewer's senses and challenges their perception, followed by a simple explanation.",
+      "psychology": "Cognitive dissonance, surprise, curiosity gap, interactive engagement",
+      "keywords": "sound, brain, illusion",
+      "score": 91,
+      "used": true
+    },
+    {
       "id": "your-body-s-weirdest-self-defense-you-won-t-believe-what-it-",
       "title": "Your Body's Weirdest Self-Defense: You Won't Believe What It Does",
       "hook": "Did you know your own body is secretly trying to get rid of you... sort of?",
@@ -108,16 +118,6 @@
       "psychology": "Wonder, surprise, future anticipation, curiosity gap",
       "keywords": "clothes, smart, future",
       "score": 89,
-      "used": false
-    },
-    {
-      "id": "the-impossible-sound-your-brain-invents-just-to-confuse-you",
-      "title": "The Impossible Sound Your Brain Invents Just to Confuse You",
-      "hook": "Listen closely. This sound is impossible, but your brain is creating it out of nothing.",
-      "angle": "Presenting an auditory or visual illusion that directly engages the viewer's senses and challenges their perception, followed by a simple explanation.",
-      "psychology": "Cognitive dissonance, surprise, curiosity gap, interactive engagement",
-      "keywords": "sound, brain, illusion",
-      "score": 91,
       "used": false
     },
     {
