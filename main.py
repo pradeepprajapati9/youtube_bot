@@ -20,7 +20,7 @@ for _stream in (sys.stdout, sys.stderr):
         pass
 
 import config
-from bot import trending, script_gen, voiceover, visuals, editor, uploader
+from bot import thinker, trending, script_gen, voiceover, visuals, editor, uploader
 
 
 def log(msg: str):
@@ -58,8 +58,16 @@ def run():
     base = str(config.OUTPUT_DIR / stamp)
     log(f"=== Run start (lang={config.LANG}, geo={config.TREND_GEO}, upload={config.DO_UPLOAD}) ===")
 
-    # 1. topic + rich context
-    topic, ctx = trending.pick_topic()
+    # 1. thinker_bot picks the best ready idea (falls back to evergreen topics)
+    thinker.top_up()
+    idea = thinker.next_idea()
+    if idea:
+        topic = idea["title"]
+        ctx = (f'Hook: {idea["hook"]}. Fresh original angle: {idea["angle"]}. '
+               f'Psychology trigger: {idea["psychology"]}.')
+    else:
+        log("thinker has no ready idea (Gemini key missing?) -> evergreen fallback")
+        topic, ctx = trending.pick_topic()
     log(f"Topic: {topic}")
 
     # 2. scene-based script
@@ -92,17 +100,20 @@ def run():
         desc_parts += ["", "Image credits:"] + [f"- {c}" for c in uniq]
     full_description = "\n".join(desc_parts)
 
+    # mark this idea/topic as used so it's never produced again
+    if idea:
+        thinker.mark_used(idea["id"])
+    trending.mark_used(topic)
+
     # 6. upload (optional)
     if config.DO_UPLOAD:
         url = uploader.upload(video_path, meta["title"], full_description, meta["tags"])
         log(f"Uploaded: {url}")
-        trending.mark_used(topic)
         log(f"=== Done in {time.time() - t0:.0f}s ===")
         if config.CLEAN_AFTER_UPLOAD:
             cleanup()   # wipe files/log AFTER logging the success
     else:
         log("DO_UPLOAD=false -> skipped upload (review the video, then set DO_UPLOAD=true).")
-        trending.mark_used(topic)
         log(f"=== Done in {time.time() - t0:.0f}s ===")
     return video_path
 

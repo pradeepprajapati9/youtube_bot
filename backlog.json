@@ -1,0 +1,104 @@
+{
+  "ideas": [
+    {
+      "id": "you-missed-this-here-s-why",
+      "title": "You Missed This. Here's Why.",
+      "hook": "Did you just miss something HUGE happening right in front of you?",
+      "angle": "Present a rapid-fire visual challenge (e.g., count items, track a ball) then reveal a glaring, unexpected detail most people miss. Explain the psychology of selective attention and how our brain filters what it sees.",
+      "psychology": "Surprise, curiosity gap, relatability (everyone falls for it), cognitive bias.",
+      "keywords": "Focus, gorilla, test",
+      "score": 95,
+      "used": false
+    },
+    {
+      "id": "why-you-love-that-wonky-diy-shelf-more-than-a-perfect-one",
+      "title": "Why You LOVE That Wonky DIY Shelf More Than a Perfect One",
+      "hook": "Ever wonder why you're so attached to that slightly lopsided thing you built yourself?",
+      "angle": "Explore the 'IKEA Effect' – the cognitive bias where we place a disproportionately high value on things we partially created. Connect it to personal projects, even ideas, and how companies subtly use it to make you feel invested.",
+      "psychology": "Relatability, self-reflection, curiosity gap, cognitive bias.",
+      "keywords": "DIY, proud, creation",
+      "score": 88,
+      "used": false
+    },
+    {
+      "id": "nobody-noticed-your-embarrassing-moment-probably",
+      "title": "Nobody Noticed Your Embarrassing Moment (Probably)",
+      "hook": "You just tripped in public. You're mortified. Everyone's staring, right? Nope!",
+      "angle": "Debunk the intense self-consciousness after a minor public mishap. Explain the 'Spotlight Effect' – our tendency to overestimate how much others notice our appearance and behavior – providing immediate emotional relief.",
+      "psychology": "Relatability, emotional relief, surprise, self-reflection.",
+      "keywords": "Embarrassed, crowd, spotlight",
+      "score": 92,
+      "used": false
+    },
+    {
+      "id": "why-that-unfinished-to-do-haunts-your-brain-until-it-s-done",
+      "title": "Why That Unfinished To-Do Haunts Your Brain Until It's Done",
+      "hook": "Can't stop thinking about that email you didn't send? There's a name for that mental loop.",
+      "angle": "Dive into the 'Zeigarnik Effect,' where incomplete tasks stick in your memory far more than completed ones. Explain how cliffhangers exploit this and offer a practical psychological trick to 'pause' the haunting.",
+      "psychology": "Relatability, curiosity gap, actionable advice, cognitive bias.",
+      "keywords": "To-do list, unfinished, brain",
+      "score": 85,
+      "used": false
+    },
+    {
+      "id": "the-subtle-micro-expression-that-betrays-secret-dislike",
+      "title": "The Subtle Micro-Expression That Betrays Secret Dislike",
+      "hook": "Want to know if someone *really* respects you, even if they're smiling?",
+      "angle": "Focus on *one specific, nuanced micro-expression* – like the unilateral lip raise indicating contempt. Show a clear visual example (using stock models) and explain its profound psychological significance as an involuntary 'tell.'",
+      "psychology": "Curiosity gap, social insight, potential for social advantage/understanding.",
+      "keywords": "Lip raise, disdain, face",
+      "score": 93,
+      "used": false
+    },
+    {
+      "id": "how-a-tiny-yes-leads-you-to-agree-to-a-huge-request",
+      "title": "How a Tiny 'YES' Leads You to Agree to a HUGE Request",
+      "hook": "Ever wonder how you end up agreeing to things you never intended to?",
+      "angle": "Unpack the 'Foot-in-the-Door' technique. Use a common, relatable scenario (e.g., a small favor followed by a much larger one) to demonstrate how gradual commitment and consistency bias your future decisions. Show how to spot it.",
+      "psychology": "Curiosity gap, self-awareness, social influence, warning sign.",
+      "keywords": "Door, favor, yes",
+      "score": 87,
+      "used": false
+    },
+    {
+      "id": "your-phone-didn-t-vibrate-here-s-why-your-brain-said-it-did",
+      "title": "Your Phone Didn't Vibrate. Here's Why Your Brain Said It Did.",
+      "hook": "Your phone just vibrated, right? What if it didn't... and your brain made it up?",
+      "angle": "Explore the widespread phenomenon of 'phantom vibrations' or 'phantom rings.' Explain it as a form of sensory hallucination driven by expectation and our brain's heightened vigilance for digital notifications.",
+      "psychology": "Relatability, surprise, curiosity gap, modern psychological phenomenon.",
+      "keywords": "Phone, vibration, brain",
+      "score": 90,
+      "used": false
+    },
+    {
+      "id": "your-beliefs-can-actually-change-others-performance",
+      "title": "Your Beliefs Can Actually Change Others' Performance",
+      "hook": "What if your expectations of someone actually *change* how well they perform?",
+      "angle": "Introduce the 'Pygmalion Effect' (or Rosenthal Effect). Illustrate with powerful examples (e.g., teacher's expectations influencing student grades, manager's expectations shaping employee success). Emphasize the profound, often unconscious, power of belief.",
+      "psychology": "Self-reflection, social dynamics, empowerment (or warning), curiosity gap.",
+      "keywords": "Expectations, student, growth",
+      "score": 89,
+      "used": false
+    },
+    {
+      "id": "why-you-always-pick-the-middle-option-the-default-effect",
+      "title": "Why You Always Pick the Middle Option (The Default Effect)",
+      "hook": "Ordering coffee? Signing up for a service? Chances are, your choice was subtly nudged.",
+      "angle": "Explain the 'Default Effect' – how pre-selected options or 'defaults' massively influence our decision-making, often without conscious thought. Give real-world examples from subscriptions to product choices, revealing a powerful persuasion tactic.",
+      "psychology": "Curiosity gap, consumer psychology, self-awareness, decision-making.",
+      "keywords": "Menu, options, default",
+      "score": 86,
+      "used": false
+    },
+    {
+      "id": "how-one-trait-biases-everything-you-think-about-someone",
+      "title": "How One Trait Biases EVERYTHING You Think About Someone",
+      "hook": "Met someone charming? You probably think they're intelligent, kind, and trustworthy too. Why?",
+      "angle": "Contrast the 'Halo Effect' (one positive trait leads to overall positive judgment) with the 'Horn Effect' (one negative trait leads to overall negative judgment). Show how these cognitive biases impact first impressions in dating, work, and social interactions.",
+      "psychology": "Relatability, social dynamics, self-awareness, cognitive bias.",
+      "keywords": "First impression, attractive, judgment",
+      "score": 91,
+      "used": false
+    }
+  ]
+}

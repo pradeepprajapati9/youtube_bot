@@ -13,6 +13,7 @@ OUTPUT_DIR = BASE_DIR / "output"
 ASSETS_DIR = BASE_DIR / "assets"
 CRED_DIR = BASE_DIR / "credentials"
 STATE_FILE = BASE_DIR / "state.json"      # remembers used topics (avoid repeats)
+BACKLOG_FILE = BASE_DIR / "backlog.json"  # thinker_bot's pre-thought video ideas
 LOG_FILE = BASE_DIR / "bot.log"
 
 for d in (OUTPUT_DIR, ASSETS_DIR, CRED_DIR):
@@ -33,6 +34,20 @@ CLEAN_AFTER_UPLOAD = os.getenv("CLEAN_AFTER_UPLOAD", "true").lower() == "true"
 # Content mode: "evergreen" (safe factual topics - lowest policy risk) or
 # "trending" (today's Google Trends, blocklist-filtered).
 CONTENT_MODE = os.getenv("CONTENT_MODE", "evergreen").lower()
+
+# --- thinker_bot (growth brain) ---
+# The single niche the channel commits to (consistency => faster growth + safer).
+NICHE = os.getenv("NICHE", "Psychology & Human Behavior")
+NICHE_DESC = os.getenv(
+    "NICHE_DESC",
+    "fascinating psychology facts, why humans behave the way they do, mind tricks, "
+    "cognitive biases, body language, emotions and relatable human-behaviour insights",
+)
+# Keep at least this many unused ideas queued; refill in batches of this size.
+BACKLOG_MIN = int(os.getenv("BACKLOG_MIN", "8"))
+IDEAS_PER_REFILL = int(os.getenv("IDEAS_PER_REFILL", "10"))
+# Only produce ideas scoring >= this (virality+originality, 0-100). Spam guard.
+QUALITY_THRESHOLD = int(os.getenv("QUALITY_THRESHOLD", "62"))
 
 # --- Compliance text auto-added to every video description ---
 AI_DISCLOSURE = "Note: This video uses AI-generated narration."
