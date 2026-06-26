@@ -57,18 +57,27 @@ def _gemini_scenes(topic: str, ctx: str):
         return None
     lang = "Hindi" if config.LANG == "hi" else "English"
     prompt = (
-        f"You are scripting a viral 50-second faceless YouTube Short in {lang} about: '{topic}'.\n"
-        f"Extra context: {ctx or 'none'}.\n"
-        f"Return ONLY valid JSON, no markdown, with this exact shape:\n"
+        f"You are a viral retention expert scripting a 45-second faceless YouTube Short "
+        f"in {lang} about: '{topic}'. Extra context: {ctx or 'none'}.\n"
+        f"Your ONE job is maximum watch-time + shares using proven psychology.\n"
+        f"Return ONLY valid JSON, no markdown, exact shape:\n"
         f'{{"title": "...", "description": "...", "tags": ["..."], '
         f'"scenes": [{{"narration": "...", "keyword": "..."}}]}}\n'
-        f"Rules: exactly {N_SCENES} scenes. Scene 1 narration MUST be a strong hook. "
-        f"Each narration 18-28 words, spoken plain text (no emojis). "
-        f"'keyword' = 2-3 English words describing a stock image for that scene. "
-        f"Last scene ends asking viewers to follow. Title under 90 chars with #Shorts.\n"
-        f"SAFETY: state only well-established, verifiable facts - no made-up statistics, "
-        f"no medical/financial/legal advice, no defamation, no shocking/violent claims. "
-        f"Title must be accurate and NOT clickbait or misleading."
+        f"RETENTION FORMULA - follow exactly across {N_SCENES} scenes:\n"
+        f"- Scene 1 = a SCROLL-STOPPER hook (max 12 words): a shocking claim or a "
+        f"question that opens a curiosity loop the viewer NEEDS resolved. No intro, "
+        f"no 'today we'll learn'. Punch instantly.\n"
+        f"- Middle scenes = deliver fast, SPECIFIC, surprising value; each one escalates "
+        f"curiosity so they can't swipe away. Short, vivid, simple spoken words.\n"
+        f"- Final scene = pay off the loop with the most surprising point, then ONE casual "
+        f"engagement line that invites a comment (e.g. ask the viewer a question), and end "
+        f"with a line that loops back to the hook so a replay feels seamless. Include 'follow "
+        f"for more'.\n"
+        f"Each narration 12-24 words, conversational, no emojis. "
+        f"'keyword' = 2-3 English words for a matching stock clip. "
+        f"Title = curiosity-driving but ACCURATE (no clickbait lies), under 85 chars, add #Shorts.\n"
+        f"SAFETY: only well-established verifiable facts - no made-up statistics, no "
+        f"medical/financial/legal advice, no defamation, no shocking/violent claims."
     )
     from bot.thinker import gemini_call
     raw = gemini_call(prompt, timeout=45)
