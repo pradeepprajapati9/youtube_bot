@@ -10,7 +10,8 @@ import time
 import requests
 import config
 
-GRAPH = "https://graph.facebook.com/v21.0"
+# graph.instagram.com (Instagram Login, no Facebook Page) by default.
+GRAPH = config.IG_API_BASE
 
 
 def _host_video(video_path: str):

@@ -87,3 +87,6 @@ TOKEN_FILE = CRED_DIR / "token.json"
 # Set both to also auto-post each Short to Instagram Reels. No-op if blank.
 IG_USER_ID = os.getenv("IG_USER_ID", "").strip()
 IG_ACCESS_TOKEN = os.getenv("IG_ACCESS_TOKEN", "").strip()
+# API base: graph.instagram.com = "Instagram Login" method (NO Facebook Page
+# needed). Use graph.facebook.com only if you set up via a linked FB Page.
+IG_API_BASE = os.getenv("IG_API_BASE", "https://graph.instagram.com").strip()
