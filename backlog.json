@@ -31,6 +31,16 @@
       "used": true
     },
     {
+      "id": "the-secret-psychology-making-you-buy-that-lottery-ticket",
+      "title": "The Secret Psychology Making You Buy That Lottery Ticket",
+      "hook": "Why do we keep buying lottery tickets when the odds are astronomical?",
+      "angle": "Delving into cognitive biases like the availability heuristic, illusion of control, near-miss effect, and the emotional payoff of hope that compel people to play the lottery despite overwhelming odds. (Timely tie-in: lottery result)",
+      "psychology": "Relatability, curiosity gap, social proof, surprise",
+      "keywords": "Lottery, psychology, odds",
+      "score": 93,
+      "used": true
+    },
+    {
       "id": "your-body-s-weirdest-self-defense-you-won-t-believe-what-it-",
       "title": "Your Body's Weirdest Self-Defense: You Won't Believe What It Does",
       "hook": "Did you know your own body is secretly trying to get rid of you... sort of?",
@@ -98,6 +108,96 @@
       "psychology": "Cognitive dissonance, surprise, curiosity gap, interactive engagement",
       "keywords": "sound, brain, illusion",
       "score": 91,
+      "used": false
+    },
+    {
+      "id": "your-brain-hallucinates-reality-the-hidden-colors-you-see",
+      "title": "Your Brain Hallucinates Reality: The Hidden Colors You See",
+      "hook": "Ever seen colors that aren't *really* there?",
+      "angle": "Explaining how our visual system fills in gaps or creates phantom colors (e.g., negative afterimages, optical illusions) demonstrating the brain's active role in constructing perception.",
+      "psychology": "Curiosity gap, surprise, relatability",
+      "keywords": "Brain, vision, colors",
+      "score": 88,
+      "used": false
+    },
+    {
+      "id": "the-animal-that-lives-weeks-without-its-head-and-why",
+      "title": "The Animal That Lives Weeks Without Its Head (and Why)",
+      "hook": "Meet the creature that can literally *live without a head* for weeks.",
+      "angle": "Focusing on specific invertebrates (like cockroaches) and the fascinating biological reasons behind their decapitated survival (decentralized nervous system, open circulatory system, lack of blood pressure).",
+      "psychology": "Surprise, awe, curiosity gap",
+      "keywords": "Cockroach, survive, headless",
+      "score": 92,
+      "used": false
+    },
+    {
+      "id": "the-planet-where-you-could-literally-walk-into-space",
+      "title": "The Planet Where You Could Literally Walk Into Space",
+      "hook": "Imagine a planet where just one step could launch you into space.",
+      "angle": "Exploring the physics of extremely low-gravity celestial bodies (like certain asteroids or very small moons) where escape velocity is so low that a human jump could send you drifting off into the cosmos.",
+      "psychology": "Awe, surprise, curiosity gap",
+      "keywords": "Planet, space, gravity",
+      "score": 90,
+      "used": false
+    },
+    {
+      "id": "the-ancient-tool-hiding-in-your-kitchen-not-what-you-think",
+      "title": "The Ancient Tool Hiding In Your Kitchen (Not What You Think)",
+      "hook": "That everyday object in your kitchen? It's been with us for literally thousands of years, but not how you think.",
+      "angle": "Revealing the surprising ancient origins and non-culinary uses of a common kitchen item like a 'grater' (e.g., used for filing, preparing herbs for medicine, or even construction).",
+      "psychology": "Relatability, surprise, curiosity gap",
+      "keywords": "Ancient, kitchen, grater",
+      "score": 87,
+      "used": false
+    },
+    {
+      "id": "the-deadly-whisper-spot-where-sound-triggers-avalanches",
+      "title": "The Deadly Whisper Spot: Where Sound Triggers Avalanches",
+      "hook": "There's a place on Earth where a single whisper can trigger a deadly avalanche.",
+      "angle": "Explaining the rare meteorological and geological conditions (e.g., specific snowpack types, resonant frequencies in certain valleys) where even a small sound could initiate an avalanche, distinguishing from common misconceptions.",
+      "psychology": "Awe, mild fear, curiosity gap",
+      "keywords": "Avalanche, sound, snow",
+      "score": 89,
+      "used": false
+    },
+    {
+      "id": "the-tiny-water-drop-that-can-cut-through-steel",
+      "title": "The Tiny Water Drop That Can Cut Through Steel",
+      "hook": "Did you know a tiny drop of water can slice through solid steel?",
+      "angle": "Explaining the physics of water jet cutting technology, where water under extreme pressure (often mixed with abrasives) can cut through incredibly tough materials, highlighting the counter-intuitive power of a seemingly soft substance.",
+      "psychology": "Surprise, awe, curiosity gap",
+      "keywords": "Water, steel, cutting",
+      "score": 91,
+      "used": false
+    },
+    {
+      "id": "your-body-s-fake-shivers-the-hidden-purpose-revealed",
+      "title": "Your Body's 'Fake Shivers': The Hidden Purpose Revealed",
+      "hook": "Why does your body *purposely* make you shiver when you're not cold?",
+      "angle": "Exploring phenomena like emotional shivers (frisson, ASMR-like responses) or the residual shivering after a fever breaks, explaining the physiological mechanisms and evolutionary advantages or side effects.",
+      "psychology": "Relatability, curiosity gap, surprise",
+      "keywords": "Shiver, body, emotion",
+      "score": 88,
+      "used": false
+    },
+    {
+      "id": "the-dead-tech-in-your-phone-predicting-disasters",
+      "title": "The 'Dead' Tech In Your Phone Predicting Disasters",
+      "hook": "The 'dead' technology in your pocket that's actually helping predict disasters.",
+      "angle": "Focusing on often overlooked sensors in smartphones (e.g., accelerometers detecting seismic activity in distributed networks, barometers sensing atmospheric pressure for storm prediction) that, when aggregated, form a powerful predictive tool.",
+      "psychology": "Relatability, surprise, curiosity gap",
+      "keywords": "Phone, sensors, disaster",
+      "score": 90,
+      "used": false
+    },
+    {
+      "id": "the-umbrella-superstition-science-behind-the-bad-luck",
+      "title": "The Umbrella Superstition: Science Behind The 'Bad Luck'",
+      "hook": "Is it really bad luck to open an umbrella indoors? The shocking truth.",
+      "angle": "Tracing the historical and practical origins of the 'umbrella indoors' superstition (e.g., cumbersome early umbrellas causing injuries, warning against carelessness) and debunking the supernatural aspect with historical context.",
+      "psychology": "Relatability, curiosity gap, surprise",
+      "keywords": "Umbrella, superstition, history",
+      "score": 89,
       "used": false
     }
   ]
