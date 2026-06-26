@@ -1,16 +1,6 @@
 {
   "ideas": [
     {
-      "id": "your-body-s-weirdest-self-defense-you-won-t-believe-what-it-",
-      "title": "Your Body's Weirdest Self-Defense: You Won't Believe What It Does",
-      "hook": "Did you know your own body is secretly trying to get rid of you... sort of?",
-      "angle": "Explaining the bizarre, sometimes uncomfortable, ways your body sacrifices minor parts or creates 'malfunctions' to prevent major harm.",
-      "psychology": "Curiosity gap, surprise, mild disgust, relatability (everyone has a body)",
-      "keywords": "body, cells, sneeze",
-      "score": 85,
-      "used": false
-    },
-    {
       "id": "the-hidden-truth-behind-your-phone-s-mysterious-side-hole",
       "title": "The Hidden Truth Behind Your Phone's Mysterious Side Hole",
       "hook": "That tiny hole on the side of your phone, or on top? It's not a secret camera, and it's definitely not what you think.",
@@ -18,6 +8,36 @@
       "psychology": "Curiosity gap, surprise, relatability, cognitive dissonance",
       "keywords": "phone, hole, design",
       "score": 95,
+      "used": true
+    },
+    {
+      "id": "the-alien-world-on-earth-where-it-actually-rains-diamonds",
+      "title": "The Alien World on Earth Where It Actually Rains Diamonds",
+      "hook": "There's a place on Earth where it literally rains diamonds. No, really, this isn't science fiction.",
+      "angle": "Unveiling an extreme, fantastical natural phenomenon on Earth that sounds like something from another planet, backed by scientific fact.",
+      "psychology": "Awe, wonder, surprise, curiosity gap",
+      "keywords": "diamond, rain, planet",
+      "score": 96,
+      "used": true
+    },
+    {
+      "id": "the-ordinary-coin-that-could-be-hiding-a-fortune-in-your-hom",
+      "title": "The Ordinary Coin That Could Be Hiding a Fortune in Your Home",
+      "hook": "That old coin jar you have? One specific coin in there could be worth more than your car.",
+      "angle": "Highlighting a specific, common household item (like a particular year's coin or a certain type of old toy) that has an unexpectedly high collector's value.",
+      "psychology": "Surprise, curiosity gap, hope, self-interest, relatability",
+      "keywords": "coin, money, hidden",
+      "score": 98,
+      "used": true
+    },
+    {
+      "id": "your-body-s-weirdest-self-defense-you-won-t-believe-what-it-",
+      "title": "Your Body's Weirdest Self-Defense: You Won't Believe What It Does",
+      "hook": "Did you know your own body is secretly trying to get rid of you... sort of?",
+      "angle": "Explaining the bizarre, sometimes uncomfortable, ways your body sacrifices minor parts or creates 'malfunctions' to prevent major harm.",
+      "psychology": "Curiosity gap, surprise, mild disgust, relatability (everyone has a body)",
+      "keywords": "body, cells, sneeze",
+      "score": 85,
       "used": false
     },
     {
@@ -61,16 +81,6 @@
       "used": false
     },
     {
-      "id": "the-alien-world-on-earth-where-it-actually-rains-diamonds",
-      "title": "The Alien World on Earth Where It Actually Rains Diamonds",
-      "hook": "There's a place on Earth where it literally rains diamonds. No, really, this isn't science fiction.",
-      "angle": "Unveiling an extreme, fantastical natural phenomenon on Earth that sounds like something from another planet, backed by scientific fact.",
-      "psychology": "Awe, wonder, surprise, curiosity gap",
-      "keywords": "diamond, rain, planet",
-      "score": 96,
-      "used": true
-    },
-    {
       "id": "the-sci-fi-clothing-that-s-already-learning-to-heal-your-bod",
       "title": "The Sci-Fi Clothing That's Already Learning to Heal Your Body",
       "hook": "Forget self-driving cars. Soon, your clothes will not only track your health, they'll literally heal you.",
@@ -89,16 +99,6 @@
       "keywords": "sound, brain, illusion",
       "score": 91,
       "used": false
-    },
-    {
-      "id": "the-ordinary-coin-that-could-be-hiding-a-fortune-in-your-hom",
-      "title": "The Ordinary Coin That Could Be Hiding a Fortune in Your Home",
-      "hook": "That old coin jar you have? One specific coin in there could be worth more than your car.",
-      "angle": "Highlighting a specific, common household item (like a particular year's coin or a certain type of old toy) that has an unexpectedly high collector's value.",
-      "psychology": "Surprise, curiosity gap, hope, self-interest, relatability",
-      "keywords": "coin, money, hidden",
-      "score": 98,
-      "used": true
     }
   ]
 }
