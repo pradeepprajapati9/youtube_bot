@@ -30,6 +30,14 @@ DO_UPLOAD = os.getenv("DO_UPLOAD", "false").lower() == "true"
 # never grows. Only the tiny state.json (used-topics) is kept.
 CLEAN_AFTER_UPLOAD = os.getenv("CLEAN_AFTER_UPLOAD", "true").lower() == "true"
 
+# Content mode: "evergreen" (safe factual topics - lowest policy risk) or
+# "trending" (today's Google Trends, blocklist-filtered).
+CONTENT_MODE = os.getenv("CONTENT_MODE", "evergreen").lower()
+
+# --- Compliance text auto-added to every video description ---
+AI_DISCLOSURE = "Note: This video uses AI-generated narration."
+DISCLAIMER = "Disclaimer: For educational and entertainment purposes only."
+
 # --- video format (YouTube Shorts: vertical, <= 60s) ---
 WIDTH, HEIGHT = 1080, 1920
 FPS = 24                  # 24 is plenty for Shorts and ~20% faster to render

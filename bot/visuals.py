@@ -7,6 +7,7 @@ Priority per scene:
 Returns list of (path, kind) where kind in {"video","image"}.
 """
 import io
+import re
 import random
 import requests
 from PIL import Image, ImageFilter
@@ -44,34 +45,43 @@ def _pexels_video(query: str, out_path: str):
 
 # ---------- No-key image sources ----------
 def _openverse_many(query: str, n: int = 8):
-    """Return up to n reliable thumbnail URLs for a query."""
-    urls = []
+    """Return up to n {url, credit} dicts for a query (with CC attribution)."""
+    out = []
     try:
         r = requests.get(
             "https://api.openverse.org/v1/images/",
-            params={"q": query, "page_size": n, "license_type": "all"},
+            # only images that are safe to use COMMERCIALLY and to MODIFY
+            # (excludes NC / ND licenses) -> safe for a monetized, edited video.
+            params={"q": query, "page_size": n, "license_type": "commercial,modification"},
             timeout=20, headers=UA,
         )
         if r.status_code == 200:
             for res in r.json().get("results", []):
                 # 'thumbnail' is Openverse's own CDN (reliable); raw 'url' often 403s.
                 u = res.get("thumbnail") or res.get("url")
-                if u:
-                    urls.append(u)
+                if not u:
+                    continue
+                creator = res.get("creator") or "Unknown"
+                lic = (res.get("license") or "").upper()
+                ver = res.get("license_version") or ""
+                src = res.get("source") or "Openverse"
+                credit = f'"{res.get("title","image")}" by {creator} ({lic} {ver}) via {src}'.strip()
+                out.append({"url": u, "credit": credit})
     except Exception as ex:
         print(f"[visuals] openverse failed: {ex}")
-    return urls
+    return out
 
 
 def _wikimedia_many(query: str, n: int = 8):
-    urls = []
+    out = []
     try:
         r = requests.get(
             "https://commons.wikimedia.org/w/api.php",
             params={
                 "action": "query", "format": "json", "generator": "search",
                 "gsrsearch": f"{query} filetype:bitmap", "gsrnamespace": 6,
-                "gsrlimit": n, "prop": "imageinfo", "iiprop": "url", "iiurlwidth": 1080,
+                "gsrlimit": n, "prop": "imageinfo", "iiprop": "url|extmetadata",
+                "iiurlwidth": 1080,
             },
             timeout=20, headers=UA,
         )
@@ -79,13 +89,19 @@ def _wikimedia_many(query: str, n: int = 8):
             pages = (r.json().get("query") or {}).get("pages", {})
             for p in pages.values():
                 ii = p.get("imageinfo")
-                if ii:
-                    u = ii[0].get("thumburl") or ii[0].get("url")
-                    if u:
-                        urls.append(u)
+                if not ii:
+                    continue
+                u = ii[0].get("thumburl") or ii[0].get("url")
+                if not u:
+                    continue
+                meta = ii[0].get("extmetadata") or {}
+                artist = (meta.get("Artist", {}) or {}).get("value", "Wikimedia")
+                artist = re.sub(r"<[^>]+>", "", str(artist)).strip()[:60]
+                credit = f'{p.get("title","File")} by {artist} via Wikimedia Commons'
+                out.append({"url": u, "credit": credit})
     except Exception as ex:
         print(f"[visuals] wikimedia failed: {ex}")
-    return urls
+    return out
 
 
 def _download_image(url: str, out_path: str):
@@ -134,15 +150,17 @@ def _gradient(seed: str, out_path: str):
     return out_path
 
 
-def get_scene_visuals(scenes: list[dict], topic: str, base: str) -> list[tuple[str, str]]:
-    """Return a (path, kind) per scene.
+def get_scene_visuals(scenes: list[dict], topic: str, base: str):
+    """Return (visuals, credits).
 
-    Images are pulled from a per-query pool so each scene gets a DIFFERENT but
-    relevant picture. The topic is used as a fallback query so scenes stay on-topic
-    even when a scene's own keyword is weak.
+    visuals: list of (path, kind) per scene.
+    credits: list of attribution strings for every image actually used.
+
+    Images come from a per-query pool so each scene gets a DIFFERENT but relevant
+    picture; the topic is the fallback query so scenes stay on-topic.
     """
-    out = []
-    pools: dict[str, list[str]] = {}   # query -> remaining urls (consumed in order)
+    out, credits = [], []
+    pools: dict[str, list[dict]] = {}   # query -> remaining {url, credit} dicts
 
     def pool_for(q: str):
         if q not in pools:
@@ -159,18 +177,20 @@ def get_scene_visuals(scenes: list[dict], topic: str, base: str) -> list[tuple[s
         if _pexels_video(query, vp):
             print(f"[visuals] scene {i}: pexels video ({query})")
             out.append((vp, "video"))
+            credits.append("Stock video via Pexels")
             continue
 
         # 2) free image - try the scene's query pool, then the topic pool
         ip = p_base + ".png"
         done = False
         for q in (query, topic):
-            urls = pool_for(q)
-            while urls:
-                url = urls.pop(0)
-                if _download_image(url, ip):
+            items = pool_for(q)
+            while items:
+                item = items.pop(0)
+                if _download_image(item["url"], ip):
                     print(f"[visuals] scene {i}: image ({q})")
                     out.append((ip, "image"))
+                    credits.append(item["credit"])
                     done = True
                     break
             if done:
@@ -178,8 +198,8 @@ def get_scene_visuals(scenes: list[dict], topic: str, base: str) -> list[tuple[s
         if done:
             continue
 
-        # 3) gradient fallback
+        # 3) gradient fallback (no credit needed - generated by us)
         _gradient(query + str(i), ip)
         print(f"[visuals] scene {i}: gradient fallback")
         out.append((ip, "image"))
-    return out
+    return out, credits

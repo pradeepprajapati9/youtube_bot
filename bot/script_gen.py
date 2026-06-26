@@ -65,7 +65,10 @@ def _gemini_scenes(topic: str, ctx: str):
         f"Rules: exactly {N_SCENES} scenes. Scene 1 narration MUST be a strong hook. "
         f"Each narration 18-28 words, spoken plain text (no emojis). "
         f"'keyword' = 2-3 English words describing a stock image for that scene. "
-        f"Last scene ends asking viewers to follow. Title under 90 chars with #Shorts."
+        f"Last scene ends asking viewers to follow. Title under 90 chars with #Shorts.\n"
+        f"SAFETY: state only well-established, verifiable facts - no made-up statistics, "
+        f"no medical/financial/legal advice, no defamation, no shocking/violent claims. "
+        f"Title must be accurate and NOT clickbait or misleading."
     )
     try:
         url = ("https://generativelanguage.googleapis.com/v1beta/models/"

@@ -67,7 +67,7 @@ def run():
     log(f"Script: {len(meta['scenes'])} scenes | title: {meta['title']}")
 
     # 3. per-scene voiceover + 4. per-scene visual
-    visuals_list = visuals.get_scene_visuals(meta["scenes"], topic, base)
+    visuals_list, credits = visuals.get_scene_visuals(meta["scenes"], topic, base)
     scenes = []
     for i, (sc, (vpath, vkind)) in enumerate(zip(meta["scenes"], visuals_list)):
         voice_path = f"{base}_s{i}_voice.mp3"
@@ -85,9 +85,16 @@ def run():
     editor.build_slideshow(scenes, video_path)
     log(f"Video built: {video_path}")
 
+    # build a compliance-safe description (AI disclosure + disclaimer + credits)
+    desc_parts = [meta["description"], "", config.AI_DISCLOSURE, config.DISCLAIMER]
+    if credits:
+        uniq = list(dict.fromkeys(credits))   # de-dupe, keep order
+        desc_parts += ["", "Image credits:"] + [f"- {c}" for c in uniq]
+    full_description = "\n".join(desc_parts)
+
     # 6. upload (optional)
     if config.DO_UPLOAD:
-        url = uploader.upload(video_path, meta["title"], meta["description"], meta["tags"])
+        url = uploader.upload(video_path, meta["title"], full_description, meta["tags"])
         log(f"Uploaded: {url}")
         trending.mark_used(topic)
         log(f"=== Done in {time.time() - t0:.0f}s ===")

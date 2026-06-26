@@ -46,6 +46,7 @@ jobs:
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
           VIDEO_LANG: en
           TREND_GEO: IN
+          CONTENT_MODE: evergreen
           YT_PRIVACY: public
           DO_UPLOAD: "true"
           CLEAN_AFTER_UPLOAD: "true"

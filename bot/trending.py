@@ -73,32 +73,48 @@ def _fetch_trends(geo: str):
     return out
 
 
-def pick_topic():
-    """Return (topic, context). Skips already-used topics."""
-    used = _load_used()
-    for t in _fetch_trends(config.TREND_GEO):
-        if t["title"].lower() in used:
-            continue
-        if not _is_safe(t["title"]):
-            print(f"[trending] skipped (unsafe): {t['title']}")
-            continue
-        print(f"[trending] picked: {t['title']}")
-        return t["title"], t["context"]
+# Safe, factual, non-controversial topics with rich Wikipedia coverage.
+# Lowest policy risk (no news/politics/health-advice/misinformation).
+EVERGREEN = [
+    "Black holes", "The Milky Way galaxy", "Mount Everest", "The Sahara Desert",
+    "Bioluminescence", "Octopus intelligence", "The Great Barrier Reef",
+    "Honey bees", "The human heart", "Volcanoes", "The Northern Lights",
+    "Antarctica", "The Amazon rainforest", "Lightning", "Coral reefs",
+    "The speed of light", "Mariana Trench", "Tardigrades", "The Moon",
+    "Saturn's rings", "Photosynthesis", "DNA", "The Pyramids of Giza",
+    "The Great Wall of China", "Migration of birds", "Sharks", "Penguins",
+    "The water cycle", "Earthquakes", "The human brain", "Sleep and dreams",
+    "Caffeine", "The internet history", "Ancient Rome", "The Sun",
+    "Glaciers", "Whales", "Spiders", "The immune system", "Rainbows",
+]
 
-    # Evergreen, high-retention fallbacks (great for faceless Shorts)
-    fallback = [
-        "Amazing facts about space",
-        "Mysteries of the human brain",
-        "Incredible facts about the ocean",
-        "Psychological tricks that actually work",
-        "Facts that sound fake but are true",
-        "Unsolved mysteries of history",
-    ]
-    for f in fallback:
-        if f.lower() not in used:
-            print(f"[trending] using fallback topic: {f}")
-            return f, ""
-    return fallback[0], ""
+
+def _pick_evergreen(used):
+    for t in EVERGREEN:
+        if t.lower() not in used:
+            print(f"[topic] evergreen: {t}")
+            return t, ""
+    # all used -> reset list
+    print("[topic] evergreen list exhausted, reusing first")
+    return EVERGREEN[0], ""
+
+
+def pick_topic():
+    """Return (topic, context). Mode is set by config.CONTENT_MODE."""
+    used = _load_used()
+
+    if config.CONTENT_MODE == "trending":
+        for t in _fetch_trends(config.TREND_GEO):
+            if t["title"].lower() in used:
+                continue
+            if not _is_safe(t["title"]):
+                print(f"[topic] skipped (unsafe): {t['title']}")
+                continue
+            print(f"[topic] trending: {t['title']}")
+            return t["title"], t["context"]
+        print("[topic] no safe trend found -> evergreen")
+
+    return _pick_evergreen(used)
 
 
 if __name__ == "__main__":
