@@ -41,6 +41,16 @@
       "used": true
     },
     {
+      "id": "the-immortal-animal-that-has-mastered-death-and-rebirth",
+      "title": "The Immortal Animal That Has Mastered Death (and Rebirth)",
+      "hook": "Meet the creature that can literally bring itself back from the dead... then do it again, indefinitely.",
+      "angle": "Focusing on a single animal species with an almost mythical, scientifically proven ability that defies common understanding of life cycles.",
+      "psychology": "Surprise, wonder, curiosity gap, fascination",
+      "keywords": "immortal, jelly, creature",
+      "score": 92,
+      "used": true
+    },
+    {
       "id": "your-body-s-weirdest-self-defense-you-won-t-believe-what-it-",
       "title": "Your Body's Weirdest Self-Defense: You Won't Believe What It Does",
       "hook": "Did you know your own body is secretly trying to get rid of you... sort of?",
@@ -58,16 +68,6 @@
       "psychology": "Awe, curiosity gap, surprise, existential wonder",
       "keywords": "moon, black hole, galaxy",
       "score": 88,
-      "used": false
-    },
-    {
-      "id": "the-immortal-animal-that-has-mastered-death-and-rebirth",
-      "title": "The Immortal Animal That Has Mastered Death (and Rebirth)",
-      "hook": "Meet the creature that can literally bring itself back from the dead... then do it again, indefinitely.",
-      "angle": "Focusing on a single animal species with an almost mythical, scientifically proven ability that defies common understanding of life cycles.",
-      "psychology": "Surprise, wonder, curiosity gap, fascination",
-      "keywords": "immortal, jelly, creature",
-      "score": 92,
       "used": false
     },
     {
