@@ -79,12 +79,13 @@ def run():
     scenes = []
     for i, (sc, (vpath, vkind)) in enumerate(zip(meta["scenes"], visuals_list)):
         voice_path = f"{base}_s{i}_voice.mp3"
-        voiceover.make_voiceover(sc["narration"], voice_path)
+        words = voiceover.make_voiceover(sc["narration"], voice_path)
         scenes.append({
             "narration": sc["narration"],
             "voice_path": voice_path,
             "visual_path": vpath,
             "visual_kind": vkind,
+            "words": words,
         })
     log(f"Built {len(scenes)} scenes (voice + visuals)")
 

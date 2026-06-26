@@ -63,11 +63,14 @@ FPS = 24                  # 24 is plenty for Shorts and ~20% faster to render
 MAX_SECONDS = 58          # keep under 60s so YouTube treats it as a Short
 TARGET_WORDS = 140        # ~ enough narration for ~55s at a natural pace
 
-# Neural TTS voices per language (edge-tts, free)
+# Neural TTS voices per language (edge-tts, free). Multilingual voices sound
+# noticeably more natural/engaging than the older "Aria".
 VOICE = {
-    "en": "en-US-AriaNeural",
+    "en": "en-US-AvaMultilingualNeural",
     "hi": "hi-IN-SwaraNeural",
-}.get(LANG, "en-US-AriaNeural")
+}.get(LANG, "en-US-AvaMultilingualNeural")
+# Slightly faster = more energetic, better for Shorts retention.
+VOICE_RATE = os.getenv("VOICE_RATE", "+6%")
 
 # Font for captions (Windows built-in). Falls back handled in editor.py
 FONT_PATH = r"C:\Windows\Fonts\arialbd.ttf"

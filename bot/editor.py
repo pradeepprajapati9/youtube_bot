@@ -46,46 +46,67 @@ def _visual(path: str, kind: str, duration: float):
         except Exception as ex:
             print(f"[editor] video scene failed ({ex})")
     if os.path.exists(path):
-        # Ken-Burns via PAN: enlarge the image ONCE (static resize, cheap) and
-        # translate it across the frame. Avoids per-frame resampling = much faster.
-        img = ImageClip(path).resized(1.15).with_duration(duration)
-        max_dx, max_dy = img.w - W, img.h - H
+        # Ken-Burns via PAN: enlarge the image ONCE (cheap static resize) and
+        # translate it across the frame. Direction varies per scene so the motion
+        # doesn't feel repetitive. No per-frame resampling = fast.
+        img = ImageClip(path).resized(1.18).with_duration(duration)
+        mx, my = img.w - W, img.h - H
         d = max(duration, 0.1)
-        pos = lambda t: (-max_dx * (t / d), -max_dy * (t / d))
+        # 4 pan directions chosen deterministically from the file name
+        variant = sum(ord(c) for c in os.path.basename(path)) % 4
+        corners = [((0, 0), (-mx, -my)), ((-mx, 0), (0, -my)),
+                   ((0, -my), (-mx, 0)), ((-mx, -my), (0, 0))]
+        (sx, sy), (ex, ey) = corners[variant]
+        pos = lambda t: (sx + (ex - sx) * t / d, sy + (ey - sy) * t / d)
         return CompositeVideoClip([img.with_position(pos)],
                                   size=(W, H)).with_duration(duration)
     return ColorClip((W, H), color=(18, 22, 38)).with_duration(duration)
 
 
-def _chunks(text: str, max_words=4):
-    words, out, cur = text.split(), [], []
-    for w in words:
-        cur.append(w)
-        if len(cur) >= max_words:
-            out.append(" ".join(cur)); cur = []
-    if cur:
-        out.append(" ".join(cur))
-    return out or [text]
+def _make_text(text: str, font):
+    kw = dict(text=text.upper(), font_size=82, color="white", stroke_color="black",
+              stroke_width=7, method="caption", size=(int(W * 0.82), None),
+              text_align="center")
+    if font:
+        kw["font"] = font
+    try:
+        return TextClip(**kw)
+    except TypeError:
+        kw.pop("text_align", None)
+        return TextClip(**kw)
 
 
-def _captions(text: str, duration: float, font):
-    chunks = _chunks(text)
-    per = duration / len(chunks)
+def _word_captions(words: list, duration: float, font):
+    """Captions perfectly synced to speech (from edge-tts word timings).
+    Shows up to 3 words at a time, advancing exactly as they're spoken."""
+    groups = []
+    i = 0
+    while i < len(words):
+        grp = words[i:i + 3]
+        groups.append({"text": " ".join(w["word"] for w in grp),
+                       "start": grp[0]["start"]})
+        i += 3
     clips = []
-    for i, t in enumerate(chunks):
-        kw = dict(text=t, font_size=80, color="white", stroke_color="black",
-                  stroke_width=6, method="caption", size=(int(W * 0.84), None),
-                  text_align="center")
-        if font:
-            kw["font"] = font
-        try:
-            tc = TextClip(**kw)
-        except TypeError:
-            kw.pop("text_align", None)
-            tc = TextClip(**kw)
-        clips.append(tc.with_start(i * per).with_duration(per)
-                       .with_position(("center", int(H * 0.60))))
+    for j, g in enumerate(groups):
+        start = g["start"]
+        end = groups[j + 1]["start"] if j + 1 < len(groups) else duration
+        end = min(end, duration)
+        if end - start < 0.05:
+            continue
+        tc = (_make_text(g["text"], font)
+              .with_start(start).with_duration(end - start)
+              .with_position(("center", int(H * 0.60))))
+        clips.append(tc)
     return clips
+
+
+def _even_captions(text: str, duration: float, font):
+    """Fallback when no word timings are available: split text evenly."""
+    words = text.split()
+    chunks = [" ".join(words[i:i + 3]) for i in range(0, len(words), 3)] or [text]
+    per = duration / len(chunks)
+    return [(_make_text(t, font).with_start(k * per).with_duration(per)
+             .with_position(("center", int(H * 0.60)))) for k, t in enumerate(chunks)]
 
 
 def _scene_clip(scene: dict, font):
@@ -95,7 +116,9 @@ def _scene_clip(scene: dict, font):
 
     bg = _visual(scene["visual_path"], scene["visual_kind"], dur)
     overlay = ColorClip((W, H), color=(0, 0, 0)).with_opacity(0.30).with_duration(dur)
-    caps = _captions(scene["narration"], dur, font)
+    words = scene.get("words")
+    caps = _word_captions(words, dur, font) if words else _even_captions(
+        scene["narration"], dur, font)
     return (CompositeVideoClip([bg, overlay, *caps], size=(W, H))
             .with_audio(audio).with_duration(dur))
 
@@ -133,6 +156,12 @@ def build_slideshow(scenes: list[dict], out_path: str) -> str:
         total += clip.duration
 
     final = concatenate_videoclips(clips, method="compose")
+    # gentle fade in/out for a polished intro/outro
+    try:
+        from moviepy import vfx
+        final = final.with_effects([vfx.FadeIn(0.3), vfx.FadeOut(0.3)])
+    except Exception as ex:
+        print(f"[editor] fade skipped ({ex})")
     final = _add_music(final)
     final.write_videofile(
         out_path, fps=config.FPS, codec="libx264", audio_codec="aac",
