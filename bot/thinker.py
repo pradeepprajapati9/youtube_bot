@@ -55,6 +55,12 @@ def _load():
 
 
 def _save(data):
+    # keep ALL unused ideas, but only the last 80 used ones (enough for de-dup
+    # memory) so backlog.json never grows without bound.
+    ideas = data.get("ideas", [])
+    unused = [i for i in ideas if not i.get("used")]
+    used = [i for i in ideas if i.get("used")][-80:]
+    data["ideas"] = used + unused
     config.BACKLOG_FILE.write_text(
         json.dumps(data, ensure_ascii=False, indent=2), "utf-8")
 

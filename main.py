@@ -58,6 +58,13 @@ def run():
     base = str(config.OUTPUT_DIR / stamp)
     log(f"=== Run start (lang={config.LANG}, geo={config.TREND_GEO}, upload={config.DO_UPLOAD}) ===")
 
+    # pre-clean: remove any leftovers from a previously failed run so output/ never piles up
+    for f in config.OUTPUT_DIR.glob("*"):
+        try:
+            f.unlink()
+        except Exception:
+            pass
+
     # 0. growth feedback: refresh stats of past uploads so the thinker can learn
     analytics.refresh_stats()
 

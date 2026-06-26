@@ -22,8 +22,9 @@ def _load_used():
 def mark_used(topic: str):
     used = _load_used()
     used.add(topic.lower())
+    capped = sorted(used)[-1000:]   # keep state.json bounded
     config.STATE_FILE.write_text(
-        json.dumps({"used_topics": sorted(used)}, ensure_ascii=False, indent=2), "utf-8"
+        json.dumps({"used_topics": capped}, ensure_ascii=False, indent=2), "utf-8"
     )
 
 
