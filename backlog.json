@@ -51,6 +51,16 @@
       "used": true
     },
     {
+      "id": "the-animal-that-lives-weeks-without-its-head-and-why",
+      "title": "The Animal That Lives Weeks Without Its Head (and Why)",
+      "hook": "Meet the creature that can literally *live without a head* for weeks.",
+      "angle": "Focusing on specific invertebrates (like cockroaches) and the fascinating biological reasons behind their decapitated survival (decentralized nervous system, open circulatory system, lack of blood pressure).",
+      "psychology": "Surprise, awe, curiosity gap",
+      "keywords": "Cockroach, survive, headless",
+      "score": 92,
+      "used": true
+    },
+    {
       "id": "your-body-s-weirdest-self-defense-you-won-t-believe-what-it-",
       "title": "Your Body's Weirdest Self-Defense: You Won't Believe What It Does",
       "hook": "Did you know your own body is secretly trying to get rid of you... sort of?",
@@ -118,16 +128,6 @@
       "psychology": "Curiosity gap, surprise, relatability",
       "keywords": "Brain, vision, colors",
       "score": 88,
-      "used": false
-    },
-    {
-      "id": "the-animal-that-lives-weeks-without-its-head-and-why",
-      "title": "The Animal That Lives Weeks Without Its Head (and Why)",
-      "hook": "Meet the creature that can literally *live without a head* for weeks.",
-      "angle": "Focusing on specific invertebrates (like cockroaches) and the fascinating biological reasons behind their decapitated survival (decentralized nervous system, open circulatory system, lack of blood pressure).",
-      "psychology": "Surprise, awe, curiosity gap",
-      "keywords": "Cockroach, survive, headless",
-      "score": 92,
       "used": false
     },
     {
