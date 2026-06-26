@@ -82,3 +82,8 @@ FONT_PATH = r"C:\Windows\Fonts\arialbd.ttf"
 # YouTube OAuth files
 CLIENT_SECRET_FILE = CRED_DIR / "client_secret.json"
 TOKEN_FILE = CRED_DIR / "token.json"
+
+# --- Instagram Reels cross-post (optional, free) ---
+# Set both to also auto-post each Short to Instagram Reels. No-op if blank.
+IG_USER_ID = os.getenv("IG_USER_ID", "").strip()
+IG_ACCESS_TOKEN = os.getenv("IG_ACCESS_TOKEN", "").strip()

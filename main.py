@@ -121,6 +121,17 @@ def run():
         url = uploader.upload(video_path, meta["title"], full_description, meta["tags"])
         log(f"Uploaded: {url}")
         analytics.record_upload(url.rstrip("/").split("/")[-1], idea, meta["title"])
+
+        # cross-post to Instagram Reels (optional; never breaks the YouTube flow)
+        try:
+            from bot import instagram
+            ig_caption = f'{meta["title"]}\n\n#reels #fyp #viral #facts #shorts'
+            rid = instagram.post_reel(video_path, ig_caption)
+            if rid:
+                log(f"Instagram reel: {rid}")
+        except Exception as ex:
+            log(f"Instagram skipped: {ex}")
+
         log(f"=== Done in {time.time() - t0:.0f}s ===")
         if config.CLEAN_AFTER_UPLOAD:
             cleanup()   # wipe files/log AFTER logging the success
