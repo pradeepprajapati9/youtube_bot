@@ -20,7 +20,7 @@ for _stream in (sys.stdout, sys.stderr):
         pass
 
 import config
-from bot import thinker, trending, script_gen, voiceover, visuals, editor, uploader
+from bot import thinker, trending, script_gen, voiceover, visuals, editor, uploader, analytics
 
 
 def log(msg: str):
@@ -57,6 +57,9 @@ def run():
     stamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     base = str(config.OUTPUT_DIR / stamp)
     log(f"=== Run start (lang={config.LANG}, geo={config.TREND_GEO}, upload={config.DO_UPLOAD}) ===")
+
+    # 0. growth feedback: refresh stats of past uploads so the thinker can learn
+    analytics.refresh_stats()
 
     # 1. thinker_bot picks the best ready idea (falls back to evergreen topics)
     thinker.top_up()
@@ -110,6 +113,7 @@ def run():
     if config.DO_UPLOAD:
         url = uploader.upload(video_path, meta["title"], full_description, meta["tags"])
         log(f"Uploaded: {url}")
+        analytics.record_upload(url.rstrip("/").split("/")[-1], idea, meta["title"])
         log(f"=== Done in {time.time() - t0:.0f}s ===")
         if config.CLEAN_AFTER_UPLOAD:
             cleanup()   # wipe files/log AFTER logging the success

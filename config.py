@@ -14,6 +14,7 @@ ASSETS_DIR = BASE_DIR / "assets"
 CRED_DIR = BASE_DIR / "credentials"
 STATE_FILE = BASE_DIR / "state.json"      # remembers used topics (avoid repeats)
 BACKLOG_FILE = BASE_DIR / "backlog.json"  # thinker_bot's pre-thought video ideas
+PERF_FILE = BASE_DIR / "performance.json" # per-video stats -> growth feedback loop
 LOG_FILE = BASE_DIR / "bot.log"
 
 for d in (OUTPUT_DIR, ASSETS_DIR, CRED_DIR):
@@ -25,6 +26,9 @@ LANG = os.getenv("VIDEO_LANG", "en").lower()
 TREND_GEO = os.getenv("TREND_GEO", "IN").upper()
 PEXELS_API_KEY = os.getenv("PEXELS_API_KEY", "").strip()
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "").strip()
+# YouTube Data API key (just an API key, NOT OAuth) for reading public video
+# stats -> powers the growth feedback loop. Optional; loop is dormant without it.
+YT_API_KEY = os.getenv("YT_API_KEY", "").strip()
 YT_PRIVACY = os.getenv("YT_PRIVACY", "private").strip()
 DO_UPLOAD = os.getenv("DO_UPLOAD", "false").lower() == "true"
 # After a successful upload, wipe generated files + trim the log so storage

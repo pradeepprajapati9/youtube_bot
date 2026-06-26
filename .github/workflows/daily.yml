@@ -53,6 +53,7 @@ jobs:
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          YT_API_KEY: ${{ secrets.YT_API_KEY }}
           VIDEO_LANG: en
           TREND_GEO: IN
           CONTENT_MODE: evergreen
@@ -67,6 +68,6 @@ jobs:
           git config user.name "youtube-bot"
           git config user.email "bot@users.noreply.github.com"
           git pull --rebase --autostash origin main || true
-          git add state.json backlog.json || true
-          git commit -m "chore: update state + idea backlog [skip ci]" || echo "no change"
+          git add state.json backlog.json performance.json || true
+          git commit -m "chore: update state + backlog + performance [skip ci]" || echo "no change"
           git push || echo "nothing to push"

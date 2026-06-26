@@ -59,7 +59,7 @@ def _save(data):
         json.dumps(data, ensure_ascii=False, indent=2), "utf-8")
 
 
-def _gemini_ideas(existing_titles: list[str], n: int):
+def _gemini_ideas(existing_titles: list[str], n: int, learnings: str = "", trends: str = ""):
     """Ask Gemini for n fresh, scored video ideas in the niche."""
     if not config.GEMINI_API_KEY:
         return []
@@ -70,7 +70,11 @@ def _gemini_ideas(existing_titles: list[str], n: int):
         f"(views, subscribers, watch time) the FASTEST, using the psychology of virality "
         f"and human interest (curiosity gaps, emotion, surprise, relatability, share-ability). "
         f"The topic can be ANYTHING in this safe space: {config.NICHE_DESC}\n"
-        f"Brainstorm {n} NEW, original Short ideas with the highest growth potential. "
+        + (f"\nDATA FROM THIS CHANNEL - {learnings} Lean HARD toward what already works.\n"
+           if learnings else "")
+        + (f"\n{trends} If any fits the safe space and can be made original and on-brand, "
+           f"include ONE timely tie-in idea (trend-riding gets fast reach).\n" if trends else "")
+        + f"\nBrainstorm {n} NEW, original Short ideas with the highest growth potential. "
         f"Think like a human creator - each needs a real scroll-stopping hook and a fresh "
         f"angle, NOT a generic listicle. Mix topics; choose whatever will get the most reach.\n"
         f"Do NOT repeat or closely resemble these existing ideas: {avoid}.\n"
@@ -106,8 +110,24 @@ def top_up():
     if len(unused_good) >= config.BACKLOG_MIN:
         return  # plenty queued
 
+    # Feed the growth brain: what already works here + today's safe trends.
+    learnings, trends = "", ""
+    try:
+        from bot import analytics
+        learnings = analytics.learnings_summary()
+    except Exception:
+        pass
+    try:
+        from bot import trending
+        safe = [t["title"] for t in trending._fetch_trends(config.TREND_GEO)
+                if trending._is_safe(t["title"])][:8]
+        if safe:
+            trends = "Today's safe trending topics: " + ", ".join(safe) + "."
+    except Exception:
+        pass
+
     titles = [i["title"] for i in ideas]
-    fresh = _gemini_ideas(titles, config.IDEAS_PER_REFILL)
+    fresh = _gemini_ideas(titles, config.IDEAS_PER_REFILL, learnings, trends)
     added = 0
     for it in fresh:
         title = (it.get("title") or "").strip()
