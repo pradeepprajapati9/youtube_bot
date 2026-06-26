@@ -18,7 +18,11 @@ def _get_service():
 
     creds = None
     if config.TOKEN_FILE.exists():
-        creds = Credentials.from_authorized_user_file(str(config.TOKEN_FILE), SCOPES)
+        try:
+            creds = Credentials.from_authorized_user_file(str(config.TOKEN_FILE), SCOPES)
+        except Exception as ex:
+            print(f"[upload] token.json unreadable ({ex}); will re-authorize.")
+            creds = None
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
             creds.refresh(Request())
