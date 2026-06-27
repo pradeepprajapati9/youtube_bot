@@ -101,6 +101,16 @@
       "used": true
     },
     {
+      "id": "the-dead-tech-in-your-phone-predicting-disasters",
+      "title": "The 'Dead' Tech In Your Phone Predicting Disasters",
+      "hook": "The 'dead' technology in your pocket that's actually helping predict disasters.",
+      "angle": "Focusing on often overlooked sensors in smartphones (e.g., accelerometers detecting seismic activity in distributed networks, barometers sensing atmospheric pressure for storm prediction) that, when aggregated, form a powerful predictive tool.",
+      "psychology": "Relatability, surprise, curiosity gap",
+      "keywords": "Phone, sensors, disaster",
+      "score": 90,
+      "used": true
+    },
+    {
       "id": "your-body-s-weirdest-self-defense-you-won-t-believe-what-it-",
       "title": "Your Body's Weirdest Self-Defense: You Won't Believe What It Does",
       "hook": "Did you know your own body is secretly trying to get rid of you... sort of?",
@@ -178,16 +188,6 @@
       "psychology": "Relatability, curiosity gap, surprise",
       "keywords": "Shiver, body, emotion",
       "score": 88,
-      "used": false
-    },
-    {
-      "id": "the-dead-tech-in-your-phone-predicting-disasters",
-      "title": "The 'Dead' Tech In Your Phone Predicting Disasters",
-      "hook": "The 'dead' technology in your pocket that's actually helping predict disasters.",
-      "angle": "Focusing on often overlooked sensors in smartphones (e.g., accelerometers detecting seismic activity in distributed networks, barometers sensing atmospheric pressure for storm prediction) that, when aggregated, form a powerful predictive tool.",
-      "psychology": "Relatability, surprise, curiosity gap",
-      "keywords": "Phone, sensors, disaster",
-      "score": 90,
       "used": false
     },
     {
