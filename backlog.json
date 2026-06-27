@@ -141,6 +141,16 @@
       "used": true
     },
     {
+      "id": "your-brain-makes-you-see-this-invisible-sixth-sense-field",
+      "title": "Your Brain Makes You See This Invisible 'Sixth Sense' Field.",
+      "hook": "Did you know your brain constantly creates an invisible protective bubble around your body, predicting threats before they even touch you?",
+      "angle": "Explaining the scientific concept of 'peripersonal space' – how our brain extends our sense of self beyond our skin, allowing us to react incredibly fast to approaching objects.",
+      "psychology": "Relatability, curiosity gap, surprise, validation ('I've felt that!'), awe.",
+      "keywords": "Brain, senses, invisible field",
+      "score": 95,
+      "used": true
+    },
+    {
       "id": "your-body-s-weirdest-self-defense-you-won-t-believe-what-it-",
       "title": "Your Body's Weirdest Self-Defense: You Won't Believe What It Does",
       "hook": "Did you know your own body is secretly trying to get rid of you... sort of?",
@@ -218,16 +228,6 @@
       "psychology": "Surprise, curiosity gap, awe, debunking a myth.",
       "keywords": "Sound waves, glass, frequency",
       "score": 92,
-      "used": false
-    },
-    {
-      "id": "your-brain-makes-you-see-this-invisible-sixth-sense-field",
-      "title": "Your Brain Makes You See This Invisible 'Sixth Sense' Field.",
-      "hook": "Did you know your brain constantly creates an invisible protective bubble around your body, predicting threats before they even touch you?",
-      "angle": "Explaining the scientific concept of 'peripersonal space' – how our brain extends our sense of self beyond our skin, allowing us to react incredibly fast to approaching objects.",
-      "psychology": "Relatability, curiosity gap, surprise, validation ('I've felt that!'), awe.",
-      "keywords": "Brain, senses, invisible field",
-      "score": 95,
       "used": false
     },
     {
