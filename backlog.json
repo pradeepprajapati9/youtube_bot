@@ -131,6 +131,16 @@
       "used": true
     },
     {
+      "id": "your-phone-is-secretly-predicting-your-next-move-here-s-how",
+      "title": "Your Phone Is Secretly Predicting Your Next Move. Here's How.",
+      "hook": "Your phone isn't just listening; it's using advanced AI to predict what you'll do next, sometimes before you even know it.",
+      "angle": "Exploring the science behind predictive algorithms in apps, smart keyboards, and digital assistants that analyze your patterns to anticipate your needs and actions, raising questions about data and foresight.",
+      "psychology": "Relatability, mild intrigue/unease, curiosity gap, 'I must tell someone', modern tech.",
+      "keywords": "Phone, AI prediction, algorithms",
+      "score": 96,
+      "used": true
+    },
+    {
       "id": "your-body-s-weirdest-self-defense-you-won-t-believe-what-it-",
       "title": "Your Body's Weirdest Self-Defense: You Won't Believe What It Does",
       "hook": "Did you know your own body is secretly trying to get rid of you... sort of?",
@@ -198,6 +208,96 @@
       "psychology": "Relatability, curiosity gap, surprise",
       "keywords": "Umbrella, superstition, history",
       "score": 89,
+      "used": false
+    },
+    {
+      "id": "sound-waves-can-shatter-glass-but-there-s-a-catch",
+      "title": "Sound Waves Can Shatter Glass. But There's a Catch.",
+      "hook": "Ever seen a singer shatter glass with their voice? It's real, but it's not about volume...",
+      "angle": "Debunking the common misconception that loudness alone breaks glass, and explaining the true science of resonance and frequency that makes it possible.",
+      "psychology": "Surprise, curiosity gap, awe, debunking a myth.",
+      "keywords": "Sound waves, glass, frequency",
+      "score": 92,
+      "used": false
+    },
+    {
+      "id": "your-brain-makes-you-see-this-invisible-sixth-sense-field",
+      "title": "Your Brain Makes You See This Invisible 'Sixth Sense' Field.",
+      "hook": "Did you know your brain constantly creates an invisible protective bubble around your body, predicting threats before they even touch you?",
+      "angle": "Explaining the scientific concept of 'peripersonal space' – how our brain extends our sense of self beyond our skin, allowing us to react incredibly fast to approaching objects.",
+      "psychology": "Relatability, curiosity gap, surprise, validation ('I've felt that!'), awe.",
+      "keywords": "Brain, senses, invisible field",
+      "score": 95,
+      "used": false
+    },
+    {
+      "id": "this-animal-breathes-through-its-butt-seriously-and-it-s-not",
+      "title": "This Animal Breathes Through Its Butt. Seriously. And It's Not Alone.",
+      "hook": "Imagine having to breathe through your backside to survive... This bizarre ocean creature does it, and it's not the only one!",
+      "angle": "Exploring the incredible and weird adaptations in the animal kingdom, specifically cloacal respiration in sea cucumbers and other creatures, highlighting the diversity of life's survival strategies.",
+      "psychology": "Surprise, 'I must tell someone', curiosity gap, mild gross-out fascination.",
+      "keywords": "Animal, bizarre breathing, sea cucumber",
+      "score": 88,
+      "used": false
+    },
+    {
+      "id": "the-ancient-rome-you-see-is-not-what-it-really-looked-like",
+      "title": "The 'Ancient' Rome You See Is Not What It Really Looked Like.",
+      "hook": "Stop believing the perfectly white marble myth. Ancient Rome was painted in wild, vibrant colors!",
+      "angle": "Debunking the modern perception of classical antiquity as stark white, revealing the surprising historical truth of brightly painted statues and buildings that would shock us today.",
+      "psychology": "Curiosity gap, surprise, debunking a common myth, historical revision.",
+      "keywords": "Ancient Rome, colorful history, debunking",
+      "score": 90,
+      "used": false
+    },
+    {
+      "id": "why-the-sun-s-sunset-colors-are-a-gigantic-lie-from-space",
+      "title": "Why The Sun's Sunset Colors Are A Gigantic Lie (From Space).",
+      "hook": "Those beautiful red and orange sunsets you cherish? From space, the sun looks completely different. It's an atmospheric trick!",
+      "angle": "Explaining Rayleigh scattering and how Earth's atmosphere filters sunlight, creating the illusion of sunset colors, and contrasting it with the sun's true white appearance beyond our planet.",
+      "psychology": "Surprise, awe, curiosity gap, cognitive dissonance (common experience vs. scientific truth).",
+      "keywords": "Sun, sunset, space illusion",
+      "score": 93,
+      "used": false
+    },
+    {
+      "id": "this-common-sand-is-hiding-a-literal-planet-inside-it",
+      "title": "This Common Sand Is Hiding A Literal Planet Inside It.",
+      "hook": "That sand on the beach isn't just tiny rocks. It contains microscopic crystals that are literally older than our sun!",
+      "angle": "Focusing on zircon crystals found in sand, which are incredibly resilient and contain the oldest known material on Earth, offering a window into the planet's formation and even pre-solar history.",
+      "psychology": "Awe, surprise, curiosity gap, connecting the mundane to the cosmic.",
+      "keywords": "Sand, ancient crystals, Earth's age",
+      "score": 94,
+      "used": false
+    },
+    {
+      "id": "why-this-small-earthquake-could-be-more-dangerous-than-you-t",
+      "title": "Why This 'Small' Earthquake Could Be More Dangerous Than You Think.",
+      "hook": "Forget the magnitude. A 'small' earthquake in the wrong location can be far more catastrophic and deadly than a massive one.",
+      "angle": "Explaining the factors beyond magnitude (like depth, proximity to population, soil type, building codes) that determine an earthquake's true danger, using recent events as a subtle but relevant backdrop.",
+      "psychology": "Curiosity gap, concern, surprise, 'I must tell someone' (awareness), timeliness (trending topic tie-in).",
+      "keywords": "Earthquake, danger, seismic science",
+      "score": 91,
+      "used": false
+    },
+    {
+      "id": "this-fungus-is-controlling-your-food-right-now-without-you-k",
+      "title": "This Fungus Is Controlling Your Food, Right Now, Without You Knowing.",
+      "hook": "A secret, invisible network of fungi is manipulating how your food grows... and you've been eating its influence for years.",
+      "angle": "Unveiling the hidden world of mycorrhizal fungi, explaining how they form vast underground networks connecting plants, sharing nutrients, and acting as the 'internet of the forest,' essential for our food supply.",
+      "psychology": "Surprise, awe, curiosity gap, slight intrigue/unease, impact on daily life.",
+      "keywords": "Fungus, food science, hidden network",
+      "score": 89,
+      "used": false
+    },
+    {
+      "id": "in-2029-your-own-body-could-become-a-power-plant",
+      "title": "In 2029, Your Own Body Could Become A Power Plant.",
+      "hook": "Imagine generating enough electricity from your own body to power small devices. By 2029, this sci-fi concept could become reality.",
+      "angle": "Highlighting cutting-edge research in biomechanical and thermoelectric energy harvesting, explaining how our movement, heat, and even internal biological processes could be tapped to create sustainable personal power.",
+      "psychology": "Awe, future curiosity, relatability (my body?), surprise, 'what if' scenario (trending topic tie-in).",
+      "keywords": "2029, body power, future tech",
+      "score": 90,
       "used": false
     }
   ]
