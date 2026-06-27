@@ -62,7 +62,9 @@ def _gemini_scenes(topic: str, ctx: str):
         f"Your ONE job is maximum watch-time + shares using proven psychology.\n"
         f"Return ONLY valid JSON, no markdown, exact shape:\n"
         f'{{"title": "...", "description": "...", "tags": ["..."], '
-        f'"scenes": [{{"narration": "...", "keyword": "..."}}]}}\n'
+        f'"scenes": [{{"narration": "...", "narration_en": "...", "keyword": "..."}}]}}\n'
+        f"'narration_en' = a short, clear ENGLISH translation of that scene's narration "
+        f"(so non-{lang} viewers can also follow via on-screen text).\n"
         f"RETENTION FORMULA - follow exactly across {N_SCENES} scenes:\n"
         f"- Scene 1 = a SCROLL-STOPPER hook (max 12 words): a shocking claim or a "
         f"question that opens a curiosity loop the viewer NEEDS resolved. No intro, "
@@ -135,6 +137,7 @@ def generate(topic: str, context: str = "") -> dict:
         narr = _clean(sc.get("narration", ""))
         if narr:
             scenes.append({"narration": narr,
+                           "narration_en": _clean(sc.get("narration_en", "")),
                            "keyword": (sc.get("keyword") or _keywords(topic, narr)).strip()})
     data["scenes"] = scenes or [{"narration": f"Facts about {topic}. Follow for more!",
                                  "keyword": topic}]

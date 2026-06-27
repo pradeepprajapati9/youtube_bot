@@ -99,7 +99,7 @@ def _word_captions(words: list, duration: float, font):
             continue
         tc = (_make_text(g["text"], font)
               .with_start(start).with_duration(end - start)
-              .with_position(("center", int(H * 0.60))))
+              .with_position(("center", int(H * 0.55))))
         clips.append(tc)
     return clips
 
@@ -110,7 +110,33 @@ def _even_captions(text: str, duration: float, font):
     chunks = [" ".join(words[i:i + 3]) for i in range(0, len(words), 3)] or [text]
     per = duration / len(chunks)
     return [(_make_text(t, font).with_start(k * per).with_duration(per)
-             .with_position(("center", int(H * 0.60)))) for k, t in enumerate(chunks)]
+             .with_position(("center", int(H * 0.55)))) for k, t in enumerate(chunks)]
+
+
+def _latin_font():
+    """A Latin font for the English subtitle line (Devanagari fonts may lack Latin)."""
+    for f in (config.FONT_PATH, r"C:\Windows\Fonts\arialbd.ttf", r"C:\Windows\Fonts\arial.ttf",
+              "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
+              "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"):
+        if os.path.exists(f):
+            return f
+    return None
+
+
+def _english_caption(text: str, duration: float):
+    """A static smaller English translation line shown below the main captions."""
+    kw = dict(text=text, font_size=48, color="#ffe14d", stroke_color="black",
+              stroke_width=4, method="caption", size=(int(W * 0.86), None),
+              text_align="center")
+    f = _latin_font()
+    if f:
+        kw["font"] = f
+    try:
+        tc = TextClip(**kw)
+    except TypeError:
+        kw.pop("text_align", None)
+        tc = TextClip(**kw)
+    return tc.with_duration(duration).with_position(("center", int(H * 0.72)))
 
 
 def _scene_clip(scene: dict, font):
@@ -123,7 +149,11 @@ def _scene_clip(scene: dict, font):
     words = scene.get("words")
     caps = _word_captions(words, dur, font) if words else _even_captions(
         scene["narration"], dur, font)
-    return (CompositeVideoClip([bg, overlay, *caps], size=(W, H))
+    layers = [bg, overlay, *caps]
+    # for Hindi videos, add an English subtitle line so more people can follow
+    if config.LANG == "hi" and scene.get("narration_en"):
+        layers.append(_english_caption(scene["narration_en"], dur))
+    return (CompositeVideoClip(layers, size=(W, H))
             .with_audio(audio).with_duration(dur))
 
 

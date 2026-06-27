@@ -92,6 +92,7 @@ def run():
         words = voiceover.make_voiceover(sc["narration"], voice_path)
         scenes.append({
             "narration": sc["narration"],
+            "narration_en": sc.get("narration_en", ""),
             "voice_path": voice_path,
             "visual_path": vpath,
             "visual_kind": vkind,
