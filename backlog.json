@@ -71,6 +71,16 @@
       "used": true
     },
     {
+      "id": "the-tiny-water-drop-that-can-cut-through-steel",
+      "title": "The Tiny Water Drop That Can Cut Through Steel",
+      "hook": "Did you know a tiny drop of water can slice through solid steel?",
+      "angle": "Explaining the physics of water jet cutting technology, where water under extreme pressure (often mixed with abrasives) can cut through incredibly tough materials, highlighting the counter-intuitive power of a seemingly soft substance.",
+      "psychology": "Surprise, awe, curiosity gap",
+      "keywords": "Water, steel, cutting",
+      "score": 91,
+      "used": true
+    },
+    {
       "id": "your-body-s-weirdest-self-defense-you-won-t-believe-what-it-",
       "title": "Your Body's Weirdest Self-Defense: You Won't Believe What It Does",
       "hook": "Did you know your own body is secretly trying to get rid of you... sort of?",
@@ -158,16 +168,6 @@
       "psychology": "Awe, mild fear, curiosity gap",
       "keywords": "Avalanche, sound, snow",
       "score": 89,
-      "used": false
-    },
-    {
-      "id": "the-tiny-water-drop-that-can-cut-through-steel",
-      "title": "The Tiny Water Drop That Can Cut Through Steel",
-      "hook": "Did you know a tiny drop of water can slice through solid steel?",
-      "angle": "Explaining the physics of water jet cutting technology, where water under extreme pressure (often mixed with abrasives) can cut through incredibly tough materials, highlighting the counter-intuitive power of a seemingly soft substance.",
-      "psychology": "Surprise, awe, curiosity gap",
-      "keywords": "Water, steel, cutting",
-      "score": 91,
       "used": false
     },
     {
