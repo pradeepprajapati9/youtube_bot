@@ -71,10 +71,13 @@ def _gemini_ideas(existing_titles: list[str], n: int, learnings: str = "", trend
         return []
     avoid = "; ".join(existing_titles[-40:]) or "none yet"
     prompt = (
-        f"You are a top YouTube GROWTH STRATEGIST for a brand-new faceless Shorts channel. "
-        f"Your only goal: pick the kinds of videos that will grow the channel's REACH "
-        f"(views, subscribers, watch time) the FASTEST, using the psychology of virality "
-        f"and human interest (curiosity gaps, emotion, surprise, relatability, share-ability). "
+        f"You are a top YouTube MONETIZATION strategist for a faceless Shorts channel. "
+        f"THE GOAL IS TO EARN MONEY. So pick ideas that (1) make the viewer FREEZE and "
+        f"watch to the very end (an irresistible scroll-stopping hook), and (2) trigger "
+        f"SUBSCRIBES, COMMENTS and SHARES - because engagement + watch-time = algorithm "
+        f"push = more views = faster monetization. Use the psychology of virality "
+        f"(curiosity gaps, surprise, emotion, relatability, 'I must tell someone'). "
+        f"Prefer broadly-appealing topics (bigger audience = more views). "
         f"The topic can be ANYTHING in this safe space: {config.NICHE_DESC}\n"
         + (f"\nDATA FROM THIS CHANNEL - {learnings} Lean HARD toward what already works.\n"
            if learnings else "")
@@ -87,9 +90,10 @@ def _gemini_ideas(existing_titles: list[str], n: int, learnings: str = "", trend
         "lesser-known facts about ___', 'What they never told you about ___', 'Why ___ is "
         "more dangerous/amazing than you think'. Keep them faceless-friendly (about the "
         "topic, NOT about a person's life).\n"
-        + f"\nBrainstorm {n} NEW, original Short ideas with the highest growth potential. "
-        f"Think like a human creator - each needs a real scroll-stopping hook and a fresh "
-        f"angle, NOT a generic listicle. Mix topics; choose whatever will get the most reach.\n"
+        + f"\nBrainstorm {n} NEW, original Short ideas with the highest MONETIZATION potential. "
+        f"Think like a human creator - each needs an irresistible scroll-stopping hook, a fresh "
+        f"angle, and a built-in reason to comment/share. NOT a generic listicle. Mix topics; "
+        f"choose whatever compels the most people to watch fully and engage.\n"
         f"Do NOT repeat or closely resemble these existing ideas: {avoid}.\n"
         f"Return ONLY a valid JSON array. Each item exactly:\n"
         f'{{"title": "...", "hook": "...", "angle": "...", "psychology": "...", '
@@ -98,7 +102,8 @@ def _gemini_ideas(existing_titles: list[str], n: int, learnings: str = "", trend
         f"hook = the spoken first line; angle = the original take that makes it fresh; "
         f"psychology = the virality trigger it uses (curiosity gap, emotion, relatability, "
         f"surprise, social proof...); keywords = 2-3 words for stock imagery; "
-        f"score = your honest 0-100 estimate of REACH/growth + originality potential."
+        f"score = your honest 0-100 estimate of: scroll-stopping power + watch-to-end "
+        f"retention + comment/share/subscribe pull + audience size (i.e. money potential)."
     )
     raw = gemini_call(prompt)
     if not raw:
