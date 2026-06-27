@@ -91,6 +91,16 @@
       "used": true
     },
     {
+      "id": "the-planet-where-you-could-literally-walk-into-space",
+      "title": "The Planet Where You Could Literally Walk Into Space",
+      "hook": "Imagine a planet where just one step could launch you into space.",
+      "angle": "Exploring the physics of extremely low-gravity celestial bodies (like certain asteroids or very small moons) where escape velocity is so low that a human jump could send you drifting off into the cosmos.",
+      "psychology": "Awe, surprise, curiosity gap",
+      "keywords": "Planet, space, gravity",
+      "score": 90,
+      "used": true
+    },
+    {
       "id": "your-body-s-weirdest-self-defense-you-won-t-believe-what-it-",
       "title": "Your Body's Weirdest Self-Defense: You Won't Believe What It Does",
       "hook": "Did you know your own body is secretly trying to get rid of you... sort of?",
@@ -138,16 +148,6 @@
       "psychology": "Curiosity gap, surprise, relatability",
       "keywords": "Brain, vision, colors",
       "score": 88,
-      "used": false
-    },
-    {
-      "id": "the-planet-where-you-could-literally-walk-into-space",
-      "title": "The Planet Where You Could Literally Walk Into Space",
-      "hook": "Imagine a planet where just one step could launch you into space.",
-      "angle": "Exploring the physics of extremely low-gravity celestial bodies (like certain asteroids or very small moons) where escape velocity is so low that a human jump could send you drifting off into the cosmos.",
-      "psychology": "Awe, surprise, curiosity gap",
-      "keywords": "Planet, space, gravity",
-      "score": 90,
       "used": false
     },
     {
