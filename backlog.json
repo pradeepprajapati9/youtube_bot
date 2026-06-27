@@ -121,6 +121,16 @@
       "used": true
     },
     {
+      "id": "the-deadly-whisper-spot-where-sound-triggers-avalanches",
+      "title": "The Deadly Whisper Spot: Where Sound Triggers Avalanches",
+      "hook": "There's a place on Earth where a single whisper can trigger a deadly avalanche.",
+      "angle": "Explaining the rare meteorological and geological conditions (e.g., specific snowpack types, resonant frequencies in certain valleys) where even a small sound could initiate an avalanche, distinguishing from common misconceptions.",
+      "psychology": "Awe, mild fear, curiosity gap",
+      "keywords": "Avalanche, sound, snow",
+      "score": 89,
+      "used": true
+    },
+    {
       "id": "your-body-s-weirdest-self-defense-you-won-t-believe-what-it-",
       "title": "Your Body's Weirdest Self-Defense: You Won't Believe What It Does",
       "hook": "Did you know your own body is secretly trying to get rid of you... sort of?",
@@ -168,16 +178,6 @@
       "psychology": "Relatability, surprise, curiosity gap",
       "keywords": "Ancient, kitchen, grater",
       "score": 87,
-      "used": false
-    },
-    {
-      "id": "the-deadly-whisper-spot-where-sound-triggers-avalanches",
-      "title": "The Deadly Whisper Spot: Where Sound Triggers Avalanches",
-      "hook": "There's a place on Earth where a single whisper can trigger a deadly avalanche.",
-      "angle": "Explaining the rare meteorological and geological conditions (e.g., specific snowpack types, resonant frequencies in certain valleys) where even a small sound could initiate an avalanche, distinguishing from common misconceptions.",
-      "psychology": "Awe, mild fear, curiosity gap",
-      "keywords": "Avalanche, sound, snow",
-      "score": 89,
       "used": false
     },
     {
