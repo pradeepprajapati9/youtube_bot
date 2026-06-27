@@ -111,6 +111,16 @@
       "used": true
     },
     {
+      "id": "the-sci-fi-clothing-that-s-already-learning-to-heal-your-bod",
+      "title": "The Sci-Fi Clothing That's Already Learning to Heal Your Body",
+      "hook": "Forget self-driving cars. Soon, your clothes will not only track your health, they'll literally heal you.",
+      "angle": "Showcasing cutting-edge, near-future technology that reimagines everyday items with capabilities that blur the line between science and magic.",
+      "psychology": "Wonder, surprise, future anticipation, curiosity gap",
+      "keywords": "clothes, smart, future",
+      "score": 89,
+      "used": true
+    },
+    {
       "id": "your-body-s-weirdest-self-defense-you-won-t-believe-what-it-",
       "title": "Your Body's Weirdest Self-Defense: You Won't Believe What It Does",
       "hook": "Did you know your own body is secretly trying to get rid of you... sort of?",
@@ -138,16 +148,6 @@
       "psychology": "Surprise, suspense, curiosity gap, historical intrigue",
       "keywords": "history, royal, accident",
       "score": 82,
-      "used": false
-    },
-    {
-      "id": "the-sci-fi-clothing-that-s-already-learning-to-heal-your-bod",
-      "title": "The Sci-Fi Clothing That's Already Learning to Heal Your Body",
-      "hook": "Forget self-driving cars. Soon, your clothes will not only track your health, they'll literally heal you.",
-      "angle": "Showcasing cutting-edge, near-future technology that reimagines everyday items with capabilities that blur the line between science and magic.",
-      "psychology": "Wonder, surprise, future anticipation, curiosity gap",
-      "keywords": "clothes, smart, future",
-      "score": 89,
       "used": false
     },
     {
