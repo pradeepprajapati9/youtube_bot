@@ -73,9 +73,10 @@ def _gemini_scenes(topic: str, ctx: str):
         f"engagement line that invites a comment (e.g. ask the viewer a question), and end "
         f"with a line that loops back to the hook so a replay feels seamless. Include 'follow "
         f"for more'.\n"
-        f"Each narration 12-24 words, conversational, no emojis. "
-        f"'keyword' = 2-3 English words for a matching stock clip. "
-        f"Title = curiosity-driving but ACCURATE (no clickbait lies), under 85 chars, add #Shorts.\n"
+        f"Each narration 12-24 words in {lang}, conversational, no emojis. "
+        f"'keyword' = 2-3 ENGLISH words for a matching stock clip (always English). "
+        f"Title = in {lang}, curiosity-driving but ACCURATE (no clickbait lies), under 85 "
+        f"chars, add #Shorts. narration, title and description all in {lang}.\n"
         f"SAFETY: only well-established verifiable facts - no made-up statistics, no "
         f"medical/financial/legal advice, no defamation, no shocking/violent claims."
     )

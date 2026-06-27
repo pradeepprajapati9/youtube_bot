@@ -80,6 +80,13 @@ def _gemini_ideas(existing_titles: list[str], n: int, learnings: str = "", trend
            if learnings else "")
         + (f"\n{trends} If any fits the safe space and can be made original and on-brand, "
            f"include ONE timely tie-in idea (trend-riding gets fast reach).\n" if trends else "")
+        + "\nUse these PROVEN viral formats where they fit (fill the niche into the blank): "
+        "'5 facts you didn't know about ___', '10 things nobody tells you about ___', "
+        "'The truth about ___', 'Debunking a common myth about ___', '___ mistakes everyone "
+        "makes', 'Why ___ is not what you think', 'Stop believing this about ___', '5 "
+        "lesser-known facts about ___', 'What they never told you about ___', 'Why ___ is "
+        "more dangerous/amazing than you think'. Keep them faceless-friendly (about the "
+        "topic, NOT about a person's life).\n"
         + f"\nBrainstorm {n} NEW, original Short ideas with the highest growth potential. "
         f"Think like a human creator - each needs a real scroll-stopping hook and a fresh "
         f"angle, NOT a generic listicle. Mix topics; choose whatever will get the most reach.\n"

@@ -15,13 +15,17 @@ W, H = config.WIDTH, config.HEIGHT
 
 
 def _font():
-    candidates = (
-        config.FONT_PATH,
-        r"C:\Windows\Fonts\segoeuib.ttf", r"C:\Windows\Fonts\arial.ttf",
-        # Linux / GitHub Actions runners
-        "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
-        "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
-    )
+    # Devanagari-capable fonts (needed for Hindi captions)
+    hindi = [r"C:\Windows\Fonts\NirmalaB.ttf", r"C:\Windows\Fonts\Nirmala.ttf",
+             r"C:\Windows\Fonts\Nirmala.ttc", r"C:\Windows\Fonts\mangal.ttf",
+             "/usr/share/fonts/truetype/noto/NotoSansDevanagari-Bold.ttf",
+             "/usr/share/fonts/truetype/lohit-devanagari/Lohit-Devanagari.ttf"]
+    latin = [config.FONT_PATH, r"C:\Windows\Fonts\segoeuib.ttf",
+             r"C:\Windows\Fonts\arial.ttf",
+             "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
+             "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"]
+    # for Hindi, try Devanagari fonts first
+    candidates = (hindi + latin) if config.LANG == "hi" else (latin + hindi)
     for f in candidates:
         if os.path.exists(f):
             return f
