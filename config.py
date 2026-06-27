@@ -30,6 +30,9 @@ GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "").strip()
 # stats -> powers the growth feedback loop. Optional; loop is dormant without it.
 YT_API_KEY = os.getenv("YT_API_KEY", "").strip()
 YT_PRIVACY = os.getenv("YT_PRIVACY", "private").strip()
+# Cross-promotion: link viewers to your other assets (feeds one audience).
+BLOG_URL = os.getenv("BLOG_URL", "https://pradeepprajapati9.github.io/blog_bot/").strip()
+TELEGRAM_URL = os.getenv("TELEGRAM_URL", "https://t.me/+JWcY4Vns1q03ZmRl").strip()
 DO_UPLOAD = os.getenv("DO_UPLOAD", "false").lower() == "true"
 # After a successful upload, wipe generated files + trim the log so storage
 # never grows. Only the tiny state.json (used-topics) is kept.

@@ -104,8 +104,16 @@ def run():
     editor.build_slideshow(scenes, video_path)
     log(f"Video built: {video_path}")
 
-    # build a compliance-safe description (AI disclosure + disclaimer + credits)
-    desc_parts = [meta["description"], "", config.AI_DISCLOSURE, config.DISCLAIMER]
+    # cross-promotion so every video feeds your other assets (one audience)
+    promo = []
+    if config.BLOG_URL:
+        promo.append(f"📚 Free tips, guides & calculators: {config.BLOG_URL}")
+    if config.TELEGRAM_URL:
+        promo.append(f"💬 Daily deals on Telegram: {config.TELEGRAM_URL}")
+    promo.append("🔔 Subscribe for daily videos!")
+
+    # build a compliance-safe description (cross-promo + disclosure + disclaimer + credits)
+    desc_parts = [meta["description"], ""] + promo + ["", config.AI_DISCLOSURE, config.DISCLAIMER]
     if credits:
         uniq = list(dict.fromkeys(credits))   # de-dupe, keep order
         desc_parts += ["", "Image credits:"] + [f"- {c}" for c in uniq]
