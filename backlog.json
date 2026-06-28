@@ -181,6 +181,16 @@
       "used": true
     },
     {
+      "id": "why-this-small-earthquake-could-be-more-dangerous-than-you-t",
+      "title": "Why This 'Small' Earthquake Could Be More Dangerous Than You Think.",
+      "hook": "Forget the magnitude. A 'small' earthquake in the wrong location can be far more catastrophic and deadly than a massive one.",
+      "angle": "Explaining the factors beyond magnitude (like depth, proximity to population, soil type, building codes) that determine an earthquake's true danger, using recent events as a subtle but relevant backdrop.",
+      "psychology": "Curiosity gap, concern, surprise, 'I must tell someone' (awareness), timeliness (trending topic tie-in).",
+      "keywords": "Earthquake, danger, seismic science",
+      "score": 91,
+      "used": true
+    },
+    {
       "id": "your-body-s-weirdest-self-defense-you-won-t-believe-what-it-",
       "title": "Your Body's Weirdest Self-Defense: You Won't Believe What It Does",
       "hook": "Did you know your own body is secretly trying to get rid of you... sort of?",
@@ -268,16 +278,6 @@
       "psychology": "Curiosity gap, surprise, debunking a common myth, historical revision.",
       "keywords": "Ancient Rome, colorful history, debunking",
       "score": 90,
-      "used": false
-    },
-    {
-      "id": "why-this-small-earthquake-could-be-more-dangerous-than-you-t",
-      "title": "Why This 'Small' Earthquake Could Be More Dangerous Than You Think.",
-      "hook": "Forget the magnitude. A 'small' earthquake in the wrong location can be far more catastrophic and deadly than a massive one.",
-      "angle": "Explaining the factors beyond magnitude (like depth, proximity to population, soil type, building codes) that determine an earthquake's true danger, using recent events as a subtle but relevant backdrop.",
-      "psychology": "Curiosity gap, concern, surprise, 'I must tell someone' (awareness), timeliness (trending topic tie-in).",
-      "keywords": "Earthquake, danger, seismic science",
-      "score": 91,
       "used": false
     },
     {
