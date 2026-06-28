@@ -201,6 +201,16 @@
       "used": true
     },
     {
+      "id": "in-2029-your-own-body-could-become-a-power-plant",
+      "title": "In 2029, Your Own Body Could Become A Power Plant.",
+      "hook": "Imagine generating enough electricity from your own body to power small devices. By 2029, this sci-fi concept could become reality.",
+      "angle": "Highlighting cutting-edge research in biomechanical and thermoelectric energy harvesting, explaining how our movement, heat, and even internal biological processes could be tapped to create sustainable personal power.",
+      "psychology": "Awe, future curiosity, relatability (my body?), surprise, 'what if' scenario (trending topic tie-in).",
+      "keywords": "2029, body power, future tech",
+      "score": 90,
+      "used": true
+    },
+    {
       "id": "your-body-s-weirdest-self-defense-you-won-t-believe-what-it-",
       "title": "Your Body's Weirdest Self-Defense: You Won't Believe What It Does",
       "hook": "Did you know your own body is secretly trying to get rid of you... sort of?",
@@ -288,16 +298,6 @@
       "psychology": "Surprise, awe, curiosity gap, slight intrigue/unease, impact on daily life.",
       "keywords": "Fungus, food science, hidden network",
       "score": 89,
-      "used": false
-    },
-    {
-      "id": "in-2029-your-own-body-could-become-a-power-plant",
-      "title": "In 2029, Your Own Body Could Become A Power Plant.",
-      "hook": "Imagine generating enough electricity from your own body to power small devices. By 2029, this sci-fi concept could become reality.",
-      "angle": "Highlighting cutting-edge research in biomechanical and thermoelectric energy harvesting, explaining how our movement, heat, and even internal biological processes could be tapped to create sustainable personal power.",
-      "psychology": "Awe, future curiosity, relatability (my body?), surprise, 'what if' scenario (trending topic tie-in).",
-      "keywords": "2029, body power, future tech",
-      "score": 90,
       "used": false
     }
   ]
