@@ -151,6 +151,16 @@
       "used": true
     },
     {
+      "id": "this-common-sand-is-hiding-a-literal-planet-inside-it",
+      "title": "This Common Sand Is Hiding A Literal Planet Inside It.",
+      "hook": "That sand on the beach isn't just tiny rocks. It contains microscopic crystals that are literally older than our sun!",
+      "angle": "Focusing on zircon crystals found in sand, which are incredibly resilient and contain the oldest known material on Earth, offering a window into the planet's formation and even pre-solar history.",
+      "psychology": "Awe, surprise, curiosity gap, connecting the mundane to the cosmic.",
+      "keywords": "Sand, ancient crystals, Earth's age",
+      "score": 94,
+      "used": true
+    },
+    {
       "id": "your-body-s-weirdest-self-defense-you-won-t-believe-what-it-",
       "title": "Your Body's Weirdest Self-Defense: You Won't Believe What It Does",
       "hook": "Did you know your own body is secretly trying to get rid of you... sort of?",
@@ -258,16 +268,6 @@
       "psychology": "Surprise, awe, curiosity gap, cognitive dissonance (common experience vs. scientific truth).",
       "keywords": "Sun, sunset, space illusion",
       "score": 93,
-      "used": false
-    },
-    {
-      "id": "this-common-sand-is-hiding-a-literal-planet-inside-it",
-      "title": "This Common Sand Is Hiding A Literal Planet Inside It.",
-      "hook": "That sand on the beach isn't just tiny rocks. It contains microscopic crystals that are literally older than our sun!",
-      "angle": "Focusing on zircon crystals found in sand, which are incredibly resilient and contain the oldest known material on Earth, offering a window into the planet's formation and even pre-solar history.",
-      "psychology": "Awe, surprise, curiosity gap, connecting the mundane to the cosmic.",
-      "keywords": "Sand, ancient crystals, Earth's age",
-      "score": 94,
       "used": false
     },
     {
