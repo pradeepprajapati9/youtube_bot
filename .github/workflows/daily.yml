@@ -57,7 +57,7 @@ jobs:
           YT_API_KEY: ${{ secrets.YT_API_KEY }}
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
-          VIDEO_LANG: hi
+          VIDEO_LANG: en
           TREND_GEO: IN
           CONTENT_MODE: evergreen
           YT_PRIVACY: public
