@@ -161,6 +161,16 @@
       "used": true
     },
     {
+      "id": "why-the-sun-s-sunset-colors-are-a-gigantic-lie-from-space",
+      "title": "Why The Sun's Sunset Colors Are A Gigantic Lie (From Space).",
+      "hook": "Those beautiful red and orange sunsets you cherish? From space, the sun looks completely different. It's an atmospheric trick!",
+      "angle": "Explaining Rayleigh scattering and how Earth's atmosphere filters sunlight, creating the illusion of sunset colors, and contrasting it with the sun's true white appearance beyond our planet.",
+      "psychology": "Surprise, awe, curiosity gap, cognitive dissonance (common experience vs. scientific truth).",
+      "keywords": "Sun, sunset, space illusion",
+      "score": 93,
+      "used": true
+    },
+    {
       "id": "your-body-s-weirdest-self-defense-you-won-t-believe-what-it-",
       "title": "Your Body's Weirdest Self-Defense: You Won't Believe What It Does",
       "hook": "Did you know your own body is secretly trying to get rid of you... sort of?",
@@ -258,16 +268,6 @@
       "psychology": "Curiosity gap, surprise, debunking a common myth, historical revision.",
       "keywords": "Ancient Rome, colorful history, debunking",
       "score": 90,
-      "used": false
-    },
-    {
-      "id": "why-the-sun-s-sunset-colors-are-a-gigantic-lie-from-space",
-      "title": "Why The Sun's Sunset Colors Are A Gigantic Lie (From Space).",
-      "hook": "Those beautiful red and orange sunsets you cherish? From space, the sun looks completely different. It's an atmospheric trick!",
-      "angle": "Explaining Rayleigh scattering and how Earth's atmosphere filters sunlight, creating the illusion of sunset colors, and contrasting it with the sun's true white appearance beyond our planet.",
-      "psychology": "Surprise, awe, curiosity gap, cognitive dissonance (common experience vs. scientific truth).",
-      "keywords": "Sun, sunset, space illusion",
-      "score": 93,
       "used": false
     },
     {
