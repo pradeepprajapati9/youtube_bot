@@ -171,6 +171,16 @@
       "used": true
     },
     {
+      "id": "sound-waves-can-shatter-glass-but-there-s-a-catch",
+      "title": "Sound Waves Can Shatter Glass. But There's a Catch.",
+      "hook": "Ever seen a singer shatter glass with their voice? It's real, but it's not about volume...",
+      "angle": "Debunking the common misconception that loudness alone breaks glass, and explaining the true science of resonance and frequency that makes it possible.",
+      "psychology": "Surprise, curiosity gap, awe, debunking a myth.",
+      "keywords": "Sound waves, glass, frequency",
+      "score": 92,
+      "used": true
+    },
+    {
       "id": "your-body-s-weirdest-self-defense-you-won-t-believe-what-it-",
       "title": "Your Body's Weirdest Self-Defense: You Won't Believe What It Does",
       "hook": "Did you know your own body is secretly trying to get rid of you... sort of?",
@@ -238,16 +248,6 @@
       "psychology": "Relatability, curiosity gap, surprise",
       "keywords": "Umbrella, superstition, history",
       "score": 89,
-      "used": false
-    },
-    {
-      "id": "sound-waves-can-shatter-glass-but-there-s-a-catch",
-      "title": "Sound Waves Can Shatter Glass. But There's a Catch.",
-      "hook": "Ever seen a singer shatter glass with their voice? It's real, but it's not about volume...",
-      "angle": "Debunking the common misconception that loudness alone breaks glass, and explaining the true science of resonance and frequency that makes it possible.",
-      "psychology": "Surprise, curiosity gap, awe, debunking a myth.",
-      "keywords": "Sound waves, glass, frequency",
-      "score": 92,
       "used": false
     },
     {
