@@ -191,6 +191,16 @@
       "used": true
     },
     {
+      "id": "the-ancient-rome-you-see-is-not-what-it-really-looked-like",
+      "title": "The 'Ancient' Rome You See Is Not What It Really Looked Like.",
+      "hook": "Stop believing the perfectly white marble myth. Ancient Rome was painted in wild, vibrant colors!",
+      "angle": "Debunking the modern perception of classical antiquity as stark white, revealing the surprising historical truth of brightly painted statues and buildings that would shock us today.",
+      "psychology": "Curiosity gap, surprise, debunking a common myth, historical revision.",
+      "keywords": "Ancient Rome, colorful history, debunking",
+      "score": 90,
+      "used": true
+    },
+    {
       "id": "your-body-s-weirdest-self-defense-you-won-t-believe-what-it-",
       "title": "Your Body's Weirdest Self-Defense: You Won't Believe What It Does",
       "hook": "Did you know your own body is secretly trying to get rid of you... sort of?",
@@ -268,16 +278,6 @@
       "psychology": "Surprise, 'I must tell someone', curiosity gap, mild gross-out fascination.",
       "keywords": "Animal, bizarre breathing, sea cucumber",
       "score": 88,
-      "used": false
-    },
-    {
-      "id": "the-ancient-rome-you-see-is-not-what-it-really-looked-like",
-      "title": "The 'Ancient' Rome You See Is Not What It Really Looked Like.",
-      "hook": "Stop believing the perfectly white marble myth. Ancient Rome was painted in wild, vibrant colors!",
-      "angle": "Debunking the modern perception of classical antiquity as stark white, revealing the surprising historical truth of brightly painted statues and buildings that would shock us today.",
-      "psychology": "Curiosity gap, surprise, debunking a common myth, historical revision.",
-      "keywords": "Ancient Rome, colorful history, debunking",
-      "score": 90,
       "used": false
     },
     {
