@@ -221,6 +221,16 @@
       "used": true
     },
     {
+      "id": "this-fungus-is-controlling-your-food-right-now-without-you-k",
+      "title": "This Fungus Is Controlling Your Food, Right Now, Without You Knowing.",
+      "hook": "A secret, invisible network of fungi is manipulating how your food grows... and you've been eating its influence for years.",
+      "angle": "Unveiling the hidden world of mycorrhizal fungi, explaining how they form vast underground networks connecting plants, sharing nutrients, and acting as the 'internet of the forest,' essential for our food supply.",
+      "psychology": "Surprise, awe, curiosity gap, slight intrigue/unease, impact on daily life.",
+      "keywords": "Fungus, food science, hidden network",
+      "score": 89,
+      "used": true
+    },
+    {
       "id": "your-body-s-weirdest-self-defense-you-won-t-believe-what-it-",
       "title": "Your Body's Weirdest Self-Defense: You Won't Believe What It Does",
       "hook": "Did you know your own body is secretly trying to get rid of you... sort of?",
@@ -288,16 +298,6 @@
       "psychology": "Surprise, 'I must tell someone', curiosity gap, mild gross-out fascination.",
       "keywords": "Animal, bizarre breathing, sea cucumber",
       "score": 88,
-      "used": false
-    },
-    {
-      "id": "this-fungus-is-controlling-your-food-right-now-without-you-k",
-      "title": "This Fungus Is Controlling Your Food, Right Now, Without You Knowing.",
-      "hook": "A secret, invisible network of fungi is manipulating how your food grows... and you've been eating its influence for years.",
-      "angle": "Unveiling the hidden world of mycorrhizal fungi, explaining how they form vast underground networks connecting plants, sharing nutrients, and acting as the 'internet of the forest,' essential for our food supply.",
-      "psychology": "Surprise, awe, curiosity gap, slight intrigue/unease, impact on daily life.",
-      "keywords": "Fungus, food science, hidden network",
-      "score": 89,
       "used": false
     }
   ]
