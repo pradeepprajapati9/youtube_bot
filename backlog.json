@@ -241,6 +241,16 @@
       "used": true
     },
     {
+      "id": "why-lightning-actually-strikes-up-not-down",
+      "title": "Why Lightning Actually Strikes UP, Not Down",
+      "hook": "You've been told lightning strikes down, but the shocking truth is, it usually strikes UP from the ground!",
+      "angle": "Debunking the common misconception by explaining the physics of lightning: the 'stepped leader' descending and the powerful 'return stroke' ascending.",
+      "psychology": "Debunking a common myth, surprise, awe, curiosity gap.",
+      "keywords": "Lightning, weather, science, physics",
+      "score": 94,
+      "used": true
+    },
+    {
       "id": "your-body-s-weirdest-self-defense-you-won-t-believe-what-it-",
       "title": "Your Body's Weirdest Self-Defense: You Won't Believe What It Does",
       "hook": "Did you know your own body is secretly trying to get rid of you... sort of?",
@@ -378,16 +388,6 @@
       "psychology": "Curiosity gap, surprise, debunking common historical perception, awe.",
       "keywords": "Ancient history, plumbing, civilization, archaeology",
       "score": 89,
-      "used": false
-    },
-    {
-      "id": "why-lightning-actually-strikes-up-not-down",
-      "title": "Why Lightning Actually Strikes UP, Not Down",
-      "hook": "You've been told lightning strikes down, but the shocking truth is, it usually strikes UP from the ground!",
-      "angle": "Debunking the common misconception by explaining the physics of lightning: the 'stepped leader' descending and the powerful 'return stroke' ascending.",
-      "psychology": "Debunking a common myth, surprise, awe, curiosity gap.",
-      "keywords": "Lightning, weather, science, physics",
-      "score": 94,
       "used": false
     },
     {
