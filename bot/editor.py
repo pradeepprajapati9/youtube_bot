@@ -178,14 +178,19 @@ def _add_music(video):
         return video
 
 
-def build_slideshow(scenes: list[dict], out_path: str) -> str:
-    """scenes: [{narration, visual_path, visual_kind, voice_path}, ...]"""
+def build_slideshow(scenes: list[dict], out_path: str, max_seconds: float = None) -> str:
+    """scenes: [{narration, visual_path, visual_kind, voice_path}, ...]
+
+    max_seconds caps total length; defaults to config.MAX_SECONDS (Shorts).
+    Pass a larger value (e.g. from longform.py) for regular long-form videos.
+    """
+    cap = max_seconds or config.MAX_SECONDS
     font = _font()
     clips, total = [], 0.0
     for sc in scenes:
         clip = _scene_clip(sc, font)
-        if total + clip.duration > config.MAX_SECONDS:
-            break  # keep it a Short
+        if total + clip.duration > cap:
+            break  # length limit reached
         clips.append(clip)
         total += clip.duration
 
