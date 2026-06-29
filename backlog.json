@@ -211,6 +211,16 @@
       "used": true
     },
     {
+      "id": "the-umbrella-superstition-science-behind-the-bad-luck",
+      "title": "The Umbrella Superstition: Science Behind The 'Bad Luck'",
+      "hook": "Is it really bad luck to open an umbrella indoors? The shocking truth.",
+      "angle": "Tracing the historical and practical origins of the 'umbrella indoors' superstition (e.g., cumbersome early umbrellas causing injuries, warning against carelessness) and debunking the supernatural aspect with historical context.",
+      "psychology": "Relatability, curiosity gap, surprise",
+      "keywords": "Umbrella, superstition, history",
+      "score": 89,
+      "used": true
+    },
+    {
       "id": "your-body-s-weirdest-self-defense-you-won-t-believe-what-it-",
       "title": "Your Body's Weirdest Self-Defense: You Won't Believe What It Does",
       "hook": "Did you know your own body is secretly trying to get rid of you... sort of?",
@@ -268,16 +278,6 @@
       "psychology": "Relatability, curiosity gap, surprise",
       "keywords": "Shiver, body, emotion",
       "score": 88,
-      "used": false
-    },
-    {
-      "id": "the-umbrella-superstition-science-behind-the-bad-luck",
-      "title": "The Umbrella Superstition: Science Behind The 'Bad Luck'",
-      "hook": "Is it really bad luck to open an umbrella indoors? The shocking truth.",
-      "angle": "Tracing the historical and practical origins of the 'umbrella indoors' superstition (e.g., cumbersome early umbrellas causing injuries, warning against carelessness) and debunking the supernatural aspect with historical context.",
-      "psychology": "Relatability, curiosity gap, surprise",
-      "keywords": "Umbrella, superstition, history",
-      "score": 89,
       "used": false
     },
     {
