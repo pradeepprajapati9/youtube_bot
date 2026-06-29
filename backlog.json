@@ -231,6 +231,16 @@
       "used": true
     },
     {
+      "id": "your-car-has-a-secret-black-box-recording-everything",
+      "title": "Your Car Has a Secret 'Black Box' Recording Everything",
+      "hook": "Think your car just gets you from A to B? It's secretly recording your every move, speed, and even braking patterns.",
+      "angle": "Revealing the Event Data Recorder (EDR) in modern cars, what data it collects, and the implications for privacy and accident investigation.",
+      "psychology": "Curiosity gap, surprise, relatability (car owners), mild fear/privacy concern, 'I must tell someone'.",
+      "keywords": "Car, black box, privacy, technology",
+      "score": 95,
+      "used": true
+    },
+    {
       "id": "your-body-s-weirdest-self-defense-you-won-t-believe-what-it-",
       "title": "Your Body's Weirdest Self-Defense: You Won't Believe What It Does",
       "hook": "Did you know your own body is secretly trying to get rid of you... sort of?",
@@ -298,6 +308,96 @@
       "psychology": "Surprise, 'I must tell someone', curiosity gap, mild gross-out fascination.",
       "keywords": "Animal, bizarre breathing, sea cucumber",
       "score": 88,
+      "used": false
+    },
+    {
+      "id": "ancient-pyramids-not-built-by-slaves",
+      "title": "Ancient Pyramids: Not Built by Slaves",
+      "hook": "Stop believing this myth about the pyramids. It's not what you think!",
+      "angle": "Debunking the pervasive myth of slave labor in pyramid construction, presenting archaeological evidence of paid workers and advanced organization.",
+      "psychology": "Debunking a common myth, surprise, curiosity gap, historical revision.",
+      "keywords": "Pyramids, ancient Egypt, history",
+      "score": 88,
+      "used": false
+    },
+    {
+      "id": "why-you-forget-why-you-entered-a-room",
+      "title": "Why You Forget Why You Entered a Room",
+      "hook": "Ever walk into a room and instantly forget why you're there? Your brain has a secret 'doorway effect'!",
+      "angle": "Explaining the 'doorway effect' in psychology and how changing environments can cause temporary memory lapses.",
+      "psychology": "Relatability, curiosity gap, validation, surprise.",
+      "keywords": "Brain, memory, psychology",
+      "score": 92,
+      "used": false
+    },
+    {
+      "id": "the-fish-that-climbs-trees-seriously",
+      "title": "The Fish That Climbs Trees (Seriously!)",
+      "hook": "Forget flying fish. There's an animal that breathes air, walks on land, and actually climbs trees!",
+      "angle": "Introducing the mudskipper, an amphibious fish with bizarre adaptations that allow it to live and hunt outside of water, including scaling mangroves.",
+      "psychology": "Surprise, awe, curiosity gap, 'I must tell someone'.",
+      "keywords": "Mudskipper, fish, nature, animals",
+      "score": 90,
+      "used": false
+    },
+    {
+      "id": "the-empty-space-that-isn-t-empty-at-all",
+      "title": "The 'Empty' Space That Isn't Empty At All",
+      "hook": "Think the space between galaxies is empty? The truth is far stranger, and it's constantly pulling everything apart.",
+      "angle": "Explaining dark energy and cosmic filaments, revealing the hidden structure and active forces of the universe that fill seemingly 'empty' space.",
+      "psychology": "Curiosity gap, awe, surprise, mind-blowing facts.",
+      "keywords": "Space, dark energy, universe",
+      "score": 87,
+      "used": false
+    },
+    {
+      "id": "plants-scream-when-they-re-stressed-here-s-how",
+      "title": "Plants Scream When They're Stressed. Here's How.",
+      "hook": "Think plants are silent? Science just confirmed they 'scream' when thirsty or cut, and we can actually hear it.",
+      "angle": "Explaining plant cavitation and recent research on ultrasonic sounds emitted by plants under stress, undetectable to human ears.",
+      "psychology": "Surprise, awe, curiosity gap, emotional connection (empathy for plants).",
+      "keywords": "Plants, science, sound, nature",
+      "score": 91,
+      "used": false
+    },
+    {
+      "id": "your-body-s-secret-painkiller-stronger-than-morphine",
+      "title": "Your Body's Secret Painkiller: Stronger Than Morphine",
+      "hook": "Forget pills. Your own body produces an incredible painkiller, naturally, that's hundreds of times more potent than morphine.",
+      "angle": "Explaining endorphins, enkephalins, and other endogenous opioids – the body's natural pain relief system and how it works.",
+      "psychology": "Surprise, awe, curiosity gap, relatability (everyone experiences pain).",
+      "keywords": "Body, pain, endorphins, biology",
+      "score": 93,
+      "used": false
+    },
+    {
+      "id": "the-civilization-that-had-flush-toilets-before-rome",
+      "title": "The Civilization That Had Flush Toilets Before Rome",
+      "hook": "Think Rome invented advanced plumbing? A forgotten civilization had flush toilets and sewage systems thousands of years earlier.",
+      "angle": "Highlighting the sophisticated urban planning and sanitation systems of the Indus Valley Civilization (e.g., Mohenjo-Daro) long before Roman aqueducts.",
+      "psychology": "Curiosity gap, surprise, debunking common historical perception, awe.",
+      "keywords": "Ancient history, plumbing, civilization, archaeology",
+      "score": 89,
+      "used": false
+    },
+    {
+      "id": "why-lightning-actually-strikes-up-not-down",
+      "title": "Why Lightning Actually Strikes UP, Not Down",
+      "hook": "You've been told lightning strikes down, but the shocking truth is, it usually strikes UP from the ground!",
+      "angle": "Debunking the common misconception by explaining the physics of lightning: the 'stepped leader' descending and the powerful 'return stroke' ascending.",
+      "psychology": "Debunking a common myth, surprise, awe, curiosity gap.",
+      "keywords": "Lightning, weather, science, physics",
+      "score": 94,
+      "used": false
+    },
+    {
+      "id": "the-brain-glitch-making-you-overthink-everything",
+      "title": "The Brain Glitch Making You Overthink Everything",
+      "hook": "Do you constantly replay conversations or worry about future events? Your brain has a hidden 'default mode' that's making you overthink.",
+      "angle": "Explaining the Default Mode Network (DMN) in the brain, its role in rumination and future-planning, and how it contributes to overthinking.",
+      "psychology": "Relatability, validation, curiosity gap, self-improvement.",
+      "keywords": "Overthinking, brain, psychology, mind",
+      "score": 90,
       "used": false
     }
   ]
