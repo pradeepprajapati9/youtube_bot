@@ -261,6 +261,16 @@
       "used": true
     },
     {
+      "id": "why-you-forget-why-you-entered-a-room",
+      "title": "Why You Forget Why You Entered a Room",
+      "hook": "Ever walk into a room and instantly forget why you're there? Your brain has a secret 'doorway effect'!",
+      "angle": "Explaining the 'doorway effect' in psychology and how changing environments can cause temporary memory lapses.",
+      "psychology": "Relatability, curiosity gap, validation, surprise.",
+      "keywords": "Brain, memory, psychology",
+      "score": 92,
+      "used": true
+    },
+    {
       "id": "your-body-s-weirdest-self-defense-you-won-t-believe-what-it-",
       "title": "Your Body's Weirdest Self-Defense: You Won't Believe What It Does",
       "hook": "Did you know your own body is secretly trying to get rid of you... sort of?",
@@ -338,16 +348,6 @@
       "psychology": "Debunking a common myth, surprise, curiosity gap, historical revision.",
       "keywords": "Pyramids, ancient Egypt, history",
       "score": 88,
-      "used": false
-    },
-    {
-      "id": "why-you-forget-why-you-entered-a-room",
-      "title": "Why You Forget Why You Entered a Room",
-      "hook": "Ever walk into a room and instantly forget why you're there? Your brain has a secret 'doorway effect'!",
-      "angle": "Explaining the 'doorway effect' in psychology and how changing environments can cause temporary memory lapses.",
-      "psychology": "Relatability, curiosity gap, validation, surprise.",
-      "keywords": "Brain, memory, psychology",
-      "score": 92,
       "used": false
     },
     {
