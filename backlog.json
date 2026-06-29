@@ -251,6 +251,16 @@
       "used": true
     },
     {
+      "id": "your-body-s-secret-painkiller-stronger-than-morphine",
+      "title": "Your Body's Secret Painkiller: Stronger Than Morphine",
+      "hook": "Forget pills. Your own body produces an incredible painkiller, naturally, that's hundreds of times more potent than morphine.",
+      "angle": "Explaining endorphins, enkephalins, and other endogenous opioids – the body's natural pain relief system and how it works.",
+      "psychology": "Surprise, awe, curiosity gap, relatability (everyone experiences pain).",
+      "keywords": "Body, pain, endorphins, biology",
+      "score": 93,
+      "used": true
+    },
+    {
       "id": "your-body-s-weirdest-self-defense-you-won-t-believe-what-it-",
       "title": "Your Body's Weirdest Self-Defense: You Won't Believe What It Does",
       "hook": "Did you know your own body is secretly trying to get rid of you... sort of?",
@@ -368,16 +378,6 @@
       "psychology": "Surprise, awe, curiosity gap, emotional connection (empathy for plants).",
       "keywords": "Plants, science, sound, nature",
       "score": 91,
-      "used": false
-    },
-    {
-      "id": "your-body-s-secret-painkiller-stronger-than-morphine",
-      "title": "Your Body's Secret Painkiller: Stronger Than Morphine",
-      "hook": "Forget pills. Your own body produces an incredible painkiller, naturally, that's hundreds of times more potent than morphine.",
-      "angle": "Explaining endorphins, enkephalins, and other endogenous opioids – the body's natural pain relief system and how it works.",
-      "psychology": "Surprise, awe, curiosity gap, relatability (everyone experiences pain).",
-      "keywords": "Body, pain, endorphins, biology",
-      "score": 93,
       "used": false
     },
     {
