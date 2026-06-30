@@ -291,6 +291,16 @@
       "used": true
     },
     {
+      "id": "the-brain-glitch-making-you-overthink-everything",
+      "title": "The Brain Glitch Making You Overthink Everything",
+      "hook": "Do you constantly replay conversations or worry about future events? Your brain has a hidden 'default mode' that's making you overthink.",
+      "angle": "Explaining the Default Mode Network (DMN) in the brain, its role in rumination and future-planning, and how it contributes to overthinking.",
+      "psychology": "Relatability, validation, curiosity gap, self-improvement.",
+      "keywords": "Overthinking, brain, psychology, mind",
+      "score": 90,
+      "used": true
+    },
+    {
       "id": "your-body-s-weirdest-self-defense-you-won-t-believe-what-it-",
       "title": "Your Body's Weirdest Self-Defense: You Won't Believe What It Does",
       "hook": "Did you know your own body is secretly trying to get rid of you... sort of?",
@@ -388,16 +398,6 @@
       "psychology": "Curiosity gap, surprise, debunking common historical perception, awe.",
       "keywords": "Ancient history, plumbing, civilization, archaeology",
       "score": 89,
-      "used": false
-    },
-    {
-      "id": "the-brain-glitch-making-you-overthink-everything",
-      "title": "The Brain Glitch Making You Overthink Everything",
-      "hook": "Do you constantly replay conversations or worry about future events? Your brain has a hidden 'default mode' that's making you overthink.",
-      "angle": "Explaining the Default Mode Network (DMN) in the brain, its role in rumination and future-planning, and how it contributes to overthinking.",
-      "psychology": "Relatability, validation, curiosity gap, self-improvement.",
-      "keywords": "Overthinking, brain, psychology, mind",
-      "score": 90,
       "used": false
     }
   ]
