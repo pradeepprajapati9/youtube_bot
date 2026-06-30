@@ -301,6 +301,16 @@
       "used": true
     },
     {
+      "id": "the-civilization-that-had-flush-toilets-before-rome",
+      "title": "The Civilization That Had Flush Toilets Before Rome",
+      "hook": "Think Rome invented advanced plumbing? A forgotten civilization had flush toilets and sewage systems thousands of years earlier.",
+      "angle": "Highlighting the sophisticated urban planning and sanitation systems of the Indus Valley Civilization (e.g., Mohenjo-Daro) long before Roman aqueducts.",
+      "psychology": "Curiosity gap, surprise, debunking common historical perception, awe.",
+      "keywords": "Ancient history, plumbing, civilization, archaeology",
+      "score": 89,
+      "used": true
+    },
+    {
       "id": "your-body-s-weirdest-self-defense-you-won-t-believe-what-it-",
       "title": "Your Body's Weirdest Self-Defense: You Won't Believe What It Does",
       "hook": "Did you know your own body is secretly trying to get rid of you... sort of?",
@@ -388,16 +398,6 @@
       "psychology": "Curiosity gap, awe, surprise, mind-blowing facts.",
       "keywords": "Space, dark energy, universe",
       "score": 87,
-      "used": false
-    },
-    {
-      "id": "the-civilization-that-had-flush-toilets-before-rome",
-      "title": "The Civilization That Had Flush Toilets Before Rome",
-      "hook": "Think Rome invented advanced plumbing? A forgotten civilization had flush toilets and sewage systems thousands of years earlier.",
-      "angle": "Highlighting the sophisticated urban planning and sanitation systems of the Indus Valley Civilization (e.g., Mohenjo-Daro) long before Roman aqueducts.",
-      "psychology": "Curiosity gap, surprise, debunking common historical perception, awe.",
-      "keywords": "Ancient history, plumbing, civilization, archaeology",
-      "score": 89,
       "used": false
     }
   ]
