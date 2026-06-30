@@ -281,6 +281,16 @@
       "used": true
     },
     {
+      "id": "the-fish-that-climbs-trees-seriously",
+      "title": "The Fish That Climbs Trees (Seriously!)",
+      "hook": "Forget flying fish. There's an animal that breathes air, walks on land, and actually climbs trees!",
+      "angle": "Introducing the mudskipper, an amphibious fish with bizarre adaptations that allow it to live and hunt outside of water, including scaling mangroves.",
+      "psychology": "Surprise, awe, curiosity gap, 'I must tell someone'.",
+      "keywords": "Mudskipper, fish, nature, animals",
+      "score": 90,
+      "used": true
+    },
+    {
       "id": "your-body-s-weirdest-self-defense-you-won-t-believe-what-it-",
       "title": "Your Body's Weirdest Self-Defense: You Won't Believe What It Does",
       "hook": "Did you know your own body is secretly trying to get rid of you... sort of?",
@@ -358,16 +368,6 @@
       "psychology": "Debunking a common myth, surprise, curiosity gap, historical revision.",
       "keywords": "Pyramids, ancient Egypt, history",
       "score": 88,
-      "used": false
-    },
-    {
-      "id": "the-fish-that-climbs-trees-seriously",
-      "title": "The Fish That Climbs Trees (Seriously!)",
-      "hook": "Forget flying fish. There's an animal that breathes air, walks on land, and actually climbs trees!",
-      "angle": "Introducing the mudskipper, an amphibious fish with bizarre adaptations that allow it to live and hunt outside of water, including scaling mangroves.",
-      "psychology": "Surprise, awe, curiosity gap, 'I must tell someone'.",
-      "keywords": "Mudskipper, fish, nature, animals",
-      "score": 90,
       "used": false
     },
     {
