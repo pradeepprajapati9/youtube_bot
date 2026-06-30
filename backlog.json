@@ -311,16 +311,6 @@
       "used": true
     },
     {
-      "id": "your-body-s-weirdest-self-defense-you-won-t-believe-what-it-",
-      "title": "Your Body's Weirdest Self-Defense: You Won't Believe What It Does",
-      "hook": "Did you know your own body is secretly trying to get rid of you... sort of?",
-      "angle": "Explaining the bizarre, sometimes uncomfortable, ways your body sacrifices minor parts or creates 'malfunctions' to prevent major harm.",
-      "psychology": "Curiosity gap, surprise, mild disgust, relatability (everyone has a body)",
-      "keywords": "body, cells, sneeze",
-      "score": 85,
-      "used": false
-    },
-    {
       "id": "the-cosmic-destroyer-so-vast-it-could-erase-our-moon-in-seco",
       "title": "The Cosmic Destroyer So Vast It Could Erase Our Moon in Seconds",
       "hook": "Imagine the Moon. Now picture a cosmic 'vacuum cleaner' in space that could swallow it whole without even noticing.",
@@ -328,6 +318,16 @@
       "psychology": "Awe, curiosity gap, surprise, existential wonder",
       "keywords": "moon, black hole, galaxy",
       "score": 88,
+      "used": true
+    },
+    {
+      "id": "your-body-s-weirdest-self-defense-you-won-t-believe-what-it-",
+      "title": "Your Body's Weirdest Self-Defense: You Won't Believe What It Does",
+      "hook": "Did you know your own body is secretly trying to get rid of you... sort of?",
+      "angle": "Explaining the bizarre, sometimes uncomfortable, ways your body sacrifices minor parts or creates 'malfunctions' to prevent major harm.",
+      "psychology": "Curiosity gap, surprise, mild disgust, relatability (everyone has a body)",
+      "keywords": "body, cells, sneeze",
+      "score": 85,
       "used": false
     },
     {
