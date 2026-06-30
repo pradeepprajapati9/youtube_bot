@@ -321,6 +321,16 @@
       "used": true
     },
     {
+      "id": "your-brain-hallucinates-reality-the-hidden-colors-you-see",
+      "title": "Your Brain Hallucinates Reality: The Hidden Colors You See",
+      "hook": "Ever seen colors that aren't *really* there?",
+      "angle": "Explaining how our visual system fills in gaps or creates phantom colors (e.g., negative afterimages, optical illusions) demonstrating the brain's active role in constructing perception.",
+      "psychology": "Curiosity gap, surprise, relatability",
+      "keywords": "Brain, vision, colors",
+      "score": 88,
+      "used": true
+    },
+    {
       "id": "your-body-s-weirdest-self-defense-you-won-t-believe-what-it-",
       "title": "Your Body's Weirdest Self-Defense: You Won't Believe What It Does",
       "hook": "Did you know your own body is secretly trying to get rid of you... sort of?",
@@ -338,16 +348,6 @@
       "psychology": "Surprise, suspense, curiosity gap, historical intrigue",
       "keywords": "history, royal, accident",
       "score": 82,
-      "used": false
-    },
-    {
-      "id": "your-brain-hallucinates-reality-the-hidden-colors-you-see",
-      "title": "Your Brain Hallucinates Reality: The Hidden Colors You See",
-      "hook": "Ever seen colors that aren't *really* there?",
-      "angle": "Explaining how our visual system fills in gaps or creates phantom colors (e.g., negative afterimages, optical illusions) demonstrating the brain's active role in constructing perception.",
-      "psychology": "Curiosity gap, surprise, relatability",
-      "keywords": "Brain, vision, colors",
-      "score": 88,
       "used": false
     },
     {
