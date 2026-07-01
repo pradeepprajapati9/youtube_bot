@@ -44,28 +44,48 @@
   }
   navLinks.forEach((a) => a.addEventListener("click", () => switchView(a.dataset.view)));
 
-  /* ---------- on login: store refresh token + channel ---------- */
-  async function captureChannelAndToken() {
-    // provider_refresh_token is only present right after a fresh Google sign-in.
-    if (session.provider_refresh_token) {
+  /* ---------- YouTube connect / token capture ---------- */
+  const SCOPES = "https://www.googleapis.com/auth/youtube.upload " +
+                 "https://www.googleapis.com/auth/youtube.readonly";
+
+  // Store the refresh token + channel whenever a fresh Google session appears.
+  async function captureFromSession(sess) {
+    if (!sess) return;
+    if (sess.provider_refresh_token) {
       await sb.from("channel_tokens").upsert(
-        { user_id: user.id, refresh_token: session.provider_refresh_token, updated_at: new Date().toISOString() }
-      );
+        { user_id: sess.user.id, refresh_token: sess.provider_refresh_token,
+          updated_at: new Date().toISOString() });
+      showToast("✅ Auto-upload enabled — the bot can now post to your channel.");
     }
-    if (session.provider_token) {
+    if (sess.provider_token) {
       try {
         const r = await fetch(
           "https://www.googleapis.com/youtube/v3/channels?part=snippet&mine=true",
-          { headers: { Authorization: "Bearer " + session.provider_token } });
+          { headers: { Authorization: "Bearer " + sess.provider_token } });
         const d = await r.json();
         const item = (d.items || [])[0];
         if (item) {
           await sb.from("channels").upsert(
-            { user_id: user.id, channel_id: item.id, title: item.snippet.title });
+            { user_id: sess.user.id, channel_id: item.id, title: item.snippet.title });
+          renderChannel();
         }
-      } catch (e) { /* ignore; channel already stored from a previous login */ }
+      } catch (e) { /* channel may already be stored from before */ }
     }
   }
+
+  // Fresh Google consent (offline) -> guarantees a refresh token comes back.
+  async function connectYouTube() {
+    const redirectTo = new URL("dashboard.html", window.location.href).href;
+    const { error } = await sb.auth.signInWithOAuth({
+      provider: "google",
+      options: { scopes: SCOPES, queryParams: { access_type: "offline", prompt: "consent" }, redirectTo },
+    });
+    if (error) showToast(error.message);
+  }
+  document.getElementById("reconnectBtn").addEventListener("click", connectYouTube);
+
+  // Catch the token on the post-login redirect too (belt and braces).
+  sb.auth.onAuthStateChange((_event, sess) => { if (sess) captureFromSession(sess); });
 
   async function renderChannel() {
     const { data } = await sb.from("channels").select("title,channel_id").eq("user_id", user.id).maybeSingle();
@@ -172,7 +192,7 @@
   });
 
   /* ---------- init ---------- */
-  await captureChannelAndToken();
+  await captureFromSession(session);
   await renderChannel();
   await loadNiche();
   await renderRequests();
