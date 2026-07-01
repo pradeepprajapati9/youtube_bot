@@ -331,6 +331,16 @@
       "used": true
     },
     {
+      "id": "this-micro-animal-can-survive-the-vacuum-of-space",
+      "title": "This Micro-Animal Can Survive The VACUUM of Space",
+      "hook": "Forget aliens. There's a creature on Earth that can literally survive being frozen, boiled, radiated, AND the vacuum of space.",
+      "angle": "Focus specifically on the tardigrade's mind-blowing extremophile capabilities, particularly its survival in the vacuum of space, detailing the biological 'cheat codes' (cryptobiosis) it uses to 'pause' life itself, making it distinct from general biological immortality.",
+      "psychology": "Awe, surprise, curiosity gap, 'I must tell someone'.",
+      "keywords": "Tardigrade, extremophile, space",
+      "score": 95,
+      "used": true
+    },
+    {
       "id": "your-body-s-weirdest-self-defense-you-won-t-believe-what-it-",
       "title": "Your Body's Weirdest Self-Defense: You Won't Believe What It Does",
       "hook": "Did you know your own body is secretly trying to get rid of you... sort of?",
@@ -398,6 +408,96 @@
       "psychology": "Curiosity gap, awe, surprise, mind-blowing facts.",
       "keywords": "Space, dark energy, universe",
       "score": 87,
+      "used": false
+    },
+    {
+      "id": "your-bones-are-stronger-than-steel-but-here-s-the-catch",
+      "title": "Your Bones Are STRONGER Than Steel, But Here's The Catch",
+      "hook": "Forget what you think you know about strength. Your own bones are tougher than steel!",
+      "angle": "It's not just a bold claim; it's *how* bones achieve this incredible strength through their unique composite structure (flexibility and rigidity) and why, despite this, our bodies aren't invulnerable. A deep dive into biological engineering.",
+      "psychology": "Surprise, awe, curiosity gap, relatability ('your own body'), validation.",
+      "keywords": "Bone strength, human body, biology",
+      "score": 90,
+      "used": false
+    },
+    {
+      "id": "the-invisible-fish-that-s-deadlier-than-a-shark",
+      "title": "The Invisible Fish That's Deadlier Than A Shark",
+      "hook": "This isn't a rock. It's the most perfectly disguised assassin in the ocean, and you've probably swam right past one.",
+      "angle": "Focus on the stonefish's unparalleled camouflage and its potent, often fatal, venom. Emphasize its hidden danger, making it a compelling 'I must tell someone' story about an animal most people have never heard of.",
+      "psychology": "Surprise, awe, curiosity gap, 'I must tell someone' (danger), fear.",
+      "keywords": "Stonefish, camouflage, venom",
+      "score": 92,
+      "used": false
+    },
+    {
+      "id": "the-real-reason-you-can-t-tickle-yourself",
+      "title": "The REAL Reason You Can't Tickle Yourself",
+      "hook": "Try to tickle yourself. Nothing? It's not you, it's your brain playing a fascinating trick to keep you sane.",
+      "angle": "Explain the neurological mechanism (the cerebellum's predictive model) that dampens self-generated sensations, highlighting how this system is crucial for distinguishing between self-initiated actions and external stimuli.",
+      "psychology": "Relatability, curiosity gap, surprise (brain's mechanism), validation, intellectual discovery.",
+      "keywords": "Brain trick, psychology, tickle",
+      "score": 88,
+      "used": false
+    },
+    {
+      "id": "the-lucky-penny-myth-its-shocking-dark-origin",
+      "title": "The 'Lucky Penny' Myth: Its SHOCKING Dark Origin",
+      "hook": "You might pick up a 'lucky penny' for good fortune. But its true history is far darker than you imagine.",
+      "angle": "Debunk the modern positive association of finding a lucky penny by revealing its surprising and often grim origins in ancient superstitions related to spirits, protection from evil, or even the challenging early days of metallurgy.",
+      "psychology": "Relatability (common superstition), curiosity gap, surprise, debunking.",
+      "keywords": "Superstition, lucky penny, history",
+      "score": 85,
+      "used": false
+    },
+    {
+      "id": "the-sun-s-true-color-will-shock-you-it-s-not-yellow",
+      "title": "The Sun's True Color Will SHOCK You (It's Not Yellow!)",
+      "hook": "Every drawing shows it yellow, but your eyes are lying. The sun's real color is completely different.",
+      "angle": "Explain *why* the sun appears yellow from Earth due to atmospheric scattering, but its actual emission spectrum reveals it to be white, challenging a fundamental visual perception we hold since childhood.",
+      "psychology": "Surprise, curiosity gap, cognitive dissonance, awe, 'I must tell someone'.",
+      "keywords": "Sun color, physics, light",
+      "score": 90,
+      "used": false
+    },
+    {
+      "id": "cold-weather-is-secretly-helping-your-phone-battery",
+      "title": "Cold Weather Is SECRETLY Helping Your Phone Battery",
+      "hook": "Your phone dies faster in the cold, right? But here's the secret: Cold weather is actually *preserving* its life.",
+      "angle": "Explain the counter-intuitive difference between temporary performance reduction in cold temperatures (due to increased internal resistance) and the long-term benefit of cold in slowing down chemical degradation, leading to a longer battery lifespan overall.",
+      "psychology": "Relatability (common tech issue), curiosity gap, surprise, practical value.",
+      "keywords": "Phone battery, cold weather, tech tips",
+      "score": 87,
+      "used": false
+    },
+    {
+      "id": "ancient-citizenship-the-shocking-truth-nobody-tells-you",
+      "title": "Ancient Citizenship: The SHOCKING Truth Nobody Tells You",
+      "hook": "Think 'citizenship' is a modern concept? Ancient Rome had rules that would completely redefine what you thought it meant.",
+      "angle": "Leveraging the trending topic 'नागरिकता' (citizenship), explore how exclusive, conditional, and dramatically different the concept of citizenship was in ancient societies like Rome or Greece, often tied to land, military service, or specific ancestry, revealing surprising historical power structures.",
+      "psychology": "Curiosity gap, surprise, relatability (to a foundational social concept), intellectual discovery.",
+      "keywords": "Citizenship history, ancient Rome, social science",
+      "score": 82,
+      "used": false
+    },
+    {
+      "id": "your-brain-s-secret-third-eye-not-what-you-think",
+      "title": "Your Brain's SECRET 'Third Eye' (Not What You Think!)",
+      "hook": "Even blindfolded, a hidden part of your brain is detecting light and running your entire body's clock. It's your real 'third eye'.",
+      "angle": "Explain the pineal gland's role as a photoreceptive organ in regulating circadian rhythms and melatonin production, providing a scientific and surprising twist to a concept often associated with mysticism, making it personally relevant to everyone's sleep-wake cycle.",
+      "psychology": "Curiosity gap, surprise, relatability (everyone has a sleep cycle), debunking (of mystic 'third eye').",
+      "keywords": "Pineal gland, brain, circadian rhythm",
+      "score": 90,
+      "used": false
+    },
+    {
+      "id": "the-mind-blowing-scale-of-the-universe-you-won-t-believe-it",
+      "title": "The Mind-Blowing Scale of the Universe (You Won't Believe It!)",
+      "hook": "If the Sun were a basketball, Earth would be a tiny pea. But here's where it gets truly mind-bending...",
+      "angle": "Go beyond simple size comparisons to truly illustrate the unimaginable vastness of the universe. Use relatable analogies to show the scale of planets within stars, stars within galaxies, and galaxies within the observable universe, making the abstract feel immediate and awe-inspiring.",
+      "psychology": "Awe, wonder, curiosity gap, 'I must tell someone'.",
+      "keywords": "Space scale, universe, astronomy",
+      "score": 93,
       "used": false
     }
   ]
