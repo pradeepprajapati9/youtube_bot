@@ -341,6 +341,16 @@
       "used": true
     },
     {
+      "id": "the-mind-blowing-scale-of-the-universe-you-won-t-believe-it",
+      "title": "The Mind-Blowing Scale of the Universe (You Won't Believe It!)",
+      "hook": "If the Sun were a basketball, Earth would be a tiny pea. But here's where it gets truly mind-bending...",
+      "angle": "Go beyond simple size comparisons to truly illustrate the unimaginable vastness of the universe. Use relatable analogies to show the scale of planets within stars, stars within galaxies, and galaxies within the observable universe, making the abstract feel immediate and awe-inspiring.",
+      "psychology": "Awe, wonder, curiosity gap, 'I must tell someone'.",
+      "keywords": "Space scale, universe, astronomy",
+      "score": 93,
+      "used": true
+    },
+    {
       "id": "your-body-s-weirdest-self-defense-you-won-t-believe-what-it-",
       "title": "Your Body's Weirdest Self-Defense: You Won't Believe What It Does",
       "hook": "Did you know your own body is secretly trying to get rid of you... sort of?",
@@ -488,16 +498,6 @@
       "psychology": "Curiosity gap, surprise, relatability (everyone has a sleep cycle), debunking (of mystic 'third eye').",
       "keywords": "Pineal gland, brain, circadian rhythm",
       "score": 90,
-      "used": false
-    },
-    {
-      "id": "the-mind-blowing-scale-of-the-universe-you-won-t-believe-it",
-      "title": "The Mind-Blowing Scale of the Universe (You Won't Believe It!)",
-      "hook": "If the Sun were a basketball, Earth would be a tiny pea. But here's where it gets truly mind-bending...",
-      "angle": "Go beyond simple size comparisons to truly illustrate the unimaginable vastness of the universe. Use relatable analogies to show the scale of planets within stars, stars within galaxies, and galaxies within the observable universe, making the abstract feel immediate and awe-inspiring.",
-      "psychology": "Awe, wonder, curiosity gap, 'I must tell someone'.",
-      "keywords": "Space scale, universe, astronomy",
-      "score": 93,
       "used": false
     }
   ]
