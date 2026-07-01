@@ -5,13 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dashboard • YouTube_Bot</title>
   <link rel="stylesheet" href="style.css" />
-  <!-- Guard runs BEFORE render: no login = instant redirect. -->
-  <script src="auth.js"></script>
-  <script>if (!Auth.requireLogin()) { document.documentElement.style.display = "none"; }</script>
 </head>
 <body>
   <div class="app">
-    <!-- ===== Sidebar menu (left) ===== -->
+    <!-- ===== Sidebar ===== -->
     <aside class="sidebar">
       <div class="brand">You<span>Tube</span>_Bot</div>
       <nav class="nav" id="nav">
@@ -19,7 +16,6 @@
         <a data-view="create"><span class="ic">🎬</span><span>Create Video</span></a>
         <a data-view="channel"><span class="ic">📺</span><span>My Channel</span></a>
         <a data-view="requests"><span class="ic">📋</span><span>Requests</span></a>
-        <a data-view="settings"><span class="ic">⚙️</span><span>Settings</span></a>
       </nav>
       <div class="spacer"></div>
       <div class="userchip">
@@ -28,7 +24,7 @@
       </div>
     </aside>
 
-    <!-- ===== Content (right) ===== -->
+    <!-- ===== Content ===== -->
     <main class="content">
       <div class="pagehead">
         <h1 id="pageTitle">Dashboard</h1>
@@ -45,10 +41,10 @@
           </div>
           <div class="panel" style="margin-top:18px">
             <h2>Welcome 👋</h2>
-            <p class="desc">Get started in 2 steps:</p>
+            <p class="desc">Your channel is connected at sign-in. Just pick a field:</p>
             <div class="steps">
-              1. Open <b>My Channel</b> and connect your YouTube account.<br />
-              2. Open <b>Create Video</b>, enter a topic — the AI builds & (soon) uploads it.
+              1. Open <b>Create Video</b> → choose your Category &amp; Subcategory.<br />
+              2. Press <b>Save &amp; generate</b> — the AI builds a video and uploads it to your channel.
             </div>
           </div>
         </section>
@@ -57,7 +53,7 @@
         <section class="view" id="view-create">
           <div class="panel">
             <h2>Set your content field</h2>
-            <p class="desc">Choose your field once — the AI will automatically create videos in this niche. No topic writing needed. Sticking to one field grows the channel faster.</p>
+            <p class="desc">Choose your field once — the AI will automatically create videos in this niche. No topic writing needed.</p>
 
             <div class="row">
               <div>
@@ -88,8 +84,7 @@
             </div>
 
             <div class="niche-note" id="nicheNote"></div>
-
-            <button class="btn" id="generateBtn">Save & generate video</button>
+            <button class="btn" id="generateBtn">Save &amp; generate video</button>
           </div>
         </section>
 
@@ -97,25 +92,12 @@
         <section class="view" id="view-channel">
           <div class="panel">
             <h2>Your YouTube channel</h2>
-            <p class="desc">Connect the channel where videos will be uploaded.</p>
-            <div style="margin-bottom:16px">
+            <p class="desc">Connected automatically when you signed in with Google.</p>
+            <div style="margin-bottom:12px">
               Status: <span class="badge off" id="chanStatus">Not connected</span>
               <span id="chanName" style="margin-left:8px;color:var(--text);font-weight:600"></span>
             </div>
-            <button class="btn green" id="connectBtn" style="max-width:320px">Connect with Google</button>
-            <div id="gsetup" style="margin-top:20px"></div>
-          </div>
-        </section>
-
-        <!-- SETTINGS (keys / credentials vault) -->
-        <section class="view" id="view-settings">
-          <div class="panel">
-            <h2>Settings — your keys</h2>
-            <p class="desc">Paste the keys below. They are hidden (masked) and stored encrypted in your
-              browser. You can update any of them any time. Only the Google Client ID is required to
-              connect your channel; the rest improve quality but are optional.</p>
-            <div id="settingsFields"></div>
-            <button class="btn" id="saveSettings" style="max-width:260px">Save settings</button>
+            <p class="desc" id="chanHint">If the wrong channel shows, log out and sign in with the right Google account.</p>
           </div>
         </section>
 
@@ -123,8 +105,8 @@
         <section class="view" id="view-requests">
           <div class="panel">
             <h2>Your requests</h2>
-            <p class="desc">Videos you've queued (saved in this browser for now).</p>
-            <div id="requestList" style="font-size:14px;color:var(--muted)">No requests yet.</div>
+            <p class="desc">Videos you've queued and their status.</p>
+            <div id="requestList" style="font-size:14px;color:var(--muted)">Loading…</div>
           </div>
         </section>
       </div>
@@ -133,10 +115,8 @@
 
   <div class="toast" id="toast"></div>
 
-  <!-- Google Identity Services (for "Connect with Google") -->
-  <script src="https://accounts.google.com/gsi/client" async defer></script>
-  <script src="config.js"></script>
-  <script src="vault.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
   <script src="dashboard.js"></script>
 </body>
 </html>

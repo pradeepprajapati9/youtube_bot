@@ -8,55 +8,44 @@
 </head>
 <body>
   <div class="center">
-    <form class="card" id="loginForm" autocomplete="off">
+    <div class="card">
       <div class="logo">You<span>Tube</span>_Bot</div>
-      <div class="subtitle">Sign in to build & auto-upload videos to your channel</div>
+      <div class="subtitle">Sign in to auto-create &amp; upload videos to your own YouTube channel</div>
 
-      <label for="email">Email</label>
-      <input type="email" id="email" placeholder="you@example.com" required />
-
-      <label for="password">Password</label>
-      <input type="password" id="password" placeholder="••••••••" required />
-
-      <button type="submit" class="btn">Sign in</button>
+      <button class="btn green" id="googleBtn">🔵 Sign in with Google (YouTube)</button>
       <div class="error" id="error"></div>
 
       <div class="hint">
-        New here? <a href="#" id="signupLink">Create an account</a><br />
-        <small>Demo login is stored in your browser only (no server yet).</small>
+        We use this only to upload videos to <b>your own</b> channel.<br />
+        <small>You can disconnect anytime from your Google account.</small>
       </div>
-    </form>
+    </div>
   </div>
 
-  <script src="auth.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
   <script>
-    // If already logged in, go straight to the dashboard.
-    if (Auth.currentUser()) location.replace("dashboard.html");
+    (async function () {
+      // already logged in? -> dashboard
+      const { data: { session } } = await sb.auth.getSession();
+      if (session) { location.replace("dashboard.html"); return; }
 
-    const form = document.getElementById("loginForm");
-    const errBox = document.getElementById("error");
-
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const email = document.getElementById("email").value.trim().toLowerCase();
-      const pass = document.getElementById("password").value;
-      const res = Auth.login(email, pass);
-      if (res.ok) {
-        location.replace("dashboard.html");
-      } else {
-        errBox.textContent = res.error;
-      }
-    });
-
-    // Simple "sign up" = create a local account, then log in.
-    document.getElementById("signupLink").addEventListener("click", (e) => {
-      e.preventDefault();
-      const email = document.getElementById("email").value.trim().toLowerCase();
-      const pass = document.getElementById("password").value;
-      const res = Auth.signup(email, pass);
-      errBox.textContent = res.ok ? "" : res.error;
-      if (res.ok) location.replace("dashboard.html");
-    });
+      document.getElementById("googleBtn").addEventListener("click", async () => {
+        const redirectTo = new URL("dashboard.html", window.location.href).href;
+        const { error } = await sb.auth.signInWithOAuth({
+          provider: "google",
+          options: {
+            scopes:
+              "https://www.googleapis.com/auth/youtube.upload " +
+              "https://www.googleapis.com/auth/youtube.readonly",
+            // offline + consent => Google returns a REFRESH token (bot uploads later)
+            queryParams: { access_type: "offline", prompt: "consent" },
+            redirectTo,
+          },
+        });
+        if (error) document.getElementById("error").textContent = error.message;
+      });
+    })();
   </script>
 </body>
 </html>
