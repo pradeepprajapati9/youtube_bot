@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard • YouTube_Bot</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Guard runs BEFORE render: no login = instant redirect. -->
+  <script src="auth.js"></script>
+  <script>if (!Auth.requireLogin()) { document.documentElement.style.display = "none"; }</script>
+</head>
+<body>
+  <div class="app">
+    <!-- ===== Sidebar menu (left) ===== -->
+    <aside class="sidebar">
+      <div class="brand">You<span>Tube</span>_Bot</div>
+      <nav class="nav" id="nav">
+        <a data-view="dashboard" class="active"><span class="ic">🏠</span><span>Dashboard</span></a>
+        <a data-view="create"><span class="ic">🎬</span><span>Create Video</span></a>
+        <a data-view="channel"><span class="ic">📺</span><span>My Channel</span></a>
+        <a data-view="requests"><span class="ic">📋</span><span>Requests</span></a>
+        <a data-view="settings"><span class="ic">⚙️</span><span>Settings</span></a>
+      </nav>
+      <div class="spacer"></div>
+      <div class="userchip">
+        <span class="email" id="who"></span>
+        <button class="btn secondary auto" id="logout">Logout</button>
+      </div>
+    </aside>
+
+    <!-- ===== Content (right) ===== -->
+    <main class="content">
+      <div class="pagehead">
+        <h1 id="pageTitle">Dashboard</h1>
+        <span class="badge off" id="chanBadge">📺 Not connected</span>
+      </div>
+
+      <div class="wrap">
+        <!-- DASHBOARD -->
+        <section class="view active" id="view-dashboard">
+          <div class="stat">
+            <div class="box"><div class="n" id="stReq">0</div><div class="l">Videos requested</div></div>
+            <div class="box"><div class="n" id="stChan">—</div><div class="l">Connected channel</div></div>
+            <div class="box"><div class="n">Free</div><div class="l">Plan</div></div>
+          </div>
+          <div class="panel" style="margin-top:18px">
+            <h2>Welcome 👋</h2>
+            <p class="desc">Get started in 2 steps:</p>
+            <div class="steps">
+              1. Open <b>My Channel</b> and connect your YouTube account.<br />
+              2. Open <b>Create Video</b>, enter a topic — the AI builds & (soon) uploads it.
+            </div>
+          </div>
+        </section>
+
+        <!-- CREATE VIDEO -->
+        <section class="view" id="view-create">
+          <div class="panel">
+            <h2>Set your content field</h2>
+            <p class="desc">Choose your field once — the AI will automatically create videos in this niche. No topic writing needed. Sticking to one field grows the channel faster.</p>
+
+            <div class="row">
+              <div>
+                <label for="category">Category (your field)</label>
+                <select id="category"></select>
+              </div>
+              <div>
+                <label for="subcategory">Subcategory</label>
+                <select id="subcategory"></select>
+              </div>
+            </div>
+
+            <div class="row">
+              <div>
+                <label for="language">Language</label>
+                <select id="language">
+                  <option value="en">English</option>
+                  <option value="hi">Hindi</option>
+                </select>
+              </div>
+              <div>
+                <label for="format">Format</label>
+                <select id="format">
+                  <option value="short">Short (&lt;60s)</option>
+                  <option value="long">Long-form (4–7 min)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="niche-note" id="nicheNote"></div>
+
+            <button class="btn" id="generateBtn">Save & generate video</button>
+          </div>
+        </section>
+
+        <!-- MY CHANNEL -->
+        <section class="view" id="view-channel">
+          <div class="panel">
+            <h2>Your YouTube channel</h2>
+            <p class="desc">Connect the channel where videos will be uploaded.</p>
+            <div style="margin-bottom:16px">
+              Status: <span class="badge off" id="chanStatus">Not connected</span>
+              <span id="chanName" style="margin-left:8px;color:var(--text);font-weight:600"></span>
+            </div>
+            <button class="btn green" id="connectBtn" style="max-width:320px">Connect with Google</button>
+            <div id="gsetup" style="margin-top:20px"></div>
+          </div>
+        </section>
+
+        <!-- SETTINGS (keys / credentials vault) -->
+        <section class="view" id="view-settings">
+          <div class="panel">
+            <h2>Settings — your keys</h2>
+            <p class="desc">Paste the keys below. They are hidden (masked) and stored encrypted in your
+              browser. You can update any of them any time. Only the Google Client ID is required to
+              connect your channel; the rest improve quality but are optional.</p>
+            <div id="settingsFields"></div>
+            <button class="btn" id="saveSettings" style="max-width:260px">Save settings</button>
+          </div>
+        </section>
+
+        <!-- REQUESTS -->
+        <section class="view" id="view-requests">
+          <div class="panel">
+            <h2>Your requests</h2>
+            <p class="desc">Videos you've queued (saved in this browser for now).</p>
+            <div id="requestList" style="font-size:14px;color:var(--muted)">No requests yet.</div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <!-- Google Identity Services (for "Connect with Google") -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script src="config.js"></script>
+  <script src="vault.js"></script>
+  <script src="dashboard.js"></script>
+</body>
+</html>

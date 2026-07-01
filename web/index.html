@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login • YouTube_Bot</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="center">
+    <form class="card" id="loginForm" autocomplete="off">
+      <div class="logo">You<span>Tube</span>_Bot</div>
+      <div class="subtitle">Sign in to build & auto-upload videos to your channel</div>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="you@example.com" required />
+
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="••••••••" required />
+
+      <button type="submit" class="btn">Sign in</button>
+      <div class="error" id="error"></div>
+
+      <div class="hint">
+        New here? <a href="#" id="signupLink">Create an account</a><br />
+        <small>Demo login is stored in your browser only (no server yet).</small>
+      </div>
+    </form>
+  </div>
+
+  <script src="auth.js"></script>
+  <script>
+    // If already logged in, go straight to the dashboard.
+    if (Auth.currentUser()) location.replace("dashboard.html");
+
+    const form = document.getElementById("loginForm");
+    const errBox = document.getElementById("error");
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const email = document.getElementById("email").value.trim().toLowerCase();
+      const pass = document.getElementById("password").value;
+      const res = Auth.login(email, pass);
+      if (res.ok) {
+        location.replace("dashboard.html");
+      } else {
+        errBox.textContent = res.error;
+      }
+    });
+
+    // Simple "sign up" = create a local account, then log in.
+    document.getElementById("signupLink").addEventListener("click", (e) => {
+      e.preventDefault();
+      const email = document.getElementById("email").value.trim().toLowerCase();
+      const pass = document.getElementById("password").value;
+      const res = Auth.signup(email, pass);
+      errBox.textContent = res.ok ? "" : res.error;
+      if (res.ok) location.replace("dashboard.html");
+    });
+  </script>
+</body>
+</html>

@@ -68,16 +68,33 @@ def run():
     # 0. growth feedback: refresh stats of past uploads so the thinker can learn
     analytics.refresh_stats()
 
-    # 1. thinker_bot picks the best ready idea (falls back to evergreen topics)
-    thinker.top_up()
-    idea = thinker.next_idea()
-    if idea:
-        topic = idea["title"]
-        ctx = (f'Hook: {idea["hook"]}. Fresh original angle: {idea["angle"]}. '
-               f'Psychology trigger: {idea["psychology"]}.')
+    # 1. pick the topic.
+    #    a) USER_TOPIC set  -> build exactly this topic.
+    #    b) USER_NICHE set  -> AI picks ONE fresh specific idea within this niche.
+    #    c) otherwise thinker_bot picks the best ready idea (falls back to evergreen).
+    if config.USER_TOPIC:
+        idea = None
+        topic = config.USER_TOPIC
+        ctx = config.USER_CONTEXT
+        log(f"User-provided topic: {topic}")
+    elif config.USER_NICHE:
+        idea = None
+        topic = config.USER_NICHE
+        field = f"{config.USER_CATEGORY} > {config.USER_NICHE}".strip(" >")
+        ctx = (f"This faceless channel's fixed niche is '{field}'. Pick ONE fresh, "
+               f"specific, fascinating video idea strictly WITHIN this niche and vary it "
+               f"each run so videos never repeat. {config.USER_CONTEXT}").strip()
+        log(f"Niche mode: {field}")
     else:
-        log("thinker has no ready idea (Gemini key missing?) -> evergreen fallback")
-        topic, ctx = trending.pick_topic()
+        thinker.top_up()
+        idea = thinker.next_idea()
+        if idea:
+            topic = idea["title"]
+            ctx = (f'Hook: {idea["hook"]}. Fresh original angle: {idea["angle"]}. '
+                   f'Psychology trigger: {idea["psychology"]}.')
+        else:
+            log("thinker has no ready idea (Gemini key missing?) -> evergreen fallback")
+            topic, ctx = trending.pick_topic()
     log(f"Topic: {topic}")
 
     # 2. scene-based script

@@ -1,0 +1,155 @@
+/* ===== YouTube_Bot dashboard — sidebar layout (GitHub Pages) ===== */
+:root {
+  --bg: #0f1115;
+  --card: #171a21;
+  --side: #13161d;
+  --border: #262b36;
+  --text: #e8ebf0;
+  --muted: #97a0b0;
+  --brand: #ff0033;
+  --brand-2: #1b5e20;
+  --accent: #4f8cff;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  background: radial-gradient(1200px 600px at 50% -10%, #1a1f2b, var(--bg));
+  color: var(--text);
+  min-height: 100vh;
+}
+a { color: var(--accent); }
+
+/* ---------- centered auth card (login) ---------- */
+.center { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; }
+.card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 16px;
+  padding: 32px; width: 100%; max-width: 380px; box-shadow: 0 20px 60px rgba(0,0,0,.4);
+}
+.logo { font-size: 26px; font-weight: 800; text-align: center; margin-bottom: 4px; }
+.logo span { color: var(--brand); }
+.subtitle { text-align: center; color: var(--muted); margin-bottom: 24px; font-size: 14px; }
+
+label { display: block; font-size: 13px; color: var(--muted); margin: 14px 0 6px; }
+input, select, textarea {
+  width: 100%; padding: 11px 13px; background: #10131a; border: 1px solid var(--border);
+  border-radius: 10px; color: var(--text); font-size: 14px;
+}
+input:focus, select:focus, textarea:focus { outline: none; border-color: var(--accent); }
+textarea { resize: vertical; min-height: 70px; }
+
+.btn {
+  width: 100%; margin-top: 20px; padding: 12px; border: none; border-radius: 10px;
+  background: var(--brand); color: #fff; font-size: 15px; font-weight: 700; cursor: pointer;
+  transition: transform .05s, opacity .2s;
+}
+.btn:hover { opacity: .92; }
+.btn:active { transform: translateY(1px); }
+.btn.secondary { background: #232833; color: var(--text); }
+.btn.green { background: var(--brand-2); }
+.btn.auto { width: auto; margin: 0; padding: 9px 16px; font-size: 14px; }
+
+.error { color: #ff6b6b; font-size: 13px; margin-top: 12px; min-height: 16px; text-align: center; }
+.hint { color: var(--muted); font-size: 12px; margin-top: 16px; text-align: center; }
+
+/* ---------- app shell: sidebar + content ---------- */
+.app { display: flex; min-height: 100vh; }
+
+.sidebar {
+  width: 240px; flex-shrink: 0; background: var(--side); border-right: 1px solid var(--border);
+  display: flex; flex-direction: column; padding: 18px 14px; position: sticky; top: 0; height: 100vh;
+}
+.sidebar .brand { font-size: 20px; font-weight: 800; padding: 6px 10px 20px; }
+.sidebar .brand span { color: var(--brand); }
+.nav { display: flex; flex-direction: column; gap: 4px; }
+.nav a {
+  display: flex; align-items: center; gap: 11px; padding: 11px 12px; border-radius: 10px;
+  color: var(--muted); text-decoration: none; font-size: 14px; font-weight: 600; cursor: pointer;
+}
+.nav a .ic { width: 18px; text-align: center; }
+.nav a:hover { background: #1b1f28; color: var(--text); }
+.nav a.active { background: #22272f; color: #fff; }
+.sidebar .spacer { flex: 1; }
+.sidebar .userchip {
+  border-top: 1px solid var(--border); padding-top: 14px; font-size: 13px; color: var(--muted);
+}
+.sidebar .userchip .email { color: var(--text); display: block; margin-bottom: 10px; word-break: break-all; }
+
+.content { flex: 1; min-width: 0; }
+.pagehead {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 28px; border-bottom: 1px solid var(--border);
+}
+.pagehead h1 { font-size: 20px; margin: 0; }
+.wrap { padding: 26px 28px 60px; max-width: 1000px; }
+
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+@media (max-width: 860px) {
+  .grid { grid-template-columns: 1fr; }
+  .sidebar { width: 68px; }
+  .sidebar .brand, .nav a span:not(.ic), .userchip .email { display: none; }
+}
+
+.panel { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 22px; }
+.panel h2 { margin: 0 0 4px; font-size: 17px; }
+.panel p.desc { margin: 0 0 16px; color: var(--muted); font-size: 13px; }
+
+.badge { display: inline-block; padding: 3px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; }
+.badge.off { background: #3a2020; color: #ff8f8f; }
+.badge.on { background: #14331c; color: #7ee2a0; }
+
+.row { display: flex; gap: 12px; }
+.row > * { flex: 1; }
+
+.stat { display: flex; gap: 16px; flex-wrap: wrap; }
+.stat .box { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 18px 22px; flex: 1; min-width: 140px; }
+.stat .box .n { font-size: 26px; font-weight: 800; }
+.stat .box .l { color: var(--muted); font-size: 13px; margin-top: 2px; }
+
+.view { display: none; }
+.view.active { display: block; }
+
+.steps { font-size: 13px; color: var(--muted); line-height: 1.7; }
+.steps code { background: #10131a; border: 1px solid var(--border); padding: 1px 6px; border-radius: 6px; color: #ffd479; }
+
+/* ---------- settings field rows ---------- */
+.field { margin-bottom: 18px; }
+.field .flabel { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+.field .flabel b { font-size: 14px; color: var(--text); font-weight: 600; }
+.field .flabel .req { color: #ff8f8f; font-size: 12px; }
+.field .flabel .opt { color: var(--muted); font-size: 12px; }
+.field .guide { font-size: 12px; color: var(--muted); margin: 4px 0 8px; }
+.field .inwrap { position: relative; }
+.field .inwrap input { padding-right: 84px; font-family: monospace; }
+.field .inwrap .eye {
+  position: absolute; right: 6px; top: 50%; transform: translateY(-50%);
+  background: #232833; border: 1px solid var(--border); color: var(--muted);
+  border-radius: 8px; padding: 5px 10px; font-size: 12px; cursor: pointer;
+}
+.field .saved { color: #7ee2a0; font-size: 12px; margin-left: 8px; }
+
+/* ---------- niche note (chosen field summary) ---------- */
+.niche-note {
+  margin: 18px 0 4px; padding: 12px 14px; border-radius: 10px;
+  background: #14261a; border: 1px solid #1f4a2b; color: #b6f0c6; font-size: 13px;
+}
+
+/* ---------- suggested topic chips ---------- */
+.suggest { margin: 10px 0 4px; }
+.suggest-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; color: var(--muted); font-size: 12px; margin-bottom: 10px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  background: #10131a; border: 1px solid var(--border); color: var(--text);
+  padding: 7px 13px; border-radius: 999px; font-size: 13px; cursor: pointer;
+  transition: border-color .15s, background .15s;
+}
+.chip:hover { border-color: var(--accent); }
+.chip.sel { background: #16321d; border-color: var(--brand-2); color: #b6f0c6; }
+
+.toast {
+  position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+  background: #232833; border: 1px solid var(--border); color: var(--text);
+  padding: 12px 18px; border-radius: 10px; font-size: 14px; opacity: 0;
+  transition: opacity .3s; pointer-events: none; max-width: 90%;
+}
+.toast.show { opacity: 1; }

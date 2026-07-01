@@ -42,6 +42,18 @@ CLEAN_AFTER_UPLOAD = os.getenv("CLEAN_AFTER_UPLOAD", "true").lower() == "true"
 # "trending" (today's Google Trends, blocklist-filtered).
 CONTENT_MODE = os.getenv("CONTENT_MODE", "evergreen").lower()
 
+# --- user-provided topic / niche (dashboard / manual trigger) ---
+# USER_TOPIC : build a video about EXACTLY this topic (skips auto-picker).
+# USER_NICHE : a subcategory/theme (e.g. "Hidden Places"); the AI picks ONE fresh
+#              specific idea WITHIN this niche each run (set-once, grow-a-field mode).
+# USER_CATEGORY : the parent category (e.g. "Geography & Places"), for extra context.
+# USER_CONTEXT  : optional extra guidance (angle/audience) for the script AI.
+# Empty = fully-automatic mode (old thinker behaviour).
+USER_TOPIC = os.getenv("USER_TOPIC", "").strip()
+USER_NICHE = os.getenv("USER_NICHE", "").strip()
+USER_CATEGORY = os.getenv("USER_CATEGORY", "").strip()
+USER_CONTEXT = os.getenv("USER_CONTEXT", "").strip()
+
 # --- thinker_bot (growth brain) ---
 # The thinker is a GROWTH STRATEGIST, not a fixed-topic generator. It uses the
 # psychology of virality + human interest to pick WHATEVER kind of video will

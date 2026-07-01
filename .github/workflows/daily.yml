@@ -13,7 +13,28 @@ on:
     - cron: "30 10 * * *"   # 16:00 IST  (afternoon)
     - cron: "30 12 * * *"   # 18:00 IST  (evening)
     - cron: "0 16 * * *"    # 21:30 IST  (night peak)
-  workflow_dispatch: {}       # manual trigger button
+  workflow_dispatch:          # manual trigger / dashboard trigger
+    inputs:
+      category:
+        description: "Category / field (e.g. Geography & Places)"
+        required: false
+        default: ""
+      subcategory:
+        description: "Subcategory niche (e.g. Hidden Places) — AI picks fresh ideas within it"
+        required: false
+        default: ""
+      topic:
+        description: "Exact topic (optional; overrides the niche)"
+        required: false
+        default: ""
+      context:
+        description: "Optional angle/audience hint for the AI"
+        required: false
+        default: ""
+      language:
+        description: "Language: en or hi"
+        required: false
+        default: "en"
 
 permissions:
   contents: write             # allow committing updated state.json back
@@ -57,12 +78,16 @@ jobs:
           YT_API_KEY: ${{ secrets.YT_API_KEY }}
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
-          VIDEO_LANG: en
+          VIDEO_LANG: ${{ github.event.inputs.language || 'en' }}
           TREND_GEO: IN
           CONTENT_MODE: evergreen
           YT_PRIVACY: public
           DO_UPLOAD: "true"
           CLEAN_AFTER_UPLOAD: "true"
+          USER_TOPIC: ${{ github.event.inputs.topic }}
+          USER_NICHE: ${{ github.event.inputs.subcategory }}
+          USER_CATEGORY: ${{ github.event.inputs.category }}
+          USER_CONTEXT: ${{ github.event.inputs.context }}
         run: python main.py
 
       - name: Persist state + idea backlog
