@@ -361,6 +361,16 @@
       "used": true
     },
     {
+      "id": "your-bones-are-stronger-than-steel-but-here-s-the-catch",
+      "title": "Your Bones Are STRONGER Than Steel, But Here's The Catch",
+      "hook": "Forget what you think you know about strength. Your own bones are tougher than steel!",
+      "angle": "It's not just a bold claim; it's *how* bones achieve this incredible strength through their unique composite structure (flexibility and rigidity) and why, despite this, our bodies aren't invulnerable. A deep dive into biological engineering.",
+      "psychology": "Surprise, awe, curiosity gap, relatability ('your own body'), validation.",
+      "keywords": "Bone strength, human body, biology",
+      "score": 90,
+      "used": true
+    },
+    {
       "id": "your-body-s-weirdest-self-defense-you-won-t-believe-what-it-",
       "title": "Your Body's Weirdest Self-Defense: You Won't Believe What It Does",
       "hook": "Did you know your own body is secretly trying to get rid of you... sort of?",
@@ -428,16 +438,6 @@
       "psychology": "Curiosity gap, awe, surprise, mind-blowing facts.",
       "keywords": "Space, dark energy, universe",
       "score": 87,
-      "used": false
-    },
-    {
-      "id": "your-bones-are-stronger-than-steel-but-here-s-the-catch",
-      "title": "Your Bones Are STRONGER Than Steel, But Here's The Catch",
-      "hook": "Forget what you think you know about strength. Your own bones are tougher than steel!",
-      "angle": "It's not just a bold claim; it's *how* bones achieve this incredible strength through their unique composite structure (flexibility and rigidity) and why, despite this, our bodies aren't invulnerable. A deep dive into biological engineering.",
-      "psychology": "Surprise, awe, curiosity gap, relatability ('your own body'), validation.",
-      "keywords": "Bone strength, human body, biology",
-      "score": 90,
       "used": false
     },
     {
