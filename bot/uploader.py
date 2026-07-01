@@ -39,6 +39,41 @@ def _get_service():
     return build("youtube", "v3", credentials=creds)
 
 
+def upload_with_token(video_path: str, title: str, description: str,
+                      tags: list[str], access_token: str, privacy: str = "private") -> str:
+    """Upload to the channel that OWNS `access_token` (multi-user worker path).
+
+    Unlike upload(), this does NOT use the local token.json OAuth flow — it uses
+    a per-user OAuth access token (minted from that user's stored refresh token),
+    so each user's video lands on THEIR OWN channel.
+    """
+    from google.oauth2.credentials import Credentials
+    from googleapiclient.discovery import build
+    from googleapiclient.http import MediaFileUpload
+
+    creds = Credentials(token=access_token)
+    youtube = build("youtube", "v3", credentials=creds)
+    body = {
+        "snippet": {
+            "title": title[:100],
+            "description": description[:4900],
+            "tags": tags[:15],
+            "categoryId": "27",
+        },
+        "status": {"privacyStatus": privacy, "selfDeclaredMadeForKids": False},
+    }
+    media = MediaFileUpload(video_path, chunksize=-1, resumable=True, mimetype="video/mp4")
+    req = youtube.videos().insert(part="snippet,status", body=body, media_body=media)
+    resp = None
+    while resp is None:
+        status, resp = req.next_chunk()
+        if status:
+            print(f"[upload] {int(status.progress() * 100)}%")
+    url = f"https://youtu.be/{resp['id']}"
+    print(f"[upload] done -> {url}")
+    return url
+
+
 def upload(video_path: str, title: str, description: str, tags: list[str]) -> str:
     from googleapiclient.http import MediaFileUpload
 
