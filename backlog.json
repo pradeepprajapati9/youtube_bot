@@ -351,6 +351,16 @@
       "used": true
     },
     {
+      "id": "the-invisible-fish-that-s-deadlier-than-a-shark",
+      "title": "The Invisible Fish That's Deadlier Than A Shark",
+      "hook": "This isn't a rock. It's the most perfectly disguised assassin in the ocean, and you've probably swam right past one.",
+      "angle": "Focus on the stonefish's unparalleled camouflage and its potent, often fatal, venom. Emphasize its hidden danger, making it a compelling 'I must tell someone' story about an animal most people have never heard of.",
+      "psychology": "Surprise, awe, curiosity gap, 'I must tell someone' (danger), fear.",
+      "keywords": "Stonefish, camouflage, venom",
+      "score": 92,
+      "used": true
+    },
+    {
       "id": "your-body-s-weirdest-self-defense-you-won-t-believe-what-it-",
       "title": "Your Body's Weirdest Self-Defense: You Won't Believe What It Does",
       "hook": "Did you know your own body is secretly trying to get rid of you... sort of?",
@@ -428,16 +438,6 @@
       "psychology": "Surprise, awe, curiosity gap, relatability ('your own body'), validation.",
       "keywords": "Bone strength, human body, biology",
       "score": 90,
-      "used": false
-    },
-    {
-      "id": "the-invisible-fish-that-s-deadlier-than-a-shark",
-      "title": "The Invisible Fish That's Deadlier Than A Shark",
-      "hook": "This isn't a rock. It's the most perfectly disguised assassin in the ocean, and you've probably swam right past one.",
-      "angle": "Focus on the stonefish's unparalleled camouflage and its potent, often fatal, venom. Emphasize its hidden danger, making it a compelling 'I must tell someone' story about an animal most people have never heard of.",
-      "psychology": "Surprise, awe, curiosity gap, 'I must tell someone' (danger), fear.",
-      "keywords": "Stonefish, camouflage, venom",
-      "score": 92,
       "used": false
     },
     {
