@@ -52,10 +52,14 @@
   async function captureFromSession(sess) {
     if (!sess) return;
     if (sess.provider_refresh_token) {
-      await sb.from("channel_tokens").upsert(
+      const { error } = await sb.from("channel_tokens").upsert(
         { user_id: sess.user.id, refresh_token: sess.provider_refresh_token,
           updated_at: new Date().toISOString() });
-      showToast("✅ Auto-upload enabled — the bot can now post to your channel.");
+      showToast(error ? ("⚠️ Token save failed: " + error.message)
+                      : "✅ Auto-upload enabled — the bot can now post to your channel.");
+    } else if (sess.provider_token) {
+      // We have an access token but Google gave no refresh token this time.
+      console.warn("No provider_refresh_token in session — click 'Enable auto-upload' to grant offline access.");
     }
     if (sess.provider_token) {
       try {
