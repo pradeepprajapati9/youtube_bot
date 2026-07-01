@@ -61,6 +61,7 @@
       // We have an access token but Google gave no refresh token this time.
       console.warn("No provider_refresh_token in session — click 'Enable auto-upload' to grant offline access.");
     }
+    await refreshAutoStatus();
     if (sess.provider_token) {
       try {
         const r = await fetch(
@@ -74,6 +75,20 @@
           renderChannel();
         }
       } catch (e) { /* channel may already be stored from before */ }
+    }
+  }
+
+  // Persistent on-page status: is auto-upload (token) actually stored?
+  async function refreshAutoStatus() {
+    const hint = document.getElementById("chanHint");
+    const btn = document.getElementById("reconnectBtn");
+    const { data } = await sb.from("channel_tokens").select("user_id").eq("user_id", user.id).maybeSingle();
+    if (data) {
+      hint.innerHTML = "✅ <b style='color:#7ee2a0'>Auto-upload ENABLED</b> — the bot can post to your channel.";
+      btn.textContent = "Re-grant access";
+    } else {
+      hint.innerHTML = "⚠️ <b style='color:#ff8f8f'>Auto-upload NOT enabled.</b> Click the button above, pick your account, and press <b>Allow</b>.";
+      btn.textContent = "🔑 Enable auto-upload (grant access)";
     }
   }
 
@@ -197,6 +212,7 @@
 
   /* ---------- init ---------- */
   await captureFromSession(session);
+  await refreshAutoStatus();
   await renderChannel();
   await loadNiche();
   await renderRequests();
