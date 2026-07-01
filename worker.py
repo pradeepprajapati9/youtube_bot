@@ -54,10 +54,6 @@ def access_token_for(user_id: str) -> str:
     rows = sb_get("channel_tokens", user_id=f"eq.{user_id}", select="refresh_token")
     if not rows:
         raise RuntimeError("no refresh token stored for this user (reconnect needed)")
-    # non-secret debug: verify which client + secret shape the worker is using
-    print(f"[worker] token exchange: client_id={GOOGLE_CLIENT_ID[:24]}... "
-          f"id_len={len(GOOGLE_CLIENT_ID)} secret_len={len(GOOGLE_CLIENT_SECRET)} "
-          f"secret_fmt={'ok' if GOOGLE_CLIENT_SECRET.startswith('GOCSPX-') else 'BAD(not GOCSPX-)'}")
     r = requests.post("https://oauth2.googleapis.com/token", timeout=30, data={
         "client_id": GOOGLE_CLIENT_ID,
         "client_secret": GOOGLE_CLIENT_SECRET,

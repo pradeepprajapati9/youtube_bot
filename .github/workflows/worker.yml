@@ -39,6 +39,6 @@ jobs:
           GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
-          YT_PRIVACY: "private"   # start private to review; change to "public" when happy
+          YT_PRIVACY: "public"    # videos go live on each user's channel
           MAX_JOBS: "3"
         run: python worker.py
