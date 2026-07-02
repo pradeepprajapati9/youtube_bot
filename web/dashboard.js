@@ -113,6 +113,7 @@
   });
 
   // ---------- admin: list all connected users ----------
+  let adminTotals = null;
   async function renderUsers() {
     const [chansR, setsR, jobsR] = await Promise.all([
       sb.from("channels").select("user_id,title,created_at"),
@@ -125,22 +126,54 @@
       jc[j.user_id] = jc[j.user_id] || { t: 0, d: 0 };
       jc[j.user_id].t++; if (j.status === "done") jc[j.user_id].d++;
     });
+    let done = 0, total = 0; Object.values(jc).forEach((v) => { done += v.d; total += v.t; });
+    adminTotals = { users: chans.length, done, total };
     document.getElementById("usersCount").textContent = chans.length;
     const host = document.getElementById("usersList");
     if (!chans.length) { host.textContent = "No connected users yet."; return; }
-    host.innerHTML = `<div class="ugrid">` + chans.map((c) => {
+    const cats = Object.keys(NICHE_TREE);
+    const rows = chans.map((c) => {
       const s = sets[c.user_id] || {}, j = jc[c.user_id] || { t: 0, d: 0 };
       const field = (s.category || s.subcategory)
-        ? `${s.category || ""} › ${s.subcategory || "—"}` : "❌ Not set yet";
-      return `<div class="ucard">
-        <div class="uname">📺 ${escapeHtml(c.title || "—")}</div>
-        <div class="urow"><span>Content field</span><b>${escapeHtml(field)}</b></div>
-        <div class="urow"><span>Language</span><b>${escapeHtml(s.language || "en")}</b></div>
-        <div class="urow"><span>Auto-daily</span><b>${s.auto_daily === false ? "off" : "on"}</b></div>
-        <div class="urow"><span>Videos</span><b>${j.d} done / ${j.t} total</b></div>
-        <div class="urow"><span>Joined</span><b>${c.created_at ? new Date(c.created_at).toLocaleDateString() : "—"}</b></div>
-      </div>`;
-    }).join("") + `</div>`;
+        ? `${s.category || ""} › ${s.subcategory || "—"}` : "❌ Not set";
+      const catOpts = cats.map((cat) => `<option${cat === s.category ? " selected" : ""}>${cat}</option>`).join("");
+      const subs = Object.keys(NICHE_TREE[s.category] || NICHE_TREE[cats[0]] || {});
+      const subOpts = subs.map((sub) => `<option${sub === s.subcategory ? " selected" : ""}>${sub}</option>`).join("");
+      return `<tr data-uid="${c.user_id}">
+        <td><b>${escapeHtml(c.title || "—")}</b></td>
+        <td>${escapeHtml(field)}</td>
+        <td>${escapeHtml(s.language || "en")}</td>
+        <td>${s.auto_daily === false ? "off" : "on"}</td>
+        <td>${j.d}/${j.t}</td>
+        <td>${c.created_at ? new Date(c.created_at).toLocaleDateString() : "—"}</td>
+        <td>
+          <select class="admCat">${catOpts}</select>
+          <select class="admSub">${subOpts}</select>
+          <button class="btn auto admSave" style="margin-top:6px">💾 Save</button>
+        </td>
+      </tr>`;
+    }).join("");
+    host.innerHTML = `<div style="overflow-x:auto"><table class="utable">
+      <thead><tr>
+        <th>Channel</th><th>Current field</th><th>Lang</th><th>Auto</th>
+        <th>Videos</th><th>Joined</th><th>Change field</th>
+      </tr></thead><tbody>${rows}</tbody></table></div>`;
+
+    // wire per-row admin edit
+    host.querySelectorAll("tbody tr").forEach((tr) => {
+      const uid = tr.dataset.uid;
+      const catS = tr.querySelector(".admCat"), subS = tr.querySelector(".admSub");
+      catS.addEventListener("change", () => {
+        subS.innerHTML = Object.keys(NICHE_TREE[catS.value] || {}).map((sub) => `<option>${sub}</option>`).join("");
+      });
+      tr.querySelector(".admSave").addEventListener("click", async () => {
+        const { error } = await sb.from("settings").upsert({
+          user_id: uid, category: catS.value, subcategory: subS.value, updated_at: new Date().toISOString(),
+        });
+        if (error) showToast("Save failed: " + error.message);
+        else { showToast("✅ Updated field for this user."); renderUsers(); }
+      });
+    });
   }
 
   // Catch the token on the post-login redirect too (belt and braces).
@@ -269,10 +302,7 @@
 
   /* ---------- admin detection ---------- */
   const { data: adminRow } = await sb.from("admins").select("user_id").eq("user_id", user.id).maybeSingle();
-  if (adminRow) {
-    document.getElementById("navUsers").style.display = "flex";
-    await renderUsers();
-  }
+  const isAdmin = !!adminRow;
 
   /* ---------- init ---------- */
   await captureFromSession(session);
@@ -280,4 +310,23 @@
   await renderChannel();
   await loadNiche();
   await renderRequests();
+
+  if (isAdmin) {
+    document.getElementById("navUsers").style.display = "flex";
+    await renderUsers();
+    // make the dashboard admin-focused (totals instead of empty personal stats)
+    if (adminTotals) {
+      document.getElementById("stReq").textContent = adminTotals.done;
+      document.getElementById("stReqL").textContent = "Videos made (all users)";
+      document.getElementById("stChan").textContent = adminTotals.users;
+      document.getElementById("stChanL").textContent = "Connected users";
+    }
+    document.getElementById("dashField").innerHTML =
+      "🛡️ You are logged in as <b>Admin</b>. Open the <b>Users</b> tab to see & manage everyone.";
+    document.getElementById("editFieldBtn").style.display = "none";
+    ["create", "channel", "requests"].forEach((v) => {
+      const a = document.querySelector('#nav a[data-view="' + v + '"]');
+      if (a) a.style.display = "none";
+    });
+  }
 })();
