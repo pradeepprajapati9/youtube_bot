@@ -73,13 +73,26 @@ def _apply_language(lang: str):
                     "hi": "hi-IN-SwaraNeural"}.get(lang, "en-US-AvaMultilingualNeural")
 
 
-def build_video(job, base):
+def recent_titles(user_id, limit=25):
+    """The user's already-made video titles — so we never repeat a topic."""
+    try:
+        rows = sb_get("jobs", user_id=f"eq.{user_id}", title="not.is.null",
+                      select="title", order="created_at.desc", limit=str(limit))
+        return [r["title"] for r in rows if r.get("title")]
+    except Exception:
+        return []
+
+
+def build_video(job, base, avoid_titles=None):
     cat = job.get("category") or ""
     sub = job.get("subcategory") or ""
     topic = sub or cat or "Amazing facts"
     field = f"{cat} > {sub}".strip(" >")
     ctx = (f"This faceless channel's fixed niche is '{field}'. Pick ONE fresh, specific, "
            f"fascinating idea strictly within this niche; vary it so videos never repeat.")
+    if avoid_titles:
+        ctx += (" Do NOT repeat or closely resemble any of these already-made videos: "
+                + "; ".join(avoid_titles[:25]) + ". Choose a clearly different topic.")
 
     meta = script_gen.generate(topic, ctx)
     vis, credits = visuals.get_scene_visuals(meta["scenes"], topic, base)
@@ -122,10 +135,10 @@ def process(job):
         # get the user's access token FIRST -> fail fast if auth is broken (no wasted build)
         token = access_token_for(uid)
         _apply_language(job.get("language"))
-        video, meta, credits = build_video(job, base)
+        video, meta, credits = build_video(job, base, avoid_titles=recent_titles(uid))
         url = uploader.upload_with_token(video, meta["title"], _description(meta, credits),
                                          meta["tags"], token, PRIVACY)
-        sb_patch("jobs", {"status": "done", "video_url": url}, id=f"eq.{jid}")
+        sb_patch("jobs", {"status": "done", "video_url": url, "title": meta["title"]}, id=f"eq.{jid}")
         print(f"[worker] job {jid} DONE -> {url}")
     except Exception as ex:
         traceback.print_exc()

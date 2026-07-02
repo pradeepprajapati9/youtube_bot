@@ -187,10 +187,10 @@
     if (!data || !data.length) { list.textContent = "No requests yet."; return; }
     list.innerHTML = data.map((r) => `
       <div style="padding:10px 0;border-bottom:1px solid var(--border)">
-        <b style="color:var(--text)">${escapeHtml(r.category)} › ${escapeHtml(r.subcategory)}</b>
+        <b style="color:var(--text)">${escapeHtml(r.title || (r.category + " › " + r.subcategory))}</b>
         &nbsp;<span class="badge ${r.status === "done" ? "on" : "off"}">${escapeHtml(r.status)}</span>
         ${r.video_url ? ` &nbsp;<a href="${escapeHtml(r.video_url)}" target="_blank">watch</a>` : ""}<br />
-        <small>${escapeHtml(r.format)} • ${escapeHtml(r.language)} • ${new Date(r.created_at).toLocaleString()}</small>
+        <small>${escapeHtml(r.category)} › ${escapeHtml(r.subcategory)} • ${escapeHtml(r.format)} • ${escapeHtml(r.language)} • ${new Date(r.created_at).toLocaleString()}</small>
       </div>`).join("");
   }
 
