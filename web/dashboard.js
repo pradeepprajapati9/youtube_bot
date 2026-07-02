@@ -84,14 +84,11 @@
   // Persistent on-page status: is auto-upload (token) actually stored?
   async function refreshAutoStatus() {
     const hint = document.getElementById("chanHint");
-    const btn = document.getElementById("reconnectBtn");
     const { data } = await sb.from("channel_tokens").select("user_id").eq("user_id", user.id).maybeSingle();
     if (data) {
       hint.innerHTML = "✅ <b style='color:#7ee2a0'>Auto-upload ENABLED</b> — the bot can post to your channel.";
-      btn.textContent = "Re-grant access";
     } else {
-      hint.innerHTML = "⚠️ <b style='color:#ff8f8f'>Auto-upload NOT enabled.</b> Click the button above, pick your account, and press <b>Allow</b>.";
-      btn.textContent = "🔑 Enable auto-upload (grant access)";
+      hint.innerHTML = "⚠️ <b style='color:#ff8f8f'>Auto-upload NOT enabled.</b> Log out and sign in with Google again, and press <b>Allow</b>.";
     }
   }
 
@@ -104,7 +101,7 @@
     });
     if (error) showToast(error.message);
   }
-  document.getElementById("reconnectBtn").addEventListener("click", connectYouTube);
+  // (Enable-auto-upload button removed — sign-in already grants offline access.)
 
   // Connect a DIFFERENT Google account as another channel/user.
   document.getElementById("addChannelBtn").addEventListener("click", async () => {
