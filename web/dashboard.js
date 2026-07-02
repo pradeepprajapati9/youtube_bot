@@ -156,7 +156,6 @@
           </div>
           <div class="actions" style="margin-top:8px">
             <button class="btn auto admSave">💾 Save field</button>
-            <button class="btn secondary auto admGen">▶ Generate now</button>
           </div>
         </td>
       </tr>`;
@@ -186,14 +185,6 @@
           user_id: uid, auto_daily: e.target.value === "on", updated_at: new Date().toISOString(),
         });
         showToast(error ? ("Failed: " + error.message) : "✅ Auto-daily " + e.target.value + " for this user.");
-      });
-      tr.querySelector(".admGen").addEventListener("click", async () => {
-        if (!catS.value) { showToast("Pick a category first."); return; }
-        const { error } = await sb.from("jobs").insert({
-          user_id: uid, category: catS.value, subcategory: subS.value,
-          language: tr.dataset.lang || "en", format: tr.dataset.fmt || "short", status: "queued",
-        });
-        showToast(error ? ("Failed: " + error.message) : "✅ Video queued for this user.");
       });
     });
   }
