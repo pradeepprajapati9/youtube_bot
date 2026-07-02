@@ -16,6 +16,8 @@
         <a data-view="create"><span class="ic">🎬</span><span>Create Video</span></a>
         <a data-view="channel"><span class="ic">📺</span><span>My Channel</span></a>
         <a data-view="requests"><span class="ic">📋</span><span>Requests</span></a>
+        <a data-view="guide"><span class="ic">📖</span><span>Guide</span></a>
+        <a data-view="users" id="navUsers" style="display:none"><span class="ic">👥</span><span>Users (admin)</span></a>
       </nav>
       <div class="spacer"></div>
       <div class="userchip">
@@ -99,6 +101,8 @@
             </div>
             <button class="btn green" id="reconnectBtn" style="max-width:340px">🔑 Enable auto-upload (grant access)</button>
             <p class="desc" id="chanHint" style="margin-top:12px">Click this once so the bot can upload to your channel automatically. If the wrong channel shows, log out and sign in with the right Google account.</p>
+            <button class="btn secondary" id="addChannelBtn" style="max-width:340px;margin-top:14px">➕ Connect another channel (different account)</button>
+            <p class="desc" style="margin-top:8px">This switches to a different Google account and connects that channel as a new user.</p>
           </div>
         </section>
 
@@ -108,6 +112,51 @@
             <h2>Your requests</h2>
             <p class="desc">Videos you've queued and their status.</p>
             <div id="requestList" style="font-size:14px;color:var(--muted)">Loading…</div>
+          </div>
+        </section>
+
+        <!-- GUIDE (for beginners) -->
+        <section class="view" id="view-guide">
+          <div class="panel">
+            <h2>📖 How it works — beginner guide</h2>
+            <p class="desc">Set it up once, then the bot posts videos to your channel automatically. Just follow these steps.</p>
+            <div class="steps" style="line-height:2">
+              <b style="color:var(--text)">Step 1 — Sign in</b><br />
+              You already signed in with Google. That connects your YouTube channel. ✅<br /><br />
+
+              <b style="color:var(--text)">Step 2 — Enable auto-upload</b><br />
+              Go to <b>📺 My Channel</b> → click <b>“Enable auto-upload”</b> → pick your account → press <b>Allow</b>.
+              You should see <b style="color:#7ee2a0">“Auto-upload ENABLED”</b>. This lets the bot post for you.<br /><br />
+
+              <b style="color:var(--text)">Step 3 — Choose your field</b><br />
+              Go to <b>🎬 Create Video</b> → pick a <b>Category</b> (e.g. Science) and <b>Subcategory</b> (e.g. Space).
+              Choose <b>Language</b> and <b>Format</b>. This is your channel's topic — set it once.<br /><br />
+
+              <b style="color:var(--text)">Step 4 — Save</b><br />
+              Press <b>“Save &amp; generate”</b>. That queues your first video.
+              Check <b>📋 Requests</b> — it goes <i>queued → building → done</i>, with a “watch” link.<br /><br />
+
+              <b style="color:var(--text)">Step 5 — Relax 🎉</b><br />
+              The bot now makes videos in your field <b>automatically, a few times a day</b>, and uploads them to your channel.
+              No need to do anything again. You can change your field anytime in Create Video.<br /><br />
+
+              <b style="color:var(--text)">Tips</b><br />
+              • Videos may be <b>private</b> first — check YouTube Studio → Content.<br />
+              • Wrong channel connected? Logout and sign in with the correct Google account.<br />
+              • Want a different topic? Just change Category/Subcategory in Create Video.
+            </div>
+          </div>
+        </section>
+
+        <!-- USERS (admin only) -->
+        <section class="view" id="view-users">
+          <div class="stat">
+            <div class="box"><div class="n" id="usersCount">0</div><div class="l">Connected users</div></div>
+          </div>
+          <div class="panel" style="margin-top:18px">
+            <h2>👥 All connected users</h2>
+            <p class="desc">Everyone who signed in and connected a channel (admin view).</p>
+            <div id="usersList" style="font-size:14px;color:var(--muted);overflow-x:auto">Loading…</div>
           </div>
         </section>
       </div>

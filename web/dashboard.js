@@ -34,7 +34,7 @@
   });
 
   /* ---------- sidebar nav ---------- */
-  const TITLES = { dashboard: "Dashboard", create: "Create Video", channel: "My Channel", requests: "Requests" };
+  const TITLES = { dashboard: "Dashboard", create: "Create Video", channel: "My Channel", requests: "Requests", guide: "Guide", users: "Users" };
   const navLinks = document.querySelectorAll("#nav a");
   function switchView(name) {
     document.querySelectorAll(".view").forEach((v) => v.classList.remove("active"));
@@ -102,6 +102,48 @@
     if (error) showToast(error.message);
   }
   document.getElementById("reconnectBtn").addEventListener("click", connectYouTube);
+
+  // Connect a DIFFERENT Google account as another channel/user.
+  document.getElementById("addChannelBtn").addEventListener("click", async () => {
+    const redirectTo = new URL("dashboard.html", window.location.href).href;
+    await sb.auth.signInWithOAuth({
+      provider: "google",
+      options: { scopes: SCOPES, queryParams: { access_type: "offline", prompt: "consent select_account" }, redirectTo },
+    });
+  });
+
+  // ---------- admin: list all connected users ----------
+  async function renderUsers() {
+    const [chansR, setsR, jobsR] = await Promise.all([
+      sb.from("channels").select("user_id,title,created_at"),
+      sb.from("settings").select("user_id,category,subcategory,auto_daily"),
+      sb.from("jobs").select("user_id,status"),
+    ]);
+    const chans = chansR.data || [];
+    const sets = {}; (setsR.data || []).forEach((s) => { sets[s.user_id] = s; });
+    const jc = {}; (jobsR.data || []).forEach((j) => {
+      jc[j.user_id] = jc[j.user_id] || { t: 0, d: 0 };
+      jc[j.user_id].t++; if (j.status === "done") jc[j.user_id].d++;
+    });
+    document.getElementById("usersCount").textContent = chans.length;
+    const host = document.getElementById("usersList");
+    if (!chans.length) { host.textContent = "No connected users yet."; return; }
+    const rows = chans.map((c) => {
+      const s = sets[c.user_id] || {}, j = jc[c.user_id] || { t: 0, d: 0 };
+      return `<tr style="border-bottom:1px solid var(--border)">
+        <td style="padding:8px">${escapeHtml(c.title || "—")}</td>
+        <td style="padding:8px">${escapeHtml((s.category || "—") + " › " + (s.subcategory || "—"))}</td>
+        <td style="padding:8px">${s.auto_daily === false ? "off" : "on"}</td>
+        <td style="padding:8px">${j.d}/${j.t}</td>
+        <td style="padding:8px">${c.created_at ? new Date(c.created_at).toLocaleDateString() : ""}</td>
+      </tr>`;
+    }).join("");
+    host.innerHTML = `<table style="width:100%;border-collapse:collapse;color:var(--text)">
+      <tr style="text-align:left;color:var(--muted)">
+        <th style="padding:8px">Channel</th><th style="padding:8px">Niche</th>
+        <th style="padding:8px">Auto</th><th style="padding:8px">Videos (done/total)</th><th style="padding:8px">Joined</th>
+      </tr>${rows}</table>`;
+  }
 
   // Catch the token on the post-login redirect too (belt and braces).
   sb.auth.onAuthStateChange((_event, sess) => { if (sess) captureFromSession(sess); });
@@ -209,6 +251,13 @@
     switchView("requests");
     showToast("✅ Queued! The bot will build & upload this to your channel.");
   });
+
+  /* ---------- admin detection ---------- */
+  const { data: adminRow } = await sb.from("admins").select("user_id").eq("user_id", user.id).maybeSingle();
+  if (adminRow) {
+    document.getElementById("navUsers").style.display = "flex";
+    await renderUsers();
+  }
 
   /* ---------- init ---------- */
   await captureFromSession(session);
