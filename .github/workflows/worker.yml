@@ -1,10 +1,16 @@
 name: Video worker (multi-user)
 
-# Picks up queued jobs from Supabase, builds each video and uploads it to that
-# user's own channel. Runs on a schedule + a manual "Run workflow" button.
+# Runs on 6 slots a day. At EACH slot it (1) queues a fresh video for every
+# auto-daily user, then (2) builds + uploads it to that user's own channel.
+# So each user gets up to ~6 videos/day automatically. + a manual button.
 on:
   schedule:
-    - cron: "*/30 * * * *"   # every 30 minutes
+    - cron: "30 2 * * *"    # 08:00 IST
+    - cron: "30 5 * * *"    # 11:00 IST
+    - cron: "30 7 * * *"    # 13:00 IST
+    - cron: "30 10 * * *"   # 16:00 IST
+    - cron: "30 12 * * *"   # 18:00 IST
+    - cron: "0 16 * * *"    # 21:30 IST
   workflow_dispatch: {}
 
 concurrency:
@@ -14,7 +20,7 @@ concurrency:
 jobs:
   work:
     runs-on: ubuntu-latest
-    timeout-minutes: 50
+    timeout-minutes: 55
     steps:
       - uses: actions/checkout@v4
 
@@ -31,7 +37,13 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run the worker
+      - name: Queue a fresh video for each auto-daily user
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+        run: python enqueue_daily.py
+
+      - name: Build + upload queued videos
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
@@ -39,6 +51,6 @@ jobs:
           GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
-          YT_PRIVACY: "public"    # videos go live on each user's channel
-          MAX_JOBS: "3"
+          YT_PRIVACY: "public"
+          MAX_JOBS: "10"
         run: python worker.py

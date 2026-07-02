@@ -37,8 +37,9 @@ def main():
         # must be able to upload (has a refresh token)
         if not sb_get("channel_tokens", user_id=f"eq.{uid}", select="user_id"):
             continue
-        # don't pile up: skip if a job is already pending for this user
-        if sb_get("jobs", user_id=f"eq.{uid}", status="in.(queued,building)", select="id"):
+        # don't pile up: skip only if a job is already WAITING (queued) for this user.
+        # (a stuck 'building' job won't block new slots)
+        if sb_get("jobs", user_id=f"eq.{uid}", status="eq.queued", select="id"):
             continue
         sb_post("jobs", {
             "user_id": uid,
