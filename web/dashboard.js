@@ -143,7 +143,10 @@
         <td><b>${escapeHtml(c.title || "—")}</b></td>
         <td>${escapeHtml(field)}</td>
         <td>${escapeHtml(s.language || "en")}</td>
-        <td>${s.auto_daily === false ? "off" : "on"}</td>
+        <td><select class="admAuto">
+          <option value="on"${s.auto_daily !== false ? " selected" : ""}>on</option>
+          <option value="off"${s.auto_daily === false ? " selected" : ""}>off</option>
+        </select></td>
         <td>${j.d}/${j.t}</td>
         <td>${c.created_at ? new Date(c.created_at).toLocaleDateString() : "—"}</td>
         <td>
@@ -172,6 +175,12 @@
         });
         if (error) showToast("Save failed: " + error.message);
         else { showToast("✅ Updated field for this user."); renderUsers(); }
+      });
+      tr.querySelector(".admAuto").addEventListener("change", async (e) => {
+        const { error } = await sb.from("settings").upsert({
+          user_id: uid, auto_daily: e.target.value === "on", updated_at: new Date().toISOString(),
+        });
+        showToast(error ? ("Failed: " + error.message) : "✅ Auto-daily " + e.target.value + " for this user.");
       });
     });
   }
