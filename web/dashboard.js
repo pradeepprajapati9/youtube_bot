@@ -143,7 +143,7 @@
         <td><b>${escapeHtml(c.title || "—")}</b></td>
         <td>${escapeHtml(field)}</td>
         <td>${escapeHtml(s.language || "en")}</td>
-        <td>${c.upload_ready ? "✅ Yes" : "❌ No"}</td>
+        <td>${c.upload_ready ? "✅ Yes" : `❌ No<br><button class="btn auto admEnable" style="margin-top:6px">🔑 Enable</button>`}</td>
         <td><select class="admAuto">
           <option value="on"${s.auto_daily !== false ? " selected" : ""}>on</option>
           <option value="off"${s.auto_daily === false ? " selected" : ""}>off</option>
@@ -186,6 +186,15 @@
           user_id: uid, auto_daily: e.target.value === "on", updated_at: new Date().toISOString(),
         });
         showToast(error ? ("Failed: " + error.message) : "✅ Auto-daily " + e.target.value + " for this user.");
+      });
+      const enBtn = tr.querySelector(".admEnable");
+      if (enBtn) enBtn.addEventListener("click", async () => {
+        showToast("Opening Google — sign in with THIS channel's account & press Allow.");
+        const redirectTo = new URL("dashboard.html", window.location.href).href;
+        await sb.auth.signInWithOAuth({
+          provider: "google",
+          options: { scopes: SCOPES, queryParams: { access_type: "offline", prompt: "consent select_account" }, redirectTo },
+        });
       });
     });
   }
