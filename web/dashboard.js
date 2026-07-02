@@ -139,7 +139,7 @@
       const catOpts = cats.map((cat) => `<option${cat === s.category ? " selected" : ""}>${cat}</option>`).join("");
       const subs = Object.keys(NICHE_TREE[s.category] || NICHE_TREE[cats[0]] || {});
       const subOpts = subs.map((sub) => `<option${sub === s.subcategory ? " selected" : ""}>${sub}</option>`).join("");
-      return `<tr data-uid="${c.user_id}">
+      return `<tr data-uid="${c.user_id}" data-lang="${escapeHtml(s.language || "en")}" data-fmt="${escapeHtml(s.format || "short")}">
         <td><b>${escapeHtml(c.title || "—")}</b></td>
         <td>${escapeHtml(field)}</td>
         <td>${escapeHtml(s.language || "en")}</td>
@@ -152,7 +152,8 @@
         <td>
           <select class="admCat">${catOpts}</select>
           <select class="admSub">${subOpts}</select>
-          <button class="btn auto admSave" style="margin-top:6px">💾 Save</button>
+          <button class="btn auto admSave" style="margin-top:6px">💾 Save field</button>
+          <button class="btn secondary auto admGen" style="margin-top:6px">▶ Generate now</button>
         </td>
       </tr>`;
     }).join("");
@@ -181,6 +182,14 @@
           user_id: uid, auto_daily: e.target.value === "on", updated_at: new Date().toISOString(),
         });
         showToast(error ? ("Failed: " + error.message) : "✅ Auto-daily " + e.target.value + " for this user.");
+      });
+      tr.querySelector(".admGen").addEventListener("click", async () => {
+        if (!catS.value) { showToast("Pick a category first."); return; }
+        const { error } = await sb.from("jobs").insert({
+          user_id: uid, category: catS.value, subcategory: subS.value,
+          language: tr.dataset.lang || "en", format: tr.dataset.fmt || "short", status: "queued",
+        });
+        showToast(error ? ("Failed: " + error.message) : "✅ Video queued for this user.");
       });
     });
   }
@@ -323,7 +332,7 @@
   if (isAdmin) {
     document.getElementById("navUsers").style.display = "flex";
     await renderUsers();
-    // make the dashboard admin-focused (totals instead of empty personal stats)
+    // admin gets FULL access — keep all tabs; just add all-users totals up top.
     if (adminTotals) {
       document.getElementById("stReq").textContent = adminTotals.done;
       document.getElementById("stReqL").textContent = "Videos made (all users)";
@@ -331,11 +340,6 @@
       document.getElementById("stChanL").textContent = "Connected users";
     }
     document.getElementById("dashField").innerHTML =
-      "🛡️ You are logged in as <b>Admin</b>. Open the <b>Users</b> tab to see & manage everyone.";
-    document.getElementById("editFieldBtn").style.display = "none";
-    ["create", "channel", "requests"].forEach((v) => {
-      const a = document.querySelector('#nav a[data-view="' + v + '"]');
-      if (a) a.style.display = "none";
-    });
+      "🛡️ <b>Admin</b> — you can manage every user (edit field, auto on/off, generate) in the <b>Users</b> tab.";
   }
 })();
