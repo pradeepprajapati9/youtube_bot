@@ -7,12 +7,11 @@ on:
     # Each run produces + uploads the thinker_bot's single best ready idea, so
     # uploads spread across the day at peak times. 6 slots = 6 videos/day, which
     # is the realistic max under the default YouTube API quota (6 x 1600 < 10000).
+    # 3 slots/day (owner channel). Shares the project's ~6 uploads/day quota
+    # with the multi-user worker (which takes the other 3 slots).
     - cron: "30 2 * * *"    # 08:00 IST  (morning)
-    - cron: "30 5 * * *"    # 11:00 IST  (late morning)
     - cron: "30 7 * * *"    # 13:00 IST  (lunch)
-    - cron: "30 10 * * *"   # 16:00 IST  (afternoon)
     - cron: "30 12 * * *"   # 18:00 IST  (evening)
-    - cron: "0 16 * * *"    # 21:30 IST  (night peak)
   workflow_dispatch:          # manual trigger / dashboard trigger
     inputs:
       category:
