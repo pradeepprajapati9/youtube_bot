@@ -149,11 +149,15 @@
         </select></td>
         <td>${j.d}/${j.t}</td>
         <td>${c.created_at ? new Date(c.created_at).toLocaleDateString() : "—"}</td>
-        <td>
-          <select class="admCat">${catOpts}</select>
-          <select class="admSub">${subOpts}</select>
-          <button class="btn auto admSave" style="margin-top:6px">💾 Save field</button>
-          <button class="btn secondary auto admGen" style="margin-top:6px">▶ Generate now</button>
+        <td class="editcell">
+          <div class="actions">
+            <select class="admCat">${catOpts}</select>
+            <select class="admSub">${subOpts}</select>
+          </div>
+          <div class="actions" style="margin-top:8px">
+            <button class="btn auto admSave">💾 Save field</button>
+            <button class="btn secondary auto admGen">▶ Generate now</button>
+          </div>
         </td>
       </tr>`;
     }).join("");

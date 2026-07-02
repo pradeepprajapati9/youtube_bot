@@ -81,7 +81,7 @@ textarea { resize: vertical; min-height: 70px; }
   padding: 20px 28px; border-bottom: 1px solid var(--border);
 }
 .pagehead h1 { font-size: 20px; margin: 0; }
-.wrap { padding: 26px 28px 60px; max-width: 1000px; }
+.wrap { padding: 26px 28px 60px; max-width: 1240px; }
 
 .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
 @media (max-width: 860px) {
@@ -129,10 +129,19 @@ textarea { resize: vertical; min-height: 70px; }
 .field .saved { color: #7ee2a0; font-size: 12px; margin-left: 8px; }
 
 /* ---------- admin user table ---------- */
-.utable { width: 100%; border-collapse: collapse; min-width: 760px; }
-.utable th, .utable td { padding: 10px; border-bottom: 1px solid var(--border); text-align: left; font-size: 13px; vertical-align: top; color: var(--text); }
-.utable th { color: var(--muted); font-weight: 600; white-space: nowrap; }
-.utable td select { margin-bottom: 6px; font-size: 13px; padding: 8px; }
+.utable { width: 100%; border-collapse: collapse; min-width: 860px; border-radius: 12px; overflow: hidden; }
+.utable thead th {
+  background: #1b1f28; color: var(--muted); font-weight: 700; padding: 13px 16px;
+  text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: .5px; white-space: nowrap;
+}
+.utable td { padding: 16px; border-bottom: 1px solid var(--border); font-size: 14px; vertical-align: middle; color: var(--text); }
+.utable tbody tr:hover { background: #161a22; }
+.utable td b { font-size: 15px; }
+.utable .editcell { min-width: 320px; }
+.utable .actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.utable .actions select { flex: 1; min-width: 150px; margin: 0; font-size: 13px; padding: 9px 11px; }
+.utable .actions .btn { margin: 0; }
+.utable .admAuto { width: auto; min-width: 76px; padding: 8px 10px; margin: 0; }
 
 /* ---------- admin user cards (responsive) ---------- */
 .ugrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; }
