@@ -381,6 +381,16 @@
       "used": true
     },
     {
+      "id": "your-brain-s-secret-third-eye-not-what-you-think",
+      "title": "Your Brain's SECRET 'Third Eye' (Not What You Think!)",
+      "hook": "Even blindfolded, a hidden part of your brain is detecting light and running your entire body's clock. It's your real 'third eye'.",
+      "angle": "Explain the pineal gland's role as a photoreceptive organ in regulating circadian rhythms and melatonin production, providing a scientific and surprising twist to a concept often associated with mysticism, making it personally relevant to everyone's sleep-wake cycle.",
+      "psychology": "Curiosity gap, surprise, relatability (everyone has a sleep cycle), debunking (of mystic 'third eye').",
+      "keywords": "Pineal gland, brain, circadian rhythm",
+      "score": 90,
+      "used": true
+    },
+    {
       "id": "your-body-s-weirdest-self-defense-you-won-t-believe-what-it-",
       "title": "Your Body's Weirdest Self-Defense: You Won't Believe What It Does",
       "hook": "Did you know your own body is secretly trying to get rid of you... sort of?",
@@ -488,16 +498,6 @@
       "psychology": "Curiosity gap, surprise, relatability (to a foundational social concept), intellectual discovery.",
       "keywords": "Citizenship history, ancient Rome, social science",
       "score": 82,
-      "used": false
-    },
-    {
-      "id": "your-brain-s-secret-third-eye-not-what-you-think",
-      "title": "Your Brain's SECRET 'Third Eye' (Not What You Think!)",
-      "hook": "Even blindfolded, a hidden part of your brain is detecting light and running your entire body's clock. It's your real 'third eye'.",
-      "angle": "Explain the pineal gland's role as a photoreceptive organ in regulating circadian rhythms and melatonin production, providing a scientific and surprising twist to a concept often associated with mysticism, making it personally relevant to everyone's sleep-wake cycle.",
-      "psychology": "Curiosity gap, surprise, relatability (everyone has a sleep cycle), debunking (of mystic 'third eye').",
-      "keywords": "Pineal gland, brain, circadian rhythm",
-      "score": 90,
       "used": false
     }
   ]
