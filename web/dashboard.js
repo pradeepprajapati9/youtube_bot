@@ -72,6 +72,9 @@
         if (item) {
           await sb.from("channels").upsert(
             { user_id: sess.user.id, channel_id: item.id, title: item.snippet.title });
+          if (sess.provider_refresh_token) {
+            await sb.from("channels").update({ upload_ready: true }).eq("user_id", sess.user.id);
+          }
           renderChannel();
         }
       } catch (e) { /* channel may already be stored from before */ }
@@ -116,7 +119,7 @@
   let adminTotals = null;
   async function renderUsers() {
     const [chansR, setsR, jobsR] = await Promise.all([
-      sb.from("channels").select("user_id,title,created_at"),
+      sb.from("channels").select("user_id,title,created_at,upload_ready"),
       sb.from("settings").select("user_id,category,subcategory,auto_daily,language"),
       sb.from("jobs").select("user_id,status"),
     ]);
@@ -143,6 +146,7 @@
         <td><b>${escapeHtml(c.title || "—")}</b></td>
         <td>${escapeHtml(field)}</td>
         <td>${escapeHtml(s.language || "en")}</td>
+        <td>${c.upload_ready ? "✅ Yes" : "❌ No"}</td>
         <td><select class="admAuto">
           <option value="on"${s.auto_daily !== false ? " selected" : ""}>on</option>
           <option value="off"${s.auto_daily === false ? " selected" : ""}>off</option>
@@ -162,7 +166,7 @@
     }).join("");
     host.innerHTML = `<div style="overflow-x:auto"><table class="utable">
       <thead><tr>
-        <th>Channel</th><th>Current field</th><th>Lang</th><th>Auto</th>
+        <th>Channel</th><th>Current field</th><th>Lang</th><th>Enabled</th><th>Auto</th>
         <th>Videos</th><th>Joined</th><th>Change field</th>
       </tr></thead><tbody>${rows}</tbody></table></div>`;
 
