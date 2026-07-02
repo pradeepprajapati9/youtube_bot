@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin • YouTube_Bot</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="center">
+    <form class="card" id="adminForm" autocomplete="off">
+      <div class="logo">You<span>Tube</span>_Bot</div>
+      <div class="subtitle">Admin login</div>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="admin email" required />
+
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="••••••••" required />
+
+      <button type="submit" class="btn">Login as admin</button>
+      <div class="error" id="error"></div>
+
+      <div class="hint"><a href="index.html">← Back to user login</a></div>
+    </form>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script>
+    (async function () {
+      const { data: { session } } = await sb.auth.getSession();
+      if (session) { location.replace("dashboard.html"); return; }
+
+      document.getElementById("adminForm").addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value;
+        const { error } = await sb.auth.signInWithPassword({ email, password });
+        if (error) { document.getElementById("error").textContent = error.message; return; }
+        location.replace("dashboard.html");
+      });
+    })();
+  </script>
+</body>
+</html>

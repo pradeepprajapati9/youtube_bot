@@ -42,12 +42,10 @@
             <div class="box"><div class="n">Free</div><div class="l">Plan</div></div>
           </div>
           <div class="panel" style="margin-top:18px">
-            <h2>Welcome 👋</h2>
-            <p class="desc">Your channel is connected at sign-in. Just pick a field:</p>
-            <div class="steps">
-              1. Open <b>Create Video</b> → choose your Category &amp; Subcategory.<br />
-              2. Press <b>Save &amp; generate</b> — the AI builds a video and uploads it to your channel.
-            </div>
+            <h2>Your content field</h2>
+            <div id="dashField" style="font-size:15px;margin:8px 0 16px">Loading…</div>
+            <button class="btn auto" id="editFieldBtn">✏️ Set / edit field</button>
+            <p class="desc" style="margin-top:14px">New here? Open the <b>📖 Guide</b> for step-by-step help.</p>
           </div>
         </section>
 
@@ -86,7 +84,10 @@
             </div>
 
             <div class="niche-note" id="nicheNote"></div>
-            <button class="btn" id="generateBtn">Save &amp; generate video</button>
+            <div class="row" style="margin-top:4px">
+              <button class="btn" id="saveFieldBtn">💾 Save field</button>
+              <button class="btn secondary" id="generateBtn">▶ Generate one now</button>
+            </div>
           </div>
         </section>
 

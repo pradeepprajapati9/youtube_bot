@@ -116,7 +116,7 @@
   async function renderUsers() {
     const [chansR, setsR, jobsR] = await Promise.all([
       sb.from("channels").select("user_id,title,created_at"),
-      sb.from("settings").select("user_id,category,subcategory,auto_daily"),
+      sb.from("settings").select("user_id,category,subcategory,auto_daily,language"),
       sb.from("jobs").select("user_id,status"),
     ]);
     const chans = chansR.data || [];
@@ -128,21 +128,19 @@
     document.getElementById("usersCount").textContent = chans.length;
     const host = document.getElementById("usersList");
     if (!chans.length) { host.textContent = "No connected users yet."; return; }
-    const rows = chans.map((c) => {
+    host.innerHTML = `<div class="ugrid">` + chans.map((c) => {
       const s = sets[c.user_id] || {}, j = jc[c.user_id] || { t: 0, d: 0 };
-      return `<tr style="border-bottom:1px solid var(--border)">
-        <td style="padding:8px">${escapeHtml(c.title || "—")}</td>
-        <td style="padding:8px">${escapeHtml((s.category || "—") + " › " + (s.subcategory || "—"))}</td>
-        <td style="padding:8px">${s.auto_daily === false ? "off" : "on"}</td>
-        <td style="padding:8px">${j.d}/${j.t}</td>
-        <td style="padding:8px">${c.created_at ? new Date(c.created_at).toLocaleDateString() : ""}</td>
-      </tr>`;
-    }).join("");
-    host.innerHTML = `<table style="width:100%;border-collapse:collapse;color:var(--text)">
-      <tr style="text-align:left;color:var(--muted)">
-        <th style="padding:8px">Channel</th><th style="padding:8px">Niche</th>
-        <th style="padding:8px">Auto</th><th style="padding:8px">Videos (done/total)</th><th style="padding:8px">Joined</th>
-      </tr>${rows}</table>`;
+      const field = (s.category || s.subcategory)
+        ? `${s.category || ""} › ${s.subcategory || "—"}` : "❌ Not set yet";
+      return `<div class="ucard">
+        <div class="uname">📺 ${escapeHtml(c.title || "—")}</div>
+        <div class="urow"><span>Content field</span><b>${escapeHtml(field)}</b></div>
+        <div class="urow"><span>Language</span><b>${escapeHtml(s.language || "en")}</b></div>
+        <div class="urow"><span>Auto-daily</span><b>${s.auto_daily === false ? "off" : "on"}</b></div>
+        <div class="urow"><span>Videos</span><b>${j.d} done / ${j.t} total</b></div>
+        <div class="urow"><span>Joined</span><b>${c.created_at ? new Date(c.created_at).toLocaleDateString() : "—"}</b></div>
+      </div>`;
+    }).join("") + `</div>`;
   }
 
   // Catch the token on the post-login redirect too (belt and braces).
@@ -194,21 +192,37 @@
 
   function fillCategories() { catSel.innerHTML = Object.keys(NICHE_TREE).map((c) => `<option>${c}</option>`).join(""); }
   function fillSubcategories() { subSel.innerHTML = Object.keys(NICHE_TREE[catSel.value] || {}).map((s) => `<option>${s}</option>`).join(""); }
-  function updateNicheNote() {
+  let fieldSaved = false;
+  function fieldLabel() { return `${catSel.value} › ${subSel.value}`; }
+  function updateFieldDisplays() {
     document.getElementById("nicheNote").innerHTML =
-      `🎯 The AI will always create <b>${escapeHtml(catSel.value)} › ${escapeHtml(subSel.value)}</b> videos for your channel. Set once — the bot does the rest.`;
+      `🎯 The AI will always create <b>${escapeHtml(fieldLabel())}</b> videos for your channel.`;
+    const df = document.getElementById("dashField");
+    if (df) df.innerHTML = fieldSaved
+      ? `<span class="badge on">✅ Active</span> &nbsp;<b>${escapeHtml(fieldLabel())}</b>` +
+        `<br /><small style="color:var(--muted)">The bot posts videos in this field automatically.</small>`
+      : `<span class="badge off">Not set</span> &nbsp;<small style="color:var(--muted)">Go to Create Video and pick your field.</small>`;
   }
   async function saveNiche() {
     await sb.from("settings").upsert({
       user_id: user.id, category: catSel.value, subcategory: subSel.value,
       language: langSel.value, format: fmtSel.value, updated_at: new Date().toISOString(),
     });
+    fieldSaved = true;
+    updateFieldDisplays();
   }
 
-  catSel.addEventListener("change", () => { fillSubcategories(); updateNicheNote(); saveNiche(); });
-  subSel.addEventListener("change", () => { updateNicheNote(); saveNiche(); });
-  langSel.addEventListener("change", saveNiche);
-  fmtSel.addEventListener("change", saveNiche);
+  catSel.addEventListener("change", () => { fillSubcategories(); saveNiche(); });
+  subSel.addEventListener("change", () => saveNiche());
+  langSel.addEventListener("change", () => saveNiche());
+  fmtSel.addEventListener("change", () => saveNiche());
+
+  document.getElementById("saveFieldBtn").addEventListener("click", async () => {
+    if (!catSel.value) { showToast("Pick a category first."); return; }
+    await saveNiche();
+    showToast("✅ Field saved: " + fieldLabel() + " — the bot will post these automatically.");
+  });
+  document.getElementById("editFieldBtn").addEventListener("click", () => switchView("create"));
 
   async function loadNiche() {
     fillCategories();
@@ -218,7 +232,8 @@
     if (data && (NICHE_TREE[catSel.value] || {})[data.subcategory]) subSel.value = data.subcategory;
     if (data && data.language) langSel.value = data.language;
     if (data && data.format) fmtSel.value = data.format;
-    updateNicheNote();
+    fieldSaved = !!(data && data.category);
+    updateFieldDisplays();
   }
 
   /* ---------- jobs ---------- */

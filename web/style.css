@@ -128,6 +128,14 @@ textarea { resize: vertical; min-height: 70px; }
 }
 .field .saved { color: #7ee2a0; font-size: 12px; margin-left: 8px; }
 
+/* ---------- admin user cards (responsive) ---------- */
+.ugrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; }
+.ucard { background: #10131a; border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; }
+.ucard .uname { font-weight: 700; font-size: 15px; color: var(--text); margin-bottom: 10px; word-break: break-word; }
+.ucard .urow { display: flex; justify-content: space-between; gap: 10px; font-size: 13px; padding: 4px 0; border-top: 1px solid var(--border); }
+.ucard .urow span { color: var(--muted); }
+.ucard .urow b { color: var(--text); text-align: right; word-break: break-word; }
+
 /* ---------- niche note (chosen field summary) ---------- */
 .niche-note {
   margin: 18px 0 4px; padding: 12px 14px; border-radius: 10px;
