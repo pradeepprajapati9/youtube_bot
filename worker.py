@@ -95,6 +95,9 @@ def build_video(job, base, avoid_titles=None):
                 + "; ".join(avoid_titles[:25]) + ". Choose a clearly different topic.")
 
     meta = script_gen.generate(topic, ctx)
+    # STRICT safety gate — never auto-upload clearly unsafe content, whatever the niche.
+    if not script_gen.is_safe(meta):
+        raise RuntimeError("script failed safety check — skipped, not uploaded")
     vis, credits = visuals.get_scene_visuals(meta["scenes"], topic, base)
     scenes = []
     for i, (sc, (vp, vk)) in enumerate(zip(meta["scenes"], vis)):

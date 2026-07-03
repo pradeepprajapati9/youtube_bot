@@ -87,8 +87,12 @@ def _gemini_scenes(topic: str, ctx: str):
         f"people would actually search, plus 'shorts' and 'facts'.\n"
         f"description = 2-3 short lines: restate the hook + a one-line summary, in {lang}.\n"
         f"narration, title and description all in {lang}.\n"
-        f"SAFETY: only well-established verifiable facts - no made-up statistics, no "
-        f"medical/financial/legal advice, no defamation, no shocking/violent claims."
+        f"SAFETY (STRICT — this is auto-published to YouTube): keep it 100% family-friendly "
+        f"and advertiser-friendly. Only well-established verifiable facts. ABSOLUTELY NO: "
+        f"violence/gore, sexual/adult content, hate or discrimination, self-harm, dangerous "
+        f"acts, drugs/weapons instructions, medical/financial/legal advice or claims, made-up "
+        f"statistics, defamation, political/religious controversy, or misinformation. "
+        f"If a topic could go dark, choose a safer, positive angle."
     )
     from bot.thinker import gemini_call
     raw = gemini_call(prompt, timeout=45)
@@ -134,6 +138,29 @@ def _fallback_scenes(topic: str, ctx: str):
         "tags": ["shorts", "trending", "facts", "viral"],
         "scenes": [{"narration": s, "keyword": _keywords(topic, s)} for s in scenes if s],
     }
+
+
+# Hard safety net — clearly-harmful phrases that must NEVER be auto-uploaded.
+# Kept phrase-based (not single ambiguous words) so it won't flag normal
+# educational text like "killer whale" or "the immune system".
+_UNSAFE = [
+    "porn", "xxx", "erotic", "nude photo", "sex tape", "sexual content", "onlyfans",
+    "beheading", "how to kill", "kill yourself", "suicide method", "self-harm",
+    "rape", "molest", "pedophile", "child abuse",
+    "nazi", "genocide", "ethnic cleansing", "racial slur",
+    "how to make a bomb", "build a bomb", "how to make meth",
+    "get rich quick", "guaranteed profit", "cure for cancer", "miracle cure",
+]
+
+
+def is_safe(data: dict) -> bool:
+    """Final safety gate: reject a script that contains clearly unsafe content,
+    no matter which niche the user picked. Returns False to block the upload."""
+    text = " ".join(
+        [data.get("title", ""), data.get("description", "")]
+        + [s.get("narration", "") for s in data.get("scenes", [])]
+    ).lower()
+    return not any(bad in text for bad in _UNSAFE)
 
 
 def generate(topic: str, context: str = "") -> dict:
