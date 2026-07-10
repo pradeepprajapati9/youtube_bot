@@ -84,10 +84,39 @@ textarea { resize: vertical; min-height: 70px; }
 .wrap { padding: 26px 28px 60px; max-width: 1240px; }
 
 .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+/* ---------- mobile: sidebar becomes a scrollable top bar (icons + labels) ---------- */
 @media (max-width: 860px) {
+  .app { flex-direction: column; }
+
+  .sidebar {
+    width: 100%; height: auto; position: sticky; top: 0; z-index: 20;
+    flex-direction: column; padding: 10px 12px;
+    border-right: none; border-bottom: 1px solid var(--border);
+  }
+  .sidebar .brand { padding: 2px 2px 10px; font-size: 18px; }
+  .sidebar .spacer { display: none; }
+
+  .nav { flex-direction: row; overflow-x: auto; gap: 6px; padding-bottom: 4px; }
+  .nav a { flex: 0 0 auto; padding: 9px 13px; font-size: 13px; white-space: nowrap; }
+  .nav a span:not(.ic) { display: inline; }   /* keep the labels visible! */
+
+  .sidebar .userchip {
+    display: flex; align-items: center; justify-content: space-between; gap: 10px;
+    margin-top: 8px; padding-top: 10px;
+  }
+  .sidebar .userchip .email {
+    display: block; margin: 0; font-size: 12px;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+
+  .pagehead { padding: 14px 16px; }
+  .pagehead h1 { font-size: 18px; }
+  .wrap { padding: 18px 14px 50px; }
+
   .grid { grid-template-columns: 1fr; }
-  .sidebar { width: 68px; }
-  .sidebar .brand, .nav a span:not(.ic), .userchip .email { display: none; }
+  .row { flex-direction: column; }
+  .stat { flex-direction: column; }
+  .card { padding: 24px 20px; }
 }
 
 .panel { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 22px; }
