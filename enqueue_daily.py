@@ -29,18 +29,24 @@ def sb_post(path, row):
 def main():
     users = sb_get("settings", auto_daily="eq.true",
                    select="user_id,category,subcategory,language,format")
+    print(f"[enqueue] {len(users)} user(s) with auto_daily=true")
     made = 0
     for s in users:
         uid = s["user_id"]
+        short = uid[:8]
         if not s.get("category"):
+            print(f"[enqueue] skip {short}: no content field set")
             continue
         # must be able to upload (has a refresh token)
         if not sb_get("channel_tokens", user_id=f"eq.{uid}", select="user_id"):
+            print(f"[enqueue] skip {short}: no upload token (auto-upload not enabled)")
             continue
         # don't pile up: skip only if a job is already WAITING (queued) for this user.
         # (a stuck 'building' job won't block new slots)
         if sb_get("jobs", user_id=f"eq.{uid}", status="eq.queued", select="id"):
+            print(f"[enqueue] skip {short}: a job is already queued")
             continue
+        print(f"[enqueue] queued for {short}: {s['category']} > {s.get('subcategory')}")
         sb_post("jobs", {
             "user_id": uid,
             "category": s["category"],

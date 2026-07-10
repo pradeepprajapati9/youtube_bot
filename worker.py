@@ -143,9 +143,12 @@ def process(job):
                                          meta["tags"], token, PRIVACY)
         sb_patch("jobs", {"status": "done", "video_url": url, "title": meta["title"]}, id=f"eq.{jid}")
         print(f"[worker] job {jid} DONE -> {url}")
+        return True
     except Exception as ex:
         traceback.print_exc()
+        print(f"[worker] job {jid} FAILED: {ex}")
         sb_patch("jobs", {"status": "error", "error": str(ex)[:500]}, id=f"eq.{jid}")
+        return False
     finally:
         _cleanup(base)
 
@@ -153,12 +156,19 @@ def process(job):
 def main():
     jobs = sb_get("jobs", status="eq.queued", order="created_at.asc", limit=str(MAX_JOBS))
     if not jobs:
-        print("[worker] no queued jobs.")
+        print("[worker] no queued jobs — nothing to upload. "
+              "(Check: users have a content field, auto_daily on, and auto-upload enabled.)")
         return
     print(f"[worker] {len(jobs)} job(s) to process at {datetime.now():%Y-%m-%d %H:%M}")
+    failed = 0
     for job in jobs:
-        process(job)
-    print("[worker] done.")
+        if not process(job):
+            failed += 1
+    ok = len(jobs) - failed
+    print(f"[worker] done. {ok} uploaded, {failed} failed.")
+    if failed:
+        # surface failures as a RED workflow run instead of a silent green one
+        sys.exit(1)
 
 
 if __name__ == "__main__":
