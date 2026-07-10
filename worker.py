@@ -49,6 +49,12 @@ def sb_patch(path, data, **params):
     r.raise_for_status()
 
 
+def sb_delete(path, **params):
+    h = dict(_H, **{"Prefer": "return=minimal"})
+    r = requests.delete(f"{SUPABASE_URL}/rest/v1/{path}", headers=h, params=params, timeout=30)
+    r.raise_for_status()
+
+
 def access_token_for(user_id: str) -> str:
     """Exchange the user's stored refresh token for a fresh access token."""
     rows = sb_get("channel_tokens", user_id=f"eq.{user_id}", select="refresh_token")
@@ -61,7 +67,18 @@ def access_token_for(user_id: str) -> str:
         "grant_type": "refresh_token",
     })
     if r.status_code != 200:
-        raise RuntimeError(f"token refresh failed: {r.text[:200]}")
+        body = r.text[:200]
+        # Dead token (expired in Testing mode, or user revoked access): clear it so the
+        # dashboard shows "Enabled: No" and the user knows to sign in again.
+        if "invalid_grant" in body:
+            try:
+                sb_delete("channel_tokens", user_id=f"eq.{user_id}")
+                sb_patch("channels", {"upload_ready": False}, user_id=f"eq.{user_id}")
+            except Exception:
+                pass
+            raise RuntimeError("refresh token expired/revoked — user must sign in with Google again "
+                               "(publish the OAuth app so tokens stop expiring after 7 days)")
+        raise RuntimeError(f"token refresh failed: {body}")
     return r.json()["access_token"]
 
 
