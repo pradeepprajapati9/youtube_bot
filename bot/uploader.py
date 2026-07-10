@@ -53,10 +53,12 @@ def upload_with_token(video_path: str, title: str, description: str,
 
     creds = Credentials(token=access_token)
     youtube = build("youtube", "v3", credentials=creds)
+    # YouTube rejects titles/descriptions containing < or > (invalidDescription/Title).
+    clean = lambda s: (s or "").replace("<", "(").replace(">", ")")
     body = {
         "snippet": {
-            "title": title[:100],
-            "description": description[:4900],
+            "title": clean(title)[:100],
+            "description": clean(description)[:4900],
             "tags": tags[:15],
             "categoryId": "27",
         },
