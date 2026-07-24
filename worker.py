@@ -13,6 +13,7 @@ Env (from GitHub Secrets):
 import os
 import sys
 import glob
+import time
 import traceback
 from datetime import datetime
 
@@ -37,22 +38,35 @@ _H = {"apikey": SERVICE_KEY, "Authorization": f"Bearer {SERVICE_KEY}"}
 
 
 # ---------- tiny Supabase REST helpers ----------
+def _db(method, path, *, headers=None, retries=3, **kw):
+    """Supabase REST call with retries — a single slow response must not kill the run."""
+    url = f"{SUPABASE_URL}/rest/v1/{path}"
+    last = None
+    for attempt in range(retries):
+        try:
+            r = requests.request(method, url, headers=headers or _H, timeout=60, **kw)
+            r.raise_for_status()
+            return r
+        except Exception as ex:
+            last = ex
+            print(f"[db] {method} {path} attempt {attempt + 1}/{retries} failed: {ex}")
+            if attempt < retries - 1:
+                time.sleep(5 * (attempt + 1))   # 5s, 10s backoff
+    raise last
+
+
 def sb_get(path, **params):
-    r = requests.get(f"{SUPABASE_URL}/rest/v1/{path}", headers=_H, params=params, timeout=30)
-    r.raise_for_status()
-    return r.json()
+    return _db("GET", path, params=params).json()
 
 
 def sb_patch(path, data, **params):
     h = dict(_H, **{"Content-Type": "application/json", "Prefer": "return=minimal"})
-    r = requests.patch(f"{SUPABASE_URL}/rest/v1/{path}", headers=h, params=params, json=data, timeout=30)
-    r.raise_for_status()
+    _db("PATCH", path, headers=h, params=params, json=data)
 
 
 def sb_delete(path, **params):
     h = dict(_H, **{"Prefer": "return=minimal"})
-    r = requests.delete(f"{SUPABASE_URL}/rest/v1/{path}", headers=h, params=params, timeout=30)
-    r.raise_for_status()
+    _db("DELETE", path, headers=h, params=params)
 
 
 def access_token_for(user_id: str) -> str:
